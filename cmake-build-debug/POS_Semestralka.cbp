@@ -86,16 +86,22 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="C:/Users/Terezia/Desktop/pos_server/Game/HraciaPlocha.cpp">
+		<Unit filename="C:/Users/Terezia/Desktop/pos_server/Game/Figurka.cpp">
 			<Option target="POS_Semestralka"/>
 		</Unit>
-		<Unit filename="C:/Users/Terezia/Desktop/pos_server/Game/HraciaPlocha.h">
+		<Unit filename="C:/Users/Terezia/Desktop/pos_server/Game/Figurka.h">
 			<Option target="POS_Semestralka"/>
 		</Unit>
-		<Unit filename="C:/Users/Terezia/Desktop/pos_server/Game/Kocka.cpp">
+		<Unit filename="C:/Users/Terezia/Desktop/pos_server/Game/Player.cpp">
 			<Option target="POS_Semestralka"/>
 		</Unit>
-		<Unit filename="C:/Users/Terezia/Desktop/pos_server/Game/Kocka.h">
+		<Unit filename="C:/Users/Terezia/Desktop/pos_server/Game/Player.h">
+			<Option target="POS_Semestralka"/>
+		</Unit>
+		<Unit filename="C:/Users/Terezia/Desktop/pos_server/Game/Policko.cpp">
+			<Option target="POS_Semestralka"/>
+		</Unit>
+		<Unit filename="C:/Users/Terezia/Desktop/pos_server/Game/Policko.h">
 			<Option target="POS_Semestralka"/>
 		</Unit>
 		<Unit filename="C:/Users/Terezia/Desktop/pos_server/Game/game.cpp">
@@ -116,13 +122,13 @@
 		<Unit filename="C:/Users/Terezia/Desktop/pos_server/Socket_Server/char_buffer.h">
 			<Option target="POS_Semestralka"/>
 		</Unit>
+		<Unit filename="C:/Users/Terezia/Desktop/pos_server/Socket_Server/main.c">
+			<Option target="POS_Semestralka"/>
+		</Unit>
 		<Unit filename="C:/Users/Terezia/Desktop/pos_server/Socket_Server/passive_socket.c">
 			<Option target="POS_Semestralka"/>
 		</Unit>
 		<Unit filename="C:/Users/Terezia/Desktop/pos_server/Socket_Server/passive_socket.h">
-			<Option target="POS_Semestralka"/>
-		</Unit>
-		<Unit filename="C:/Users/Terezia/Desktop/pos_server/main.c">
 			<Option target="POS_Semestralka"/>
 		</Unit>
 		<Unit filename="C:/Users/Terezia/Desktop/pos_server/CMakeLists.txt">

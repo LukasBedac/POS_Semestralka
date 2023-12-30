@@ -1,6 +1,3 @@
-//
-// Created by Lukas on 30. 12. 2023.
-//
 
 #include "Player.h"
 
@@ -33,5 +30,51 @@ void Player::movePlayer(int count, Player player) {
 
     player.playerTurn = false;
     player.win = player.winCondition(player); //po tom co sa skontroluje sa v hre moze urcit vitaz
-                                              //hned po dohrani tahu ifom a vie sa skoncit hra
+    //hned po dohrani tahu ifom a vie sa skoncit hra
+}
+
+void Player::setZaciatocnaPozicia(int pozicia) {
+    this->zaciatocnaPozicia = pozicia;
+}
+
+int Player::getPociatocnaPozicia() {
+    return this->zaciatocnaPozicia;
+}
+
+void Player::setCisloHraca(int cislo) {
+    this->cisloHraca = cislo;
+}
+
+int Player::getCisloHraca() {
+    return this->cisloHraca;
+}
+
+Player::Player() {
+    for(int i = 0; i < 4; i++) {
+        this->figurky[i].setZnak(this->znak);
+    }
+}
+
+Player::~Player() {
+
+}
+
+char Player::getZnak() {
+    return this->znak;
+}
+
+void Player::setZnak(char znak) {
+    this->znak = znak;
+}
+
+void Player::setPocetFiguriekVDomceku(int pocet) {
+    this->pocetFiguriekVDomceku = pocet;
+}
+
+int Player::getPocetFiguriekVDomceku() {
+    return this->pocetFiguriekVDomceku;
+}
+
+void Player::vybratFigurkuZDomceka() {
+    this->pocetFiguriekVDomceku--;
 }
