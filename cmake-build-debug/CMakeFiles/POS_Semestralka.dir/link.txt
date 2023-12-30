@@ -1,1 +1,1 @@
-/usr/bin/c++ -g CMakeFiles/POS_Semestralka.dir/main.cpp.o -o POS_Semestralka 
+/usr/bin/cc -g CMakeFiles/POS_Semestralka.dir/main.c.o -o POS_Semestralka  -lpthread -lwsock32 -lws2_32 

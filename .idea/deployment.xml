@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" remoteFilesAllowedToDisappearOnAutoupload="false">
+  <component name="PublishConfigData" serverName="frios2 (54a31b6a-6322-4ce6-95b6-70e099765951)" remoteFilesAllowedToDisappearOnAutoupload="false">
     <serverData>
       <paths name="frios2 (54a31b6a-6322-4ce6-95b6-70e099765951)">
         <serverdata>
@@ -8,6 +8,7 @@
             <mapping deploy="/tmp/tmp.eR7A6JuVwM" local="$PROJECT_DIR$" />
           </mappings>
           <excludedPaths>
+            <excludedPath local="true" path="$PROJECT_DIR$/cmake-build-debug" />
             <excludedPath local="true" path="$PROJECT_DIR$/cmake-build-debug" />
           </excludedPaths>
         </serverdata>
