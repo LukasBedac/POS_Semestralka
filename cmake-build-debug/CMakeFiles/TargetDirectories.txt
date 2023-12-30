@@ -1,0 +1,3 @@
+C:/Users/Terezia/Desktop/pos_server/cmake-build-debug/CMakeFiles/POS_Semestralka.dir
+C:/Users/Terezia/Desktop/pos_server/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/Terezia/Desktop/pos_server/cmake-build-debug/CMakeFiles/rebuild_cache.dir
