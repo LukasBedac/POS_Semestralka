@@ -9,5 +9,10 @@ add_executable(POS_Semestralka main.c Socket_Server/active_socket.c Socket_Serve
         Socket_Server/passive_socket.h
         game.cpp
         game.h
+        Game/Player.cpp
+        Game/Player.h
+        Socket_Server/main.c
+        Game/Player.cpp
+        Game/Player.cpp
 )
 target_link_libraries(POS_Semestralka pthread)
