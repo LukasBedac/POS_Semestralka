@@ -7,8 +7,8 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_CHECK_C
   "/tmp/tmp.eR7A6JuVwM/Socket_Server/active_socket.c" "/tmp/tmp.eR7A6JuVwM/cmake-build-debug/CMakeFiles/POS_Semestralka.dir/Socket_Server/active_socket.c.o"
   "/tmp/tmp.eR7A6JuVwM/Socket_Server/char_buffer.c" "/tmp/tmp.eR7A6JuVwM/cmake-build-debug/CMakeFiles/POS_Semestralka.dir/Socket_Server/char_buffer.c.o"
+  "/tmp/tmp.eR7A6JuVwM/Socket_Server/main.c" "/tmp/tmp.eR7A6JuVwM/cmake-build-debug/CMakeFiles/POS_Semestralka.dir/Socket_Server/main.c.o"
   "/tmp/tmp.eR7A6JuVwM/Socket_Server/passive_socket.c" "/tmp/tmp.eR7A6JuVwM/cmake-build-debug/CMakeFiles/POS_Semestralka.dir/Socket_Server/passive_socket.c.o"
-  "/tmp/tmp.eR7A6JuVwM/main.c" "/tmp/tmp.eR7A6JuVwM/cmake-build-debug/CMakeFiles/POS_Semestralka.dir/main.c.o"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
 
@@ -18,7 +18,8 @@ set(CMAKE_C_TARGET_INCLUDE_PATH
   "../Socket_Server"
   )
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/tmp/tmp.eR7A6JuVwM/generate_throw.cpp" "/tmp/tmp.eR7A6JuVwM/cmake-build-debug/CMakeFiles/POS_Semestralka.dir/generate_throw.cpp.o"
+  "/tmp/tmp.eR7A6JuVwM/Player.cpp" "/tmp/tmp.eR7A6JuVwM/cmake-build-debug/CMakeFiles/POS_Semestralka.dir/Player.cpp.o"
+  "/tmp/tmp.eR7A6JuVwM/game.cpp" "/tmp/tmp.eR7A6JuVwM/cmake-build-debug/CMakeFiles/POS_Semestralka.dir/game.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
