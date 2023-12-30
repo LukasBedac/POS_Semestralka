@@ -1,1 +1,3 @@
-/usr/bin/c++ -g CMakeFiles/POS_Semestralka.dir/main.c.o CMakeFiles/POS_Semestralka.dir/Socket_Server/active_socket.c.o CMakeFiles/POS_Semestralka.dir/Socket_Server/char_buffer.c.o CMakeFiles/POS_Semestralka.dir/Socket_Server/passive_socket.c.o CMakeFiles/POS_Semestralka.dir/generate_throw.cpp.o -o POS_Semestralka  -lpthread 
+"D:\Clion\CLion 2023.3.2\bin\cmake\win\x64\bin\cmake.exe" -E rm -f CMakeFiles\POS_Semestralka.dir/objects.a
+"D:\Clion\CLion 2023.3.2\bin\mingw\bin\ar.exe" qc CMakeFiles\POS_Semestralka.dir/objects.a @CMakeFiles\POS_Semestralka.dir\objects1.rsp
+"D:\Clion\CLion 2023.3.2\bin\mingw\bin\g++.exe" -g -Wl,--whole-archive CMakeFiles\POS_Semestralka.dir/objects.a -Wl,--no-whole-archive -o POS_Semestralka.exe -Wl,--out-implib,libPOS_Semestralka.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\POS_Semestralka.dir\linkLibs.rsp

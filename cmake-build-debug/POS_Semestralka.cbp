@@ -8,89 +8,124 @@
 		<Option virtualFolders="CMake Files\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="/tmp/tmp.eR7A6JuVwM/cmake-build-debug"/>
+				<Option working_dir="C:/Users/Terezia/Desktop/pos_server/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/gmake -j4 -f &quot;/tmp/tmp.eR7A6JuVwM/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="/usr/bin/gmake -j4 -f &quot;/tmp/tmp.eR7A6JuVwM/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/gmake -j4 -f &quot;/tmp/tmp.eR7A6JuVwM/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/gmake -j4 -f &quot;/tmp/tmp.eR7A6JuVwM/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="rebuild_cache">
-				<Option working_dir="/tmp/tmp.eR7A6JuVwM/cmake-build-debug"/>
-				<Option type="4"/>
-				<MakeCommands>
-					<Build command="/usr/bin/gmake -j4 -f &quot;/tmp/tmp.eR7A6JuVwM/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="/usr/bin/gmake -j4 -f &quot;/tmp/tmp.eR7A6JuVwM/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/gmake -j4 -f &quot;/tmp/tmp.eR7A6JuVwM/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/gmake -j4 -f &quot;/tmp/tmp.eR7A6JuVwM/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="edit_cache">
-				<Option working_dir="/tmp/tmp.eR7A6JuVwM/cmake-build-debug"/>
-				<Option type="4"/>
-				<MakeCommands>
-					<Build command="/usr/bin/gmake -j4 -f &quot;/tmp/tmp.eR7A6JuVwM/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="/usr/bin/gmake -j4 -f &quot;/tmp/tmp.eR7A6JuVwM/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/gmake -j4 -f &quot;/tmp/tmp.eR7A6JuVwM/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/gmake -j4 -f &quot;/tmp/tmp.eR7A6JuVwM/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="D:/Clion/CLion 2023.3.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/Terezia/Desktop/pos_server/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="D:/Clion/CLion 2023.3.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/Terezia/Desktop/pos_server/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="D:/Clion/CLion 2023.3.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/Terezia/Desktop/pos_server/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="D:/Clion/CLion 2023.3.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/Terezia/Desktop/pos_server/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="POS_Semestralka">
-				<Option output="/tmp/tmp.eR7A6JuVwM/cmake-build-debug/POS_Semestralka" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/tmp/tmp.eR7A6JuVwM/cmake-build-debug"/>
+				<Option output="C:/Users/Terezia/Desktop/pos_server/cmake-build-debug/POS_Semestralka.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/Terezia/Desktop/pos_server/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/tmp/tmp.eR7A6JuVwM/."/>
-					<Add directory="/usr/include/c++/10"/>
-					<Add directory="/usr/include/x86_64-linux-gnu/c++/10"/>
-					<Add directory="/usr/include/c++/10/backward"/>
-					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/10/include"/>
-					<Add directory="/usr/local/include"/>
-					<Add directory="/usr/include/x86_64-linux-gnu"/>
-					<Add directory="/usr/include"/>
+					<Add directory="C:/Users/Terezia/Desktop/pos_server/."/>
+					<Add directory="C:/Users/Terezia/Desktop/pos_server/Socket_Server"/>
+					<Add directory="D:/Clion/CLion 2023.3.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++"/>
+					<Add directory="D:/Clion/CLion 2023.3.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32"/>
+					<Add directory="D:/Clion/CLion 2023.3.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/backward"/>
+					<Add directory="D:/Clion/CLion 2023.3.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include"/>
+					<Add directory="D:/Clion/CLion 2023.3.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../include"/>
+					<Add directory="D:/Clion/CLion 2023.3.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include-fixed"/>
+					<Add directory="D:/Clion/CLion 2023.3.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../x86_64-w64-mingw32/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/gmake -j4 -f &quot;/tmp/tmp.eR7A6JuVwM/cmake-build-debug/Makefile&quot;  VERBOSE=1 POS_Semestralka"/>
-					<CompileFile command="/usr/bin/gmake -j4 -f &quot;/tmp/tmp.eR7A6JuVwM/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/gmake -j4 -f &quot;/tmp/tmp.eR7A6JuVwM/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/gmake -j4 -f &quot;/tmp/tmp.eR7A6JuVwM/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="D:/Clion/CLion 2023.3.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/Terezia/Desktop/pos_server/cmake-build-debug/Makefile&quot;  VERBOSE=1 POS_Semestralka"/>
+					<CompileFile command="D:/Clion/CLion 2023.3.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/Terezia/Desktop/pos_server/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="D:/Clion/CLion 2023.3.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/Terezia/Desktop/pos_server/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="D:/Clion/CLion 2023.3.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/Terezia/Desktop/pos_server/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="POS_Semestralka/fast">
-				<Option output="/tmp/tmp.eR7A6JuVwM/cmake-build-debug/POS_Semestralka" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/tmp/tmp.eR7A6JuVwM/cmake-build-debug"/>
+				<Option output="C:/Users/Terezia/Desktop/pos_server/cmake-build-debug/POS_Semestralka.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/Terezia/Desktop/pos_server/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/tmp/tmp.eR7A6JuVwM/."/>
-					<Add directory="/usr/include/c++/10"/>
-					<Add directory="/usr/include/x86_64-linux-gnu/c++/10"/>
-					<Add directory="/usr/include/c++/10/backward"/>
-					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/10/include"/>
-					<Add directory="/usr/local/include"/>
-					<Add directory="/usr/include/x86_64-linux-gnu"/>
-					<Add directory="/usr/include"/>
+					<Add directory="C:/Users/Terezia/Desktop/pos_server/."/>
+					<Add directory="C:/Users/Terezia/Desktop/pos_server/Socket_Server"/>
+					<Add directory="D:/Clion/CLion 2023.3.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++"/>
+					<Add directory="D:/Clion/CLion 2023.3.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32"/>
+					<Add directory="D:/Clion/CLion 2023.3.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/backward"/>
+					<Add directory="D:/Clion/CLion 2023.3.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include"/>
+					<Add directory="D:/Clion/CLion 2023.3.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../include"/>
+					<Add directory="D:/Clion/CLion 2023.3.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include-fixed"/>
+					<Add directory="D:/Clion/CLion 2023.3.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../x86_64-w64-mingw32/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/gmake -j4 -f &quot;/tmp/tmp.eR7A6JuVwM/cmake-build-debug/Makefile&quot;  VERBOSE=1 POS_Semestralka/fast"/>
-					<CompileFile command="/usr/bin/gmake -j4 -f &quot;/tmp/tmp.eR7A6JuVwM/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/gmake -j4 -f &quot;/tmp/tmp.eR7A6JuVwM/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/gmake -j4 -f &quot;/tmp/tmp.eR7A6JuVwM/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="D:/Clion/CLion 2023.3.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/Terezia/Desktop/pos_server/cmake-build-debug/Makefile&quot;  VERBOSE=1 POS_Semestralka/fast"/>
+					<CompileFile command="D:/Clion/CLion 2023.3.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/Terezia/Desktop/pos_server/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="D:/Clion/CLion 2023.3.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/Terezia/Desktop/pos_server/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="D:/Clion/CLion 2023.3.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/Terezia/Desktop/pos_server/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="C:/Users/Terezia/Desktop/pos_server/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="D:/Clion/CLion 2023.3.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/Terezia/Desktop/pos_server/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="D:/Clion/CLion 2023.3.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/Terezia/Desktop/pos_server/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="D:/Clion/CLion 2023.3.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/Terezia/Desktop/pos_server/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="D:/Clion/CLion 2023.3.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/Terezia/Desktop/pos_server/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="C:/Users/Terezia/Desktop/pos_server/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="D:/Clion/CLion 2023.3.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/Terezia/Desktop/pos_server/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="D:/Clion/CLion 2023.3.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/Terezia/Desktop/pos_server/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="D:/Clion/CLion 2023.3.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/Terezia/Desktop/pos_server/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="D:/Clion/CLion 2023.3.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/Terezia/Desktop/pos_server/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/tmp/tmp.eR7A6JuVwM/main.cpp">
+		<Unit filename="C:/Users/Terezia/Desktop/pos_server/Game/HraciaPlocha.cpp">
 			<Option target="POS_Semestralka"/>
 		</Unit>
-		<Unit filename="/tmp/tmp.eR7A6JuVwM/main.h">
+		<Unit filename="C:/Users/Terezia/Desktop/pos_server/Game/HraciaPlocha.h">
 			<Option target="POS_Semestralka"/>
 		</Unit>
-		<Unit filename="/tmp/tmp.eR7A6JuVwM/CMakeLists.txt">
+		<Unit filename="C:/Users/Terezia/Desktop/pos_server/Game/Kocka.cpp">
+			<Option target="POS_Semestralka"/>
+		</Unit>
+		<Unit filename="C:/Users/Terezia/Desktop/pos_server/Game/Kocka.h">
+			<Option target="POS_Semestralka"/>
+		</Unit>
+		<Unit filename="C:/Users/Terezia/Desktop/pos_server/Game/game.cpp">
+			<Option target="POS_Semestralka"/>
+		</Unit>
+		<Unit filename="C:/Users/Terezia/Desktop/pos_server/Game/game.h">
+			<Option target="POS_Semestralka"/>
+		</Unit>
+		<Unit filename="C:/Users/Terezia/Desktop/pos_server/Socket_Server/active_socket.c">
+			<Option target="POS_Semestralka"/>
+		</Unit>
+		<Unit filename="C:/Users/Terezia/Desktop/pos_server/Socket_Server/active_socket.h">
+			<Option target="POS_Semestralka"/>
+		</Unit>
+		<Unit filename="C:/Users/Terezia/Desktop/pos_server/Socket_Server/char_buffer.c">
+			<Option target="POS_Semestralka"/>
+		</Unit>
+		<Unit filename="C:/Users/Terezia/Desktop/pos_server/Socket_Server/char_buffer.h">
+			<Option target="POS_Semestralka"/>
+		</Unit>
+		<Unit filename="C:/Users/Terezia/Desktop/pos_server/Socket_Server/passive_socket.c">
+			<Option target="POS_Semestralka"/>
+		</Unit>
+		<Unit filename="C:/Users/Terezia/Desktop/pos_server/Socket_Server/passive_socket.h">
+			<Option target="POS_Semestralka"/>
+		</Unit>
+		<Unit filename="C:/Users/Terezia/Desktop/pos_server/main.c">
+			<Option target="POS_Semestralka"/>
+		</Unit>
+		<Unit filename="C:/Users/Terezia/Desktop/pos_server/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
 	</Project>
