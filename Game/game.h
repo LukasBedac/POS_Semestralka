@@ -14,7 +14,8 @@ private:
     HraciaPlocha hraciaPlocha;
     Kocka kocka;
 public:
-
+    void vytvorHraciuPlochu();
+    void ukonciHru();
 };
 
 
