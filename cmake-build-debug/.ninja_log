@@ -1,0 +1,5 @@
+# ninja log v5
+1	1930	7255671456314307	CMakeFiles/Projekty.dir/my_socket.cpp.obj	e9bca54aadbf8944
+1	195	7256525049172759	build.ninja	39405bacad6219ec
+3	3176	7256510000238638	CMakeFiles/Projekty.dir/main.cpp.obj	b9efd73262b7ac6
+3178	3488	7256510003316541	Projekty.exe	d74e6dd6dca5b0fa
