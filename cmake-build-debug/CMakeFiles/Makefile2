@@ -93,12 +93,12 @@ clean: CMakeFiles/POS_Semestralka.dir/clean
 CMakeFiles/POS_Semestralka.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/POS_Semestralka.dir/build.make CMakeFiles/POS_Semestralka.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/POS_Semestralka.dir/build.make CMakeFiles/POS_Semestralka.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/tmp/tmp.eR7A6JuVwM/cmake-build-debug/CMakeFiles --progress-num=1,2 "Built target POS_Semestralka"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/tmp/tmp.eR7A6JuVwM/cmake-build-debug/CMakeFiles --progress-num=1,2,3,4,5,6 "Built target POS_Semestralka"
 .PHONY : CMakeFiles/POS_Semestralka.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/POS_Semestralka.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /tmp/tmp.eR7A6JuVwM/cmake-build-debug/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /tmp/tmp.eR7A6JuVwM/cmake-build-debug/CMakeFiles 6
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/POS_Semestralka.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /tmp/tmp.eR7A6JuVwM/cmake-build-debug/CMakeFiles 0
 .PHONY : CMakeFiles/POS_Semestralka.dir/rule
