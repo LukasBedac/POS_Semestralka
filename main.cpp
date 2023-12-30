@@ -66,6 +66,8 @@ private:
     MySocket* serverSocket;
 };
 
+//hrthr
+
 ThreadData::ThreadData(long long replicationsCount, int bufferCapacity, MySocket* serverSocket) :
         replicationsCount(replicationsCount),
         bufferCapacity(bufferCapacity),
