@@ -8,7 +8,7 @@
 #include "my_socket.h"
 
 
-/* struct Point {
+ struct Point {
     double x;
     double y;
     static Point generate();
@@ -51,28 +51,15 @@ std::string &PiEstimation::serialize(std::string &output) {
     return output;
 }
 
-*/
-
-class Player {
-private:
-    int playerNumber;
-    int lastThrow;
-
-public:
-    void throwDice();
-    void updateLastThrow();
-    void move();
-};
-
 class ThreadData {
 public:
     ThreadData(long long replicationsCount, int bufferCapacity, MySocket* serverSocket);
     void produce();
     void consume();
 private:
-    //const long long replicationsCount;
-    //const int bufferCapacity;
-    //std::queue<Point> buffer;
+    const long long replicationsCount;
+    const int bufferCapacity;
+    std::queue<Point> buffer;
     std::mutex mutex;
     std::condition_variable isFull;
     std::condition_variable isEmpty;
@@ -81,9 +68,9 @@ private:
 
 
 ThreadData::ThreadData(long long replicationsCount, int bufferCapacity, MySocket* serverSocket) :
-    //replicationsCount(replicationsCount),
-    //bufferCapacity(bufferCapacity),
-    //buffer(),
+    replicationsCount(replicationsCount),
+    bufferCapacity(bufferCapacity),
+    buffer(),
     mutex(),
     isFull(),
     isEmpty(),
