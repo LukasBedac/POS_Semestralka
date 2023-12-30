@@ -128,53 +128,77 @@ POS_Semestralka/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\POS_Semestralka.dir\build.make CMakeFiles/POS_Semestralka.dir/build
 .PHONY : POS_Semestralka/fast
 
-Game/HraciaPlocha.obj: Game/HraciaPlocha.cpp.obj
-.PHONY : Game/HraciaPlocha.obj
+Game/Figurka.obj: Game/Figurka.cpp.obj
+.PHONY : Game/Figurka.obj
 
 # target to build an object file
-Game/HraciaPlocha.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\POS_Semestralka.dir\build.make CMakeFiles/POS_Semestralka.dir/Game/HraciaPlocha.cpp.obj
-.PHONY : Game/HraciaPlocha.cpp.obj
+Game/Figurka.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\POS_Semestralka.dir\build.make CMakeFiles/POS_Semestralka.dir/Game/Figurka.cpp.obj
+.PHONY : Game/Figurka.cpp.obj
 
-Game/HraciaPlocha.i: Game/HraciaPlocha.cpp.i
-.PHONY : Game/HraciaPlocha.i
+Game/Figurka.i: Game/Figurka.cpp.i
+.PHONY : Game/Figurka.i
 
 # target to preprocess a source file
-Game/HraciaPlocha.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\POS_Semestralka.dir\build.make CMakeFiles/POS_Semestralka.dir/Game/HraciaPlocha.cpp.i
-.PHONY : Game/HraciaPlocha.cpp.i
+Game/Figurka.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\POS_Semestralka.dir\build.make CMakeFiles/POS_Semestralka.dir/Game/Figurka.cpp.i
+.PHONY : Game/Figurka.cpp.i
 
-Game/HraciaPlocha.s: Game/HraciaPlocha.cpp.s
-.PHONY : Game/HraciaPlocha.s
+Game/Figurka.s: Game/Figurka.cpp.s
+.PHONY : Game/Figurka.s
 
 # target to generate assembly for a file
-Game/HraciaPlocha.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\POS_Semestralka.dir\build.make CMakeFiles/POS_Semestralka.dir/Game/HraciaPlocha.cpp.s
-.PHONY : Game/HraciaPlocha.cpp.s
+Game/Figurka.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\POS_Semestralka.dir\build.make CMakeFiles/POS_Semestralka.dir/Game/Figurka.cpp.s
+.PHONY : Game/Figurka.cpp.s
 
-Game/Kocka.obj: Game/Kocka.cpp.obj
-.PHONY : Game/Kocka.obj
+Game/Player.obj: Game/Player.cpp.obj
+.PHONY : Game/Player.obj
 
 # target to build an object file
-Game/Kocka.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\POS_Semestralka.dir\build.make CMakeFiles/POS_Semestralka.dir/Game/Kocka.cpp.obj
-.PHONY : Game/Kocka.cpp.obj
+Game/Player.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\POS_Semestralka.dir\build.make CMakeFiles/POS_Semestralka.dir/Game/Player.cpp.obj
+.PHONY : Game/Player.cpp.obj
 
-Game/Kocka.i: Game/Kocka.cpp.i
-.PHONY : Game/Kocka.i
+Game/Player.i: Game/Player.cpp.i
+.PHONY : Game/Player.i
 
 # target to preprocess a source file
-Game/Kocka.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\POS_Semestralka.dir\build.make CMakeFiles/POS_Semestralka.dir/Game/Kocka.cpp.i
-.PHONY : Game/Kocka.cpp.i
+Game/Player.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\POS_Semestralka.dir\build.make CMakeFiles/POS_Semestralka.dir/Game/Player.cpp.i
+.PHONY : Game/Player.cpp.i
 
-Game/Kocka.s: Game/Kocka.cpp.s
-.PHONY : Game/Kocka.s
+Game/Player.s: Game/Player.cpp.s
+.PHONY : Game/Player.s
 
 # target to generate assembly for a file
-Game/Kocka.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\POS_Semestralka.dir\build.make CMakeFiles/POS_Semestralka.dir/Game/Kocka.cpp.s
-.PHONY : Game/Kocka.cpp.s
+Game/Player.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\POS_Semestralka.dir\build.make CMakeFiles/POS_Semestralka.dir/Game/Player.cpp.s
+.PHONY : Game/Player.cpp.s
+
+Game/Policko.obj: Game/Policko.cpp.obj
+.PHONY : Game/Policko.obj
+
+# target to build an object file
+Game/Policko.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\POS_Semestralka.dir\build.make CMakeFiles/POS_Semestralka.dir/Game/Policko.cpp.obj
+.PHONY : Game/Policko.cpp.obj
+
+Game/Policko.i: Game/Policko.cpp.i
+.PHONY : Game/Policko.i
+
+# target to preprocess a source file
+Game/Policko.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\POS_Semestralka.dir\build.make CMakeFiles/POS_Semestralka.dir/Game/Policko.cpp.i
+.PHONY : Game/Policko.cpp.i
+
+Game/Policko.s: Game/Policko.cpp.s
+.PHONY : Game/Policko.s
+
+# target to generate assembly for a file
+Game/Policko.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\POS_Semestralka.dir\build.make CMakeFiles/POS_Semestralka.dir/Game/Policko.cpp.s
+.PHONY : Game/Policko.cpp.s
 
 Game/game.obj: Game/game.cpp.obj
 .PHONY : Game/game.obj
@@ -248,6 +272,30 @@ Socket_Server/char_buffer.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\POS_Semestralka.dir\build.make CMakeFiles/POS_Semestralka.dir/Socket_Server/char_buffer.c.s
 .PHONY : Socket_Server/char_buffer.c.s
 
+Socket_Server/main.obj: Socket_Server/main.c.obj
+.PHONY : Socket_Server/main.obj
+
+# target to build an object file
+Socket_Server/main.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\POS_Semestralka.dir\build.make CMakeFiles/POS_Semestralka.dir/Socket_Server/main.c.obj
+.PHONY : Socket_Server/main.c.obj
+
+Socket_Server/main.i: Socket_Server/main.c.i
+.PHONY : Socket_Server/main.i
+
+# target to preprocess a source file
+Socket_Server/main.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\POS_Semestralka.dir\build.make CMakeFiles/POS_Semestralka.dir/Socket_Server/main.c.i
+.PHONY : Socket_Server/main.c.i
+
+Socket_Server/main.s: Socket_Server/main.c.s
+.PHONY : Socket_Server/main.s
+
+# target to generate assembly for a file
+Socket_Server/main.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\POS_Semestralka.dir\build.make CMakeFiles/POS_Semestralka.dir/Socket_Server/main.c.s
+.PHONY : Socket_Server/main.c.s
+
 Socket_Server/passive_socket.obj: Socket_Server/passive_socket.c.obj
 .PHONY : Socket_Server/passive_socket.obj
 
@@ -272,30 +320,6 @@ Socket_Server/passive_socket.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\POS_Semestralka.dir\build.make CMakeFiles/POS_Semestralka.dir/Socket_Server/passive_socket.c.s
 .PHONY : Socket_Server/passive_socket.c.s
 
-main.obj: main.c.obj
-.PHONY : main.obj
-
-# target to build an object file
-main.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\POS_Semestralka.dir\build.make CMakeFiles/POS_Semestralka.dir/main.c.obj
-.PHONY : main.c.obj
-
-main.i: main.c.i
-.PHONY : main.i
-
-# target to preprocess a source file
-main.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\POS_Semestralka.dir\build.make CMakeFiles/POS_Semestralka.dir/main.c.i
-.PHONY : main.c.i
-
-main.s: main.c.s
-.PHONY : main.s
-
-# target to generate assembly for a file
-main.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\POS_Semestralka.dir\build.make CMakeFiles/POS_Semestralka.dir/main.c.s
-.PHONY : main.c.s
-
 # Help Target
 help:
 	@echo The following are some of the valid targets for this Makefile:
@@ -305,12 +329,15 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... POS_Semestralka
-	@echo ... Game/HraciaPlocha.obj
-	@echo ... Game/HraciaPlocha.i
-	@echo ... Game/HraciaPlocha.s
-	@echo ... Game/Kocka.obj
-	@echo ... Game/Kocka.i
-	@echo ... Game/Kocka.s
+	@echo ... Game/Figurka.obj
+	@echo ... Game/Figurka.i
+	@echo ... Game/Figurka.s
+	@echo ... Game/Player.obj
+	@echo ... Game/Player.i
+	@echo ... Game/Player.s
+	@echo ... Game/Policko.obj
+	@echo ... Game/Policko.i
+	@echo ... Game/Policko.s
 	@echo ... Game/game.obj
 	@echo ... Game/game.i
 	@echo ... Game/game.s
@@ -320,12 +347,12 @@ help:
 	@echo ... Socket_Server/char_buffer.obj
 	@echo ... Socket_Server/char_buffer.i
 	@echo ... Socket_Server/char_buffer.s
+	@echo ... Socket_Server/main.obj
+	@echo ... Socket_Server/main.i
+	@echo ... Socket_Server/main.s
 	@echo ... Socket_Server/passive_socket.obj
 	@echo ... Socket_Server/passive_socket.i
 	@echo ... Socket_Server/passive_socket.s
-	@echo ... main.obj
-	@echo ... main.i
-	@echo ... main.s
 .PHONY : help
 
 

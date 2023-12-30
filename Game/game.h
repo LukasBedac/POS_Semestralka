@@ -10,7 +10,7 @@
 #define POS_SEMESTRALKA_GAME_H
 
 
-class game{
+class game {
 private:
     HraciaPlocha hraciaPlocha;
     int pocetHracov = 4;
