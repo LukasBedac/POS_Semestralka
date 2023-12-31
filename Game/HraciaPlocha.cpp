@@ -135,26 +135,77 @@ void HraciaPlocha::nastavZnak(int vyska, int sirka, char znak) {
 }
 
 void HraciaPlocha::nastavCestu() {
-    int cyklus = 40;
-    int riadok = 2;
-    int stlpec = 6;
+    int cyklus = 40; //matika mi nejde
+    int riadok = 0;
+    int stlpec = 5;
     for (int i = 0; i < cyklus; ++i) {
-        if (i <= 5) {
-            this->cesta[i].setSuradnice(stlpec, riadok);
+        if (i <= 4) {
             riadok++;
-        }
-        if (i > 5 && i < 9) {
-            riadok = 6;
-            stlpec -= 1;
-            this->cesta[i].setSuradnice(stlpec, riadok);
-        }
-        if (i >= 9 && i < 12) {
-            riadok = 7;
-            stlpec += 1;
-            this->cesta[i].setSuradnice(stlpec, riadok);
-        }
+            this->cesta[i] = this->plocha[stlpec][riadok];
 
+        }
+        if (i > 4 && i <= 8) {
+            riadok = 5;
+            stlpec -= 1;
+            this->cesta[i] = this->plocha[stlpec][riadok];
+        }
+        if (i > 8 && i <= 10) {
+            riadok++;
+            stlpec = 1;
+            this->cesta[i] = this->plocha[stlpec][riadok];
+        }
+        if (i > 10 && i <= 14) {
+            riadok = 7;
+            stlpec++;
+            this->cesta[i] = this->plocha[stlpec][riadok];
+        }
+        if (i > 14 && i <= 18) {
+            riadok += 1;
+            stlpec = 5;
+            this->cesta[i] = this->plocha[stlpec][riadok];
+        }
+        if (i > 18 && i <= 20) {
+            riadok = 11;
+            stlpec++;
+            this->cesta[i] = this->plocha[stlpec][riadok];
+        }
+        if (i > 20 && i <= 24) {
+            riadok--;
+            stlpec = 7;
+            this->cesta[i] = this->plocha[stlpec][riadok];
+        }
+        if (i > 24 && i <= 28) {
+            riadok = 7;
+            stlpec++;
+            this->cesta[i] = this->plocha[stlpec][riadok];
+        }
+        if (i > 28 && i <= 30) {
+            riadok--;
+            stlpec = 11;
+            this->cesta[i] = this->plocha[stlpec][riadok];
+        }
+        if (i > 30 && i <= 34) {
+            riadok = 5;
+            stlpec--;
+            this->cesta[i] = this->plocha[stlpec][riadok];
+        }
+        if (i > 34 && i <= 38) {
+            riadok--;
+            stlpec = 7;
+            this->cesta[i] = this->plocha[stlpec][riadok];
+        }
+        if (i > 38) {
+            riadok = 1;
+            stlpec = 6;
+            this->cesta[i] = this->plocha[stlpec][riadok];
+        }
+        /* Kontrola vypisu
+        std::cout << this->cesta[i].getZnak();
+        std::cout << this->plocha[stlpec][riadok].getZnak();
+        std::cout << i << std::endl;
+        */
     }
+
 
 }
 
