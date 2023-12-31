@@ -44,7 +44,7 @@ static void linked_list_##suffix##_destroy(struct linked_list_##suffix* list) { 
 } \
 \
 static void linked_list_##suffix##_add(struct linked_list_##suffix* list, const T* data) { \
-    LINKED_ITEM_##suffix* item = calloc(1, sizeof(LINKED_ITEM_##suffix)); \
+    LINKED_ITEM_##suffix* item = (LINKED_ITEM_##suffix*)calloc(1, sizeof(LINKED_ITEM_##suffix)); \
     list->suffix##_init_copy(&item->data, data); \
     item->next = NULL; \
     if (list->first == NULL) { \

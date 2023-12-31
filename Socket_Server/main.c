@@ -94,7 +94,6 @@ void* consume(void* thread_data) {
 
 
 int main(int argc, char* argv[]) {
-
     pthread_t th_produce;
     pthread_t th_receive;
     struct thread_data data;

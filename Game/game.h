@@ -9,7 +9,6 @@
 #ifndef POS_SEMESTRALKA_GAME_H
 #define POS_SEMESTRALKA_GAME_H
 
-
 class game {
 private:
     HraciaPlocha hraciaPlocha;
@@ -38,6 +37,5 @@ public:
     void setHracaNaZaciatocnuPoziciu(Player player);
     ~game();
 };
-
 
 #endif //POS_SEMESTRALKA_GAME_H
