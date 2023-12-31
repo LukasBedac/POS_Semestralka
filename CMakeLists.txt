@@ -22,4 +22,5 @@ add_executable(POS_Semestralka #Socket_Server/main.c
         Game/main.cpp
         Game/main.h
 )
+
 target_link_libraries(POS_Semestralka pthread)

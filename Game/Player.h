@@ -3,6 +3,7 @@
 #ifndef POS_SEMESTRALKA_PLAYER_H
 #define POS_SEMESTRALKA_PLAYER_H
 #include "Figurka.h"
+#include "Kocka.h"
 
 class Player {
 private:
@@ -13,6 +14,8 @@ private:
     bool playerTurn = false;
     Figurka figurky[4];
     int pocetFiguriekVDomceku = 4;
+    int pociatocnaSirka = 0;
+    int pociatocnaVyska = 0;
 
     bool inHome[4] = {false, false, false, false};
     bool win = false;
@@ -29,6 +32,14 @@ public:
     void setPocetFiguriekVDomceku(int pocet);
     int getPocetFiguriekVDomceku();
     void vybratFigurkuZDomceka();
+
+    int hodKockou(Kocka kocka);
+
+    int getPociatocnaSirka();
+    int getPociatocnaVyska();
+
+    void setPociatocnaSirka(int x);
+    void setPociatocnaVyska(int y);
 
     ~Player();
 };

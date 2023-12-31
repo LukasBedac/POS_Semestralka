@@ -56,10 +56,10 @@ RM = "D:\Clion\CLion 2023.3.2\bin\cmake\win\x64\bin\cmake.exe" -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = C:\Users\Terezia\Desktop\pos_server
+CMAKE_SOURCE_DIR = C:\Users\Terezia\Desktop\POS_SEM_FINAL
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = C:\Users\Terezia\Desktop\pos_server\cmake-build-debug
+CMAKE_BINARY_DIR = C:\Users\Terezia\Desktop\POS_SEM_FINAL\cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -86,9 +86,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Terezia\Desktop\pos_server\cmake-build-debug\CMakeFiles C:\Users\Terezia\Desktop\pos_server\cmake-build-debug\\CMakeFiles\progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Terezia\Desktop\POS_SEM_FINAL\cmake-build-debug\CMakeFiles C:\Users\Terezia\Desktop\POS_SEM_FINAL\cmake-build-debug\\CMakeFiles\progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Terezia\Desktop\pos_server\cmake-build-debug\CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Terezia\Desktop\POS_SEM_FINAL\cmake-build-debug\CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -151,6 +151,54 @@ Game/Figurka.s: Game/Figurka.cpp.s
 Game/Figurka.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\POS_Semestralka.dir\build.make CMakeFiles/POS_Semestralka.dir/Game/Figurka.cpp.s
 .PHONY : Game/Figurka.cpp.s
+
+Game/HraciaPlocha.obj: Game/HraciaPlocha.cpp.obj
+.PHONY : Game/HraciaPlocha.obj
+
+# target to build an object file
+Game/HraciaPlocha.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\POS_Semestralka.dir\build.make CMakeFiles/POS_Semestralka.dir/Game/HraciaPlocha.cpp.obj
+.PHONY : Game/HraciaPlocha.cpp.obj
+
+Game/HraciaPlocha.i: Game/HraciaPlocha.cpp.i
+.PHONY : Game/HraciaPlocha.i
+
+# target to preprocess a source file
+Game/HraciaPlocha.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\POS_Semestralka.dir\build.make CMakeFiles/POS_Semestralka.dir/Game/HraciaPlocha.cpp.i
+.PHONY : Game/HraciaPlocha.cpp.i
+
+Game/HraciaPlocha.s: Game/HraciaPlocha.cpp.s
+.PHONY : Game/HraciaPlocha.s
+
+# target to generate assembly for a file
+Game/HraciaPlocha.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\POS_Semestralka.dir\build.make CMakeFiles/POS_Semestralka.dir/Game/HraciaPlocha.cpp.s
+.PHONY : Game/HraciaPlocha.cpp.s
+
+Game/Kocka.obj: Game/Kocka.cpp.obj
+.PHONY : Game/Kocka.obj
+
+# target to build an object file
+Game/Kocka.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\POS_Semestralka.dir\build.make CMakeFiles/POS_Semestralka.dir/Game/Kocka.cpp.obj
+.PHONY : Game/Kocka.cpp.obj
+
+Game/Kocka.i: Game/Kocka.cpp.i
+.PHONY : Game/Kocka.i
+
+# target to preprocess a source file
+Game/Kocka.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\POS_Semestralka.dir\build.make CMakeFiles/POS_Semestralka.dir/Game/Kocka.cpp.i
+.PHONY : Game/Kocka.cpp.i
+
+Game/Kocka.s: Game/Kocka.cpp.s
+.PHONY : Game/Kocka.s
+
+# target to generate assembly for a file
+Game/Kocka.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\POS_Semestralka.dir\build.make CMakeFiles/POS_Semestralka.dir/Game/Kocka.cpp.s
+.PHONY : Game/Kocka.cpp.s
 
 Game/Player.obj: Game/Player.cpp.obj
 .PHONY : Game/Player.obj
@@ -224,6 +272,30 @@ Game/game.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\POS_Semestralka.dir\build.make CMakeFiles/POS_Semestralka.dir/Game/game.cpp.s
 .PHONY : Game/game.cpp.s
 
+Game/main.obj: Game/main.cpp.obj
+.PHONY : Game/main.obj
+
+# target to build an object file
+Game/main.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\POS_Semestralka.dir\build.make CMakeFiles/POS_Semestralka.dir/Game/main.cpp.obj
+.PHONY : Game/main.cpp.obj
+
+Game/main.i: Game/main.cpp.i
+.PHONY : Game/main.i
+
+# target to preprocess a source file
+Game/main.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\POS_Semestralka.dir\build.make CMakeFiles/POS_Semestralka.dir/Game/main.cpp.i
+.PHONY : Game/main.cpp.i
+
+Game/main.s: Game/main.cpp.s
+.PHONY : Game/main.s
+
+# target to generate assembly for a file
+Game/main.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\POS_Semestralka.dir\build.make CMakeFiles/POS_Semestralka.dir/Game/main.cpp.s
+.PHONY : Game/main.cpp.s
+
 Socket_Server/active_socket.obj: Socket_Server/active_socket.c.obj
 .PHONY : Socket_Server/active_socket.obj
 
@@ -272,30 +344,6 @@ Socket_Server/char_buffer.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\POS_Semestralka.dir\build.make CMakeFiles/POS_Semestralka.dir/Socket_Server/char_buffer.c.s
 .PHONY : Socket_Server/char_buffer.c.s
 
-Socket_Server/main.obj: Socket_Server/main.c.obj
-.PHONY : Socket_Server/main.obj
-
-# target to build an object file
-Socket_Server/main.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\POS_Semestralka.dir\build.make CMakeFiles/POS_Semestralka.dir/Socket_Server/main.c.obj
-.PHONY : Socket_Server/main.c.obj
-
-Socket_Server/main.i: Socket_Server/main.c.i
-.PHONY : Socket_Server/main.i
-
-# target to preprocess a source file
-Socket_Server/main.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\POS_Semestralka.dir\build.make CMakeFiles/POS_Semestralka.dir/Socket_Server/main.c.i
-.PHONY : Socket_Server/main.c.i
-
-Socket_Server/main.s: Socket_Server/main.c.s
-.PHONY : Socket_Server/main.s
-
-# target to generate assembly for a file
-Socket_Server/main.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\POS_Semestralka.dir\build.make CMakeFiles/POS_Semestralka.dir/Socket_Server/main.c.s
-.PHONY : Socket_Server/main.c.s
-
 Socket_Server/passive_socket.obj: Socket_Server/passive_socket.c.obj
 .PHONY : Socket_Server/passive_socket.obj
 
@@ -332,6 +380,12 @@ help:
 	@echo ... Game/Figurka.obj
 	@echo ... Game/Figurka.i
 	@echo ... Game/Figurka.s
+	@echo ... Game/HraciaPlocha.obj
+	@echo ... Game/HraciaPlocha.i
+	@echo ... Game/HraciaPlocha.s
+	@echo ... Game/Kocka.obj
+	@echo ... Game/Kocka.i
+	@echo ... Game/Kocka.s
 	@echo ... Game/Player.obj
 	@echo ... Game/Player.i
 	@echo ... Game/Player.s
@@ -341,15 +395,15 @@ help:
 	@echo ... Game/game.obj
 	@echo ... Game/game.i
 	@echo ... Game/game.s
+	@echo ... Game/main.obj
+	@echo ... Game/main.i
+	@echo ... Game/main.s
 	@echo ... Socket_Server/active_socket.obj
 	@echo ... Socket_Server/active_socket.i
 	@echo ... Socket_Server/active_socket.s
 	@echo ... Socket_Server/char_buffer.obj
 	@echo ... Socket_Server/char_buffer.i
 	@echo ... Socket_Server/char_buffer.s
-	@echo ... Socket_Server/main.obj
-	@echo ... Socket_Server/main.i
-	@echo ... Socket_Server/main.s
 	@echo ... Socket_Server/passive_socket.obj
 	@echo ... Socket_Server/passive_socket.i
 	@echo ... Socket_Server/passive_socket.s

@@ -1,10 +1,9 @@
 
-
 #include "HraciaPlocha.h"
 #include <iostream>
 
 HraciaPlocha::HraciaPlocha() {
-
+    nastavCestu();
 }
 
 void HraciaPlocha::vytvorPlochu() {

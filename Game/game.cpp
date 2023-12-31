@@ -1,5 +1,4 @@
-
-
+#include <iostream>
 #include "game.h"
 
 void game::vytvorHraciuPlochu() {
@@ -8,7 +7,7 @@ void game::vytvorHraciuPlochu() {
 }
 
 void game::ukonciHru() {
-
+    this->spustenaHra = false;
 }
 
 game::game() {
@@ -26,8 +25,21 @@ game::game() {
     hraci[2].setZnak('c');
     hraci[3].setZnak('r');
 
+    hraci[0].setPociatocnaSirka(1);
+    hraci[0].setPociatocnaVyska(7);
+
+    hraci[1].setPociatocnaSirka(5);
+    hraci[1].setPociatocnaVyska(1);
+
+    hraci[2].setPociatocnaSirka(11);
+    hraci[2].setPociatocnaVyska(7);
+
+    hraci[3].setPociatocnaSirka(5);
+    hraci[3].setPociatocnaVyska(11);
+
     this->vytvorHraciuPlochu();
     hraciaPlocha.nastavCestu();
+
     zahajitHru();
     priebehHry();
 
@@ -45,9 +57,9 @@ void game::zahajitHru() {
             if(hodKockou == 6) {
                 hracNaTahu = hraci[hracNaTahu.getCisloHraca()];
                 int hodHraca = kocka.hodKockou();
+                std::cout << "hrac " << hracNaTahu.getCisloHraca() << " hodil " << hodHraca << std::endl;
                 hracNaTahu.movePlayer(hodHraca, hracNaTahu);
-                //hraciaPlocha[zaciatocnaHraca1[0]][zaciatocnaHraca1[1]] = hracNaTahu.getZnak();
-                hraciaPlocha.nastavZnak(5,1,hracNaTahu.getZnak());
+                hraciaPlocha.nastavZnak(hracNaTahu.getPociatocnaVyska(),hracNaTahu.getPociatocnaSirka(),hracNaTahu.getZnak());
                 break;
             }
         }
@@ -65,12 +77,13 @@ void game::zmenaHracaNaTahu() {
 }
 
 void game::priebehHry() {
-    //while(spustenaHra) {
-        zmenaHracaNaTahu();
+    while(spustenaHra) {
+        //zmenaHracaNaTahu();
+        //hraciaPlocha.vypisPlochu();
+        hracNaTahu.movePlayer(hracNaTahu.hodKockou(kocka), hracNaTahu);
         hraciaPlocha.vypisPlochu();
-
-
-    //}
+        zmenaHracaNaTahu();
+    }
 }
 
 game::~game() {

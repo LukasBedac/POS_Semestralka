@@ -78,3 +78,24 @@ int Player::getPocetFiguriekVDomceku() {
 void Player::vybratFigurkuZDomceka() {
     this->pocetFiguriekVDomceku--;
 }
+
+int Player::getPociatocnaSirka() {
+    return this->pociatocnaSirka;
+}
+
+int Player::getPociatocnaVyska() {
+    return this->pociatocnaVyska;
+}
+
+void Player::setPociatocnaSirka(int x) {
+    this->pociatocnaSirka = x;
+}
+
+void Player::setPociatocnaVyska(int y) {
+    this->pociatocnaVyska = y;
+}
+
+int Player::hodKockou(Kocka kocka) {
+    kocka.hodKockou();
+}
+
