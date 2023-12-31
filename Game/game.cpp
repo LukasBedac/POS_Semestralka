@@ -26,7 +26,7 @@ game::game() {
     hraci[2].setZnak('c');
     hraci[3].setZnak('r');
 
-    vytvorHraciuPlochu();
+    this->vytvorHraciuPlochu();
     zahajitHru();
     priebehHry();
 
@@ -38,7 +38,7 @@ void game::kontrolaHry() {
 
 void game::zahajitHru() {
     int hodKockou = 0;
-    while(hodKockou != 6 ) {
+    //while(hodKockou != 6 ) {
         for(int j = 0; j < 3; j++) {
             hodKockou = kocka.hodKockou();
             if(hodKockou == 6) {
@@ -50,7 +50,7 @@ void game::zahajitHru() {
                 hraciaPlocha.nastavZnak(5,1,hracNaTahu.getZnak());
                 break;
             }
-        }
+        //}
         zmenaHracaNaTahu();
     }
 }

@@ -1,6 +1,6 @@
 
-#ifndef UNTILTED_POLICKO_H
-#define UNTILTED_POLICKO_H
+#ifndef POS_Semestralka_POLICKO_H
+#define POS_Semestralka_POLICKO_H
 
 
 class Policko {
@@ -14,4 +14,4 @@ public:
 };
 
 
-#endif //UNTILTED_POLICKO_H
+#endif //POS_Semestralka_POLICKO_H
