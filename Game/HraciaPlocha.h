@@ -15,7 +15,7 @@ public:
     HraciaPlocha();
     void vytvorPlochu();
     void vypisPlochu();
-    void nastavZnak(int pozicia, char znak);
+    void nastavZnak(int pozicia, char znak, int hodKockou);
     void nastavCestu();
     char getZnak(int vyska, int sirka);
 };

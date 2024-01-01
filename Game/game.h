@@ -24,7 +24,7 @@ public:
     void nastavZaciatocnuPoziciu(Player hrac);
     void ukonciHru();
     void kontrolaHry();
-    void zahajitHru();
+    void vybratieZDomceka();
     void zmenaHracaNaTahu();
     void priebehHry();
     void setHracaNaZaciatocnuPoziciu(Player player);

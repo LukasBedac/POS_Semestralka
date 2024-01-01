@@ -1,0 +1,3 @@
+/tmp/tmp.Nbt1b67HzL/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/tmp/tmp.Nbt1b67HzL/cmake-build-debug/CMakeFiles/edit_cache.dir
+/tmp/tmp.Nbt1b67HzL/cmake-build-debug/CMakeFiles/POS_Semestralka.dir

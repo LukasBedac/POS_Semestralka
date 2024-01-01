@@ -132,7 +132,11 @@ void HraciaPlocha::vypisPlochu() {
     std::cout << ' ' << std::endl;
 }
 
-void HraciaPlocha::nastavZnak(int pozicia, char znak) {
+void HraciaPlocha::nastavZnak(int pozicia, char znak, int hodKockou) {
+    //nastavenie znaku na znak cesty
+    plocha[cesta[pozicia - hodKockou].getRiadok()][cesta[pozicia - hodKockou].getStlpec()].setZnak('o');
+
+    //nastavenie noveho znaku
     plocha[cesta[pozicia].getRiadok()][cesta[pozicia].getStlpec()].setZnak(znak);
     std::cout << "SURADNICE STLPEC RIADOK SU " << cesta[pozicia].getStlpec() << " " << cesta[pozicia].getRiadok() << std::endl;
 }

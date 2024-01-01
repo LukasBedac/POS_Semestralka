@@ -18,7 +18,7 @@ game::game() {
     hraci[3].setZaciatocnaPozicia(30);
 
     for (int i = 0; i < pocetHracov; ++i) {
-        hraci[i].setCisloHraca(i + 1);
+        hraci[i].setCisloHraca(i );
     }
 
     hraci[0].setZnak('z');
@@ -35,7 +35,7 @@ game::game() {
 
     hracNaTahu = hraci[0];
 
-    zahajitHru();
+    //vybratieZDomceka();
     priebehHry();
 
 
@@ -45,27 +45,41 @@ void game::kontrolaHry() {
 
 }
 
-void game::zahajitHru() {
-    int hodKockou = 0;
-    while(hodKockou != 6 ) {
+void game::vybratieZDomceka() {
+
+        int hodKockou = 0;
         for(int j = 0; j < 3; j++) {
-            hodKockou = kocka.hodKockou();
+            //hodKockou = 6; // TERAZ NASCHVAL
+            hodKockou = hracNaTahu.hodKockou(kocka);
+
             if(hodKockou == 6) {
                 hracNaTahu = hraci[hracNaTahu.getCisloHraca()];
-                hodKockou = 6;
                 std::cout << "hrac " << hracNaTahu.getCisloHraca() << " hodil " << hodKockou << std::endl;
-                //hracNaTahu.movePlayer(hodHraca, hracNaTahu);
-                //hracNaTahu.posunFigurku(hodKockou, hracNaTahu);
-                hraciaPlocha.nastavZnak(hracNaTahu.getPociatocnaPozicia(), hracNaTahu.getZnak());
+                hraciaPlocha.nastavZnak(hracNaTahu.getPociatocnaPozicia(), hracNaTahu.getZnak(), hodKockou);
+                hracNaTahu.vybratFigurkuZDomceka();
+                hracNaTahu.pridajFigurkuNaCestu();
+
+                hraciaPlocha.vypisPlochu();
+
+                hodKockou = hracNaTahu.hodKockou(kocka);
+                std::cout << "hrac " << hracNaTahu.getCisloHraca() << " hodil " << hodKockou << std::endl;
+
+                hracNaTahu.posunFigurku(hodKockou, hracNaTahu.getFigurka(0));
+                hraciaPlocha.nastavZnak(hracNaTahu.getFigurka(0).getPozicia(), hracNaTahu.getZnak(), hodKockou);
+
+                hodKockou = 0;
+                hraciaPlocha.vypisPlochu();
+                zmenaHracaNaTahu();
                 break;
+
             }
         }
-        zmenaHracaNaTahu();
-    }
+
 }
 
+
 void game::zmenaHracaNaTahu() {
-    int indexAktualnehoHraca = hracNaTahu.getCisloHraca() - 1;
+    int indexAktualnehoHraca = hracNaTahu.getCisloHraca();
     indexAktualnehoHraca++;
     if(indexAktualnehoHraca > 3) {
         indexAktualnehoHraca = 0;
@@ -74,23 +88,59 @@ void game::zmenaHracaNaTahu() {
 }
 
 void game::priebehHry() {
-    for(int i = 0; i < 5; i++) {
-        //zmenaHracaNaTahu();
-        //hraciaPlocha.vypisPlochu();
-        //hracNaTahu.movePlayer(hracNaTahu.hodKockou(kocka), hracNaTahu);
-        hraciaPlocha.vypisPlochu();
+    for(int i = 0; i < 40; i++) {
 
-        int hodHraca = hracNaTahu.hodKockou(kocka);
-        std::cout << "hrac " << hracNaTahu.getCisloHraca() << " hodil " << hodHraca << std::endl;
-        hracNaTahu.posunFigurku(hodHraca, hracNaTahu.getFigurka(0));
-        hraciaPlocha.nastavZnak(hracNaTahu.getFigurka(0).getPozicia(), hracNaTahu.getZnak());
-        zmenaHracaNaTahu();
+        if(hracNaTahu.getPocetFiguriekVDomceku() == 4) {
+            vybratieZDomceka();
+        } else {
+            int hodHraca = hracNaTahu.hodKockou(kocka);
+            std::cout << "hrac " << hracNaTahu.getCisloHraca() << " hodil " << hodHraca << std::endl;
+            hracNaTahu.posunFigurku(hodHraca, hracNaTahu.getFigurka(0));
+            hraciaPlocha.nastavZnak(hracNaTahu.getFigurka(0).getPozicia(), hracNaTahu.getZnak(), hodHraca);
+            zmenaHracaNaTahu();
+        }
     }
 }
 
 game::~game() {
     delete[] hraci;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 void game::setHracaNaZaciatocnuPoziciu(Player player) {
 

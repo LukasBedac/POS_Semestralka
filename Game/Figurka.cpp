@@ -25,7 +25,7 @@ int Figurka::getPozicia() {
 }
 
 void Figurka::setPozicia(int pozicia) {
-
+    this->pozicia = pozicia;
 }
 
 void Figurka::posun() {

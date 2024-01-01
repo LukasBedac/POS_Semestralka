@@ -14,6 +14,7 @@ private:
     bool playerTurn = false;
     Figurka figurky[4];
     int pocetFiguriekVDomceku = 4;
+    int pocetFigiekNaCeste = 0;
     int pociatocnaSirka = 0;
     int pociatocnaVyska = 0;
 
@@ -32,10 +33,11 @@ public:
     void setPocetFiguriekVDomceku(int pocet);
     int getPocetFiguriekVDomceku();
     void vybratFigurkuZDomceka();
-    Figurka getFigurka(int cisloFigurky);
+    Figurka &getFigurka(int cisloFigurky);
+    void nastavZaciatocnePozicieFiguriek(int pozicia);
 
     int hodKockou(Kocka kocka);
-    void posunFigurku(int pocetPolicok, Figurka figurka);
+    void posunFigurku(int pocetPolicok, Figurka &figurka);
 
     int getPociatocnaSirka();
     int getPociatocnaVyska();
@@ -44,6 +46,8 @@ public:
     void setPociatocnaVyska(int y);
 
     ~Player();
+
+    void pridajFigurkuNaCestu();
 };
 
 
