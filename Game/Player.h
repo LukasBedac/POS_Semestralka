@@ -12,7 +12,7 @@ private:
     int zaciatocnaPozicia = 0;
     char znak;
     bool playerTurn = false;
-    Figurka figurky[4];
+    Figurka *figurky = new Figurka[4];
     int pocetFiguriekVDomceku = 4;
     int pocetFigiekNaCeste = 0;
     int pociatocnaSirka = 0;
@@ -22,7 +22,7 @@ private:
     bool win = false;
 public:
     Player();
-    void movePlayer(int count, Player player);
+    //void movePlayer(int count, Player player);
     bool winCondition(Player player);
     void setZaciatocnaPozicia(int pozicia);
     int getPociatocnaPozicia();
@@ -32,9 +32,10 @@ public:
     void setZnak(char znak);
     void setPocetFiguriekVDomceku(int pocet);
     int getPocetFiguriekVDomceku();
-    void vybratFigurkuZDomceka();
+    void vybratFigurkuZDomceka(Figurka figurka);
     Figurka &getFigurka(int cisloFigurky);
     void nastavZaciatocnePozicieFiguriek(int pozicia);
+    int pocetFigurokVHre();
 
     int hodKockou(Kocka kocka);
     void posunFigurku(int pocetPolicok, Figurka &figurka);

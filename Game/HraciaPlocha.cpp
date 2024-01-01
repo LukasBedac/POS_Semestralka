@@ -22,6 +22,11 @@ void HraciaPlocha::vytvorPlochu() {
 
     //domceky
     for (int i = 0; i < plochaSirka; ++i) {
+        int indexZ = 0;
+        int indexM = 0;
+        int indexF = 0;
+        int indexR = 0;
+
         for(int j = 0; j < plochaVyska; ++j) {
             if((j == 1  || j == 2 ) && ( i == 1 || i == 2)) {
                 plocha[i][j].setZnak('z');
@@ -31,10 +36,12 @@ void HraciaPlocha::vytvorPlochu() {
                 plocha[i][j].setZnak('m');
                 plocha[i][j].setSuradnice(i, j);
             }
+
             if((j == 10  || j == 11 ) && ( i == 1 || i == 2)) {
-                plocha[i][j].setZnak('c');
+                plocha[i][j].setZnak('f');
                 plocha[i][j].setSuradnice(i, j);
             }
+
             if((j == 10  || j == 11 ) && ( i == 10 || i == 11)) {
                 plocha[i][j].setZnak('r');
                 plocha[i][j].setSuradnice(i, j);
@@ -220,4 +227,62 @@ void HraciaPlocha::nastavCestu() {
 char HraciaPlocha::getZnak(int vyska, int sirka) {
     return plocha[sirka][vyska].getZnak();
 }
+
+
+int HraciaPlocha::getSirka() {
+    return this->plochaSirka;
+}
+
+int HraciaPlocha::getVyska() {
+    return plochaVyska;
+}
+
+Policko *HraciaPlocha::getZDomceky() {
+    return this->zDomceky;
+}
+
+Policko *HraciaPlocha::getFDomceky() {
+    return this->fDomceky;
+}
+
+Policko *HraciaPlocha::getMDomceky() {
+    return this->mDomceky;
+}
+
+Policko *HraciaPlocha::getRDomceky() {
+    return this->rDomceky;
+}
+
+void HraciaPlocha::pridelDomceky() {
+    int indexZ = 0;
+    int indexM = 0;
+    int indexF = 0;
+    int indexR = 0;
+
+    for(int i = 0; i < plochaSirka; i++) {
+        for (int j = 0; j < plochaVyska; j++) {
+            char znak = plocha[i][j].getZnak();
+            if(znak == 'z') {
+                zDomceky[indexZ] = plocha[i][j];
+                indexZ++;
+            } else if (znak == 'm') {
+                mDomceky[indexM] = plocha[i][j];
+                indexM++;
+            } else if (znak == 'f') {
+                fDomceky[indexF] = plocha[i][j];
+                indexF++;
+            } else if (znak == 'r') {
+                rDomceky[indexR] = plocha[i][j];
+                indexR++;
+            }
+        }
+    }
+}
+
+void HraciaPlocha::nastavDomcek(int sirka, int vyska, char znak) {
+    plocha[sirka][vyska].setZnak(znak);
+}
+
+
+
 

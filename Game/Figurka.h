@@ -6,10 +6,15 @@
 #define UNTILTED_FIGURKA_H
 
 
+#include "Policko.h"
+
 class Figurka {
 private:
     char znak;
     int pozicia;
+    Policko domcek;
+    int stlpec;
+    int riadok;
 
 public:
     Figurka();
@@ -19,6 +24,12 @@ public:
     int getPozicia();
     void setPozicia(int pozicia);
     void posun();
+    void setDomcek(Policko domcek);
+    Policko &getDomcek();
+    int getStlpec();
+    int getRiadok();
+    void setRiadok(int riadok);
+    void setStlpec(int stlpec);
 };
 
 

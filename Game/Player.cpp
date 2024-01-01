@@ -16,24 +16,6 @@ bool Player::winCondition(Player player) { //kontrola domceka pre jednotliveho h
     return false;
 }
 
-/*void Player::movePlayer(int count, Player player) {
-    if (player.currentPos + count <= 40) {
-        player.currentPos += count; //posun na ploche, normalnych policok je 40, ptm 4 domceky
-    }
-    //posun v hre podla logiky ako urobime + zmena typu returnu neskor
-
-    if (player.currentPos > 40 && (player.currentPos + count) < 45) { //kontrola ak je vyse 40 aby si skontroloval ci moze ist do domceka
-        int tmpPosHome = currentPos + count - 40;
-        if  (!player.inHome[tmpPosHome]) {
-            player.inHome[tmpPosHome] = true;
-        }
-    }
-
-    player.playerTurn = false;
-    player.win = player.winCondition(player); //po tom co sa skontroluje sa v hre moze urcit vitaz
-    //hned po dohrani tahu ifom a vie sa skoncit hra
-}*/
-
 void Player::posunFigurku(int pocetPolicok, Figurka &figurka) {
     int novaPozicia = figurka.getPozicia() + pocetPolicok;
     figurka.setPozicia(novaPozicia);
@@ -63,7 +45,7 @@ Player::Player() {
 }
 
 Player::~Player() {
-
+    delete[] figurky;
 }
 
 char Player::getZnak() {
@@ -82,7 +64,7 @@ int Player::getPocetFiguriekVDomceku() {
     return this->pocetFiguriekVDomceku;
 }
 
-void Player::vybratFigurkuZDomceka() {
+void Player::vybratFigurkuZDomceka(Figurka figurka) {
     this->pocetFiguriekVDomceku--;
 }
 
@@ -122,6 +104,10 @@ Figurka &Player::getFigurka(int cisloFigurky) {
             return figurky[i];
         }
     }
+}
+
+int Player::pocetFigurokVHre() {
+    return this->pocetFigiekNaCeste;
 }
 
 

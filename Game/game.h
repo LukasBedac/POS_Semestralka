@@ -14,20 +14,21 @@ private:
     HraciaPlocha hraciaPlocha;
     int pocetHracov = 4;
     Kocka kocka;
-    Player hracNaTahu;
-    Player* hraci = new Player[4];
+    Player *hracNaTahu;
+    Player *hraci = new Player[4];
     bool spustenaHra = true;
+    char domcekZnak = '*';
 
 public:
     game();
     void vytvorHraciuPlochu();
-    void nastavZaciatocnuPoziciu(Player hrac);
     void ukonciHru();
     void kontrolaHry();
-    void vybratieZDomceka();
+    void vybratieZDomceka(Player *hrac);
     void zmenaHracaNaTahu();
     void priebehHry();
     void setHracaNaZaciatocnuPoziciu(Player player);
+    void priradDomceky();
     ~game();
 };
 
