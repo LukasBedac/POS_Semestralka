@@ -15,7 +15,7 @@ bool Player::winCondition(Player player) { //kontrola domceka pre jednotliveho h
     return false;
 }
 
-void Player::movePlayer(int count, Player player) {
+/*void Player::movePlayer(int count, Player player) {
     if (player.currentPos + count <= 40) {
         player.currentPos += count; //posun na ploche, normalnych policok je 40, ptm 4 domceky
     }
@@ -31,6 +31,11 @@ void Player::movePlayer(int count, Player player) {
     player.playerTurn = false;
     player.win = player.winCondition(player); //po tom co sa skontroluje sa v hre moze urcit vitaz
     //hned po dohrani tahu ifom a vie sa skoncit hra
+}*/
+
+void Player::posunFigurku(int pocetPolicok, Figurka figurka) {
+    int novaPozicia = figurka.getPozicia() + pocetPolicok;
+    figurka.setPozicia(novaPozicia);
 }
 
 void Player::setZaciatocnaPozicia(int pozicia) {
@@ -98,4 +103,13 @@ void Player::setPociatocnaVyska(int y) {
 int Player::hodKockou(Kocka kocka) {
     kocka.hodKockou();
 }
+
+Figurka Player::getFigurka(int cisloFigurky) {
+    for(int i = 0; i < 4; i++) {
+        if(i == cisloFigurky) {
+            return figurky[i];
+        }
+    }
+}
+
 

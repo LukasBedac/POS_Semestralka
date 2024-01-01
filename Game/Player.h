@@ -8,7 +8,7 @@
 class Player {
 private:
     int currentPos = 0;
-    int cisloHraca = 0;
+    int cisloHraca;
     int zaciatocnaPozicia = 0;
     char znak;
     bool playerTurn = false;
@@ -32,8 +32,10 @@ public:
     void setPocetFiguriekVDomceku(int pocet);
     int getPocetFiguriekVDomceku();
     void vybratFigurkuZDomceka();
+    Figurka getFigurka(int cisloFigurky);
 
     int hodKockou(Kocka kocka);
+    void posunFigurku(int pocetPolicok, Figurka figurka);
 
     int getPociatocnaSirka();
     int getPociatocnaVyska();

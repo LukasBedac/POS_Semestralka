@@ -6,15 +6,15 @@
 class Policko {
 private:
     char znak = ' ';
-    int x;
-    int y;
+    int stlpec;
+    int riadok;
 public:
     Policko();
     char getZnak();
     void setZnak(char znak);
-    int getX();
-    int getY();
-    void setSuradnice(int y, int x);
+    int getStlpec();
+    int getRiadok();
+    void setSuradnice(int riadok, int slpec);
     ~Policko();
 };
 

@@ -9,12 +9,16 @@
 class Figurka {
 private:
     char znak;
+    int pozicia;
+
 public:
     Figurka();
     ~Figurka();
     void setZnak(char znak);
     char getZnak();
-
+    int getPozicia();
+    void setPozicia(int pozicia);
+    void posun();
 };
 
 

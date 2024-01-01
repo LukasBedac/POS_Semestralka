@@ -13,17 +13,17 @@ char Policko::getZnak() {
 void Policko::setZnak(char znak) {
     this->znak = znak;
 }
-int Policko::getX() {
-    return this->x;
+int Policko::getStlpec() {
+    return this->stlpec;
 }
 
-int Policko::getY() {
-    return this->y;
+int Policko::getRiadok() {
+    return this->riadok;
 }
 
-void Policko::setSuradnice(int y, int x) {
-    this->x = x;
-    this->y = y;
+void Policko::setSuradnice(int riadok, int stlpec) {
+    this->riadok = riadok;
+    this->stlpec = stlpec;
 }
 
 Policko::~Policko() {
