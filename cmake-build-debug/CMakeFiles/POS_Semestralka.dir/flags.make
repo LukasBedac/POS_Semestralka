@@ -5,13 +5,13 @@
 # compile CXX with /usr/bin/c++
 C_DEFINES = 
 
-C_INCLUDES = -I/tmp/tmp.Nbt1b67HzL/. -I/tmp/tmp.Nbt1b67HzL/Socket_Server -I/tmp/tmp.Nbt1b67HzL/Game
+C_INCLUDES = -I/tmp/tmp.oTOdUlxxzH/. -I/tmp/tmp.oTOdUlxxzH/Socket_Server -I/tmp/tmp.oTOdUlxxzH/Game
 
 C_FLAGS = -g
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/tmp/tmp.Nbt1b67HzL/. -I/tmp/tmp.Nbt1b67HzL/Socket_Server -I/tmp/tmp.Nbt1b67HzL/Game
+CXX_INCLUDES = -I/tmp/tmp.oTOdUlxxzH/. -I/tmp/tmp.oTOdUlxxzH/Socket_Server -I/tmp/tmp.oTOdUlxxzH/Game
 
 CXX_FLAGS = -g -std=gnu++14
 

@@ -15,6 +15,10 @@ bool Player::winCondition(Player& player) { //kontrola domceka pre jednotliveho 
 }
 
 void Player::posunFigurku(int pocetPolicok, Figurka &figurka) {
+    if (figurka.getPozicia() + pocetPolicok > 40) {
+        figurka.setPozicia(figurka.getPozicia() + pocetPolicok - 40);
+        return;
+    }
     int novaPozicia = figurka.getPozicia() + pocetPolicok;
     figurka.setPozicia(novaPozicia);
 }
@@ -59,7 +63,7 @@ void Player::setPocetFiguriekVDomceku(int pocet) {
 }
 
 int Player::getPocetFiguriekVDomceku() {
-    return this->pocetFiguriekVDomceku;
+    return pocetFiguriekVDomceku;
 }
 
 void Player::vybratFigurkuZDomceka(Figurka& figurka) {
