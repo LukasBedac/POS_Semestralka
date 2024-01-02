@@ -104,12 +104,9 @@ void game::priebehHry() {
             vybratieZDomceka(hracNaTahu, cisloVyberanejFigurky);
 
         } else {
-
             int hodHraca = hracNaTahu->hodKockou(kocka);
             if(hracNaTahu->getFigurka(cisloVyberanejFigurky).getPrejdenaVzdialenost() + hodHraca >= 40) {
-                if(hracNaTahu->getFigurka(cisloVyberanejFigurky).getPrejdenaVzdialenost() + hodHraca >= 44) {
-                    break;
-                } else {
+                if(hracNaTahu->getFigurka(cisloVyberanejFigurky).getPrejdenaVzdialenost() + hodHraca <= 43) {
                     hraciaPlocha.nastavKoniec(hracNaTahu->getFigurka(cisloVyberanejFigurky).getPozicia(), hracNaTahu->getZnak(), hodHraca);
                 }
             } else {
@@ -141,23 +138,23 @@ void game::priebehHry() {
                 hracNaTahu->posunFigurku(hodHraca, hracNaTahu->getFigurka(cisloVyberanejFigurky));
                 hraciaPlocha.nastavZnak(hracNaTahu->getFigurka(cisloVyberanejFigurky).getPozicia(), hracNaTahu->getZnak(), hodHraca);
 
+                //vyhodenie hraca
+                for(int a = 0; a < 4; a++) {
+                    for(int j = 0; j < 4; j++) {
+                        if(hracNaTahu->getFigurka(cisloVyberanejFigurky).getPozicia() == hraci[a].getFigurka(j).getPozicia() /*&& hracNaTahu->getFigurka(cisloVyberanejFigurky).getZnak() != hraci[a].getFigurka(j).getZnak()*/) {
+                            hraci[a].getFigurka(j).setVDomceku(true);
+                            hraciaPlocha.nastavDomcek(hraci[a].getFigurka(j).getDomcek().getRiadok(), hraci[a].getFigurka(j).getDomcek().getStlpec(), hraci[a].getFigurka(j).getZnak());
+                            std::cout << ">> hrac " << hracNaTahu->getZnak() << "vyhodil hraca " << hraci[a].getZnak() << std::endl;
+
+                        }
+                    }
+                }
+
                 hraciaPlocha.vypisPlochu();
                 zmenaHracaNaTahu();
             }
 
         }
-
-            //vyhodenie hraca
-            for(int a = 0; a < 4; a++) {
-                for(int j = 0; j < 4; j++) {
-                    if(hracNaTahu->getFigurka(cisloVyberanejFigurky).getPozicia() == hraci[a].getFigurka(j).getPozicia() && hracNaTahu->getFigurka(cisloVyberanejFigurky).getZnak() != hraci[a].getFigurka(j).getZnak()) {
-                        hraci[a].getFigurka(j).setVDomceku(true);
-                        hraciaPlocha.nastavDomcek(hraci[a].getFigurka(j).getDomcek().getRiadok(), hraci[a].getFigurka(j).getDomcek().getStlpec(), hraci[a].getFigurka(j).getZnak());
-                        std::cout << ">> hrac " << hracNaTahu->getZnak() << "vyhodil hraca " << hraci[a].getZnak() << std::endl;
-
-                    }
-                }
-            }
 
             //hraciaPlocha.vypisPlochu();
             //zmenaHracaNaTahu();
