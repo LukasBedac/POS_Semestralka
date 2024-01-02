@@ -48,40 +48,25 @@ void game::kontrolaHry() {
 
 }
 
-void game::vybratieZDomceka(Player *hrac) {
+void game::vybratieZDomceka(Player *hrac, int cisloVyberanejFigurky) {
 
     int hodKockou = 0;
     for(int j = 0; j < 3; j++) {
-        //hodKockou = 6; // TERAZ NASCHVAL
         hodKockou = hrac->hodKockou(kocka);
 
         if(hodKockou == 6) {
-            hrac = &hraci[hrac->getCisloHraca()];
-            std::cout << "hrac " << hrac->getCisloHraca() << " hodil " << hodKockou << std::endl;
+            std::cout << ">> hrac " << hrac->getZnak() << " hodil " << hodKockou << std::endl;
             hraciaPlocha.nastavZnak(hrac->getPociatocnaPozicia(), hrac->getZnak(), 0);
 
-            int cisloVyberanejFigurky = hrac->getPocetFiguriekVDomceku() - 1; // ako index figurky ktoru vyberieme
-
-
-            std::cout << "Pocet figur pred vyberem: " << hrac->getPocetFiguriekVDomceku() << std::endl;
-
-            //hracNaTahu.vybratFigurkuZDomceka(hracNaTahu.getFigurka(cisloVyberanejFigurky));
             hrac->setPocetFiguriekVDomceku(hrac->getPocetFiguriekVDomceku() - 1);
-
-            std::cout << "Pocet figur po vyberu: " << hrac->getPocetFiguriekVDomceku() << std::endl;
-
-
-
-
-            std::cout << " domcek riadok " <<hrac->getFigurka(cisloVyberanejFigurky).getDomcek().getRiadok() << " domcek stlpec " << hrac->getFigurka(cisloVyberanejFigurky).getDomcek().getStlpec() <<std::endl;
-
+            hracNaTahu->getFigurka(cisloVyberanejFigurky).setVDomceku(false);
             hraciaPlocha.nastavDomcek(hrac->getFigurka(cisloVyberanejFigurky).getDomcek().getRiadok(), hrac->getFigurka(cisloVyberanejFigurky).getDomcek().getStlpec(), '*');
             hrac->pridajFigurkuNaCestu();
 
             hraciaPlocha.vypisPlochu();
 
             hodKockou = hrac->hodKockou(kocka);
-            std::cout << "hrac " << hrac->getCisloHraca() << " hodil " << hodKockou << std::endl;
+            std::cout << ">> hrac " << hrac->getZnak() << " hodil " << hodKockou << std::endl;
 
             hrac->posunFigurku(hodKockou, hrac->getFigurka(cisloVyberanejFigurky));
             hraciaPlocha.nastavZnak(hrac->getFigurka(cisloVyberanejFigurky).getPozicia(), hrac->getZnak(), hodKockou);
@@ -93,6 +78,8 @@ void game::vybratieZDomceka(Player *hrac) {
         }
 
     }
+    std::cout << ">> hrac " << hrac->getZnak() << " nehodil na tri pokusy cislo 6 " << std::endl;
+    std::cout << " " << std::endl;
     zmenaHracaNaTahu();
 }
 
@@ -107,24 +94,59 @@ void game::zmenaHracaNaTahu() {
 }
 
 void game::priebehHry() {
+    int cisloVyberanejFigurky = 1;
     for(int i = 0; i < 30; i++) {
 
-        //std::cout << hracNaTahu.getCisloHraca() << "  pocet figurok" << hracNaTahu.getPocetFiguriekVDomceku() << std::endl;
+        //int cisloVyberanejFigurky = rand() % hracNaTahu->getPocetFiguriekVDomceku();
 
         if(hracNaTahu->pocetFigurokVHre() == 0) {
-            vybratieZDomceka(hracNaTahu);
+            cisloVyberanejFigurky = rand() % hracNaTahu->getPocetFiguriekVDomceku();
+            vybratieZDomceka(hracNaTahu, cisloVyberanejFigurky);
         } else {
+
             int hodHraca = hracNaTahu->hodKockou(kocka);
-            std::cout << "hrac " << hracNaTahu->getCisloHraca() << " hodil " << hodHraca << std::endl;
+            std::cout << ">> hrac " << hracNaTahu->getZnak() << " hodil " << hodHraca << std::endl;
 
-            int cisloVyberanejFigurky = 1; // ako index figurky ktoru vyberieme
+            //int cisloVyberanejFigurky = 0; // ako index figurky ktoru vyberieme
 
-            hracNaTahu->posunFigurku(hodHraca, hracNaTahu->getFigurka(cisloVyberanejFigurky));
-            hraciaPlocha.nastavZnak(hracNaTahu->getFigurka(cisloVyberanejFigurky).getPozicia(), hracNaTahu->getZnak(), hodHraca);
+            if (hodHraca == 6) {
+                while(!hracNaTahu->getFigurka(cisloVyberanejFigurky).getVDomceku()) {
+                    cisloVyberanejFigurky = rand() % hracNaTahu->getPocetFiguriekVDomceku();
+                }
+
+                std::cout << ">> hrac " << hracNaTahu->getZnak() << " vybera dalsiu figurku z domceka " << std::endl;
+
+                hracNaTahu->setPocetFiguriekVDomceku(hracNaTahu->getPocetFiguriekVDomceku() - 1);
+                hracNaTahu->getFigurka(cisloVyberanejFigurky).setVDomceku(false);
+                hraciaPlocha.nastavZnak(hracNaTahu->getFigurka(cisloVyberanejFigurky).getPozicia(), hracNaTahu->getZnak(), hodHraca);
+                hraciaPlocha.nastavDomcek(hracNaTahu->getFigurka(cisloVyberanejFigurky).getDomcek().getRiadok(), hracNaTahu->getFigurka(cisloVyberanejFigurky).getDomcek().getStlpec(), '*');
+                //hracNaTahu->posunFigurku(hodHraca, hracNaTahu->getFigurka(cisloVyberanejFigurky));
+                hracNaTahu->pridajFigurkuNaCestu();
+            } else {
+                while(hracNaTahu->getFigurka(cisloVyberanejFigurky).getVDomceku()) {
+                    cisloVyberanejFigurky = rand() % hracNaTahu->getPocetFiguriekVDomceku();
+                }
+                hracNaTahu->posunFigurku(hodHraca, hracNaTahu->getFigurka(cisloVyberanejFigurky));
+                hraciaPlocha.nastavZnak(hracNaTahu->getFigurka(cisloVyberanejFigurky).getPozicia(), hracNaTahu->getZnak(), hodHraca);
+
+            }
+
+            //vyhodenie hraca
+            /*for(int a = 0; a < 4; a++) {
+                for(int j = 0; j < 4; j++) {
+                    if(hracNaTahu->getFigurka(cisloVyberanejFigurky).getPozicia() == hraci[a].getFigurka(j).getPozicia() && hracNaTahu->getFigurka(cisloVyberanejFigurky).getZnak() != hraci[a].getFigurka(j).getZnak()) {
+                        hraci[a].getFigurka(j).setVDomceku(true);
+                        hraciaPlocha.nastavDomcek(hraci[a].getFigurka(j).getDomcek().getRiadok(), hraci[a].getFigurka(j).getDomcek().getStlpec(), hraci[a].getFigurka(j).getZnak());
+                        std::cout << ">> hrac " << hracNaTahu->getZnak() << "vyhodil hraca " << hraci[a].getZnak() << std::endl;
+
+                    }
+                }
+            }*/
+
             hraciaPlocha.vypisPlochu();
             zmenaHracaNaTahu();
-
         }
+
     }
 }
 
@@ -139,25 +161,17 @@ void game::setHracaNaZaciatocnuPoziciu(Player player) {
 void game::priradDomceky() {
     for(int i = 0 ; i < 4; i++)  {
         hraci[0].getFigurka(i).setDomcek(hraciaPlocha.getZDomceky()[i]);
-        //std::cout << hraciaPlocha.getZDomceky()[i].getZnak() << std::endl;
-        //std::cout<< hraciaPlocha.getZDomceky()[i].getRiadok() << hraciaPlocha.getZDomceky()[i].getStlpec() << std::endl;
     }
     for(int i = 0 ; i < 4; i++)  {
         hraci[1].getFigurka(i).setDomcek(hraciaPlocha.getMDomceky()[i]);
-        //std::cout << hraciaPlocha.getMDomceky()[i].getZnak() << std::endl;
-        //std::cout<< hraciaPlocha.getMDomceky()[i].getRiadok() << hraciaPlocha.getMDomceky()[i].getStlpec() << std::endl;
     }
 
     for(int i = 0 ; i < 4; i++)  {
         hraci[2].getFigurka(i).setDomcek(hraciaPlocha.getRDomceky()[i]);
-        //std::cout << hraciaPlocha.getRDomceky()[i].getZnak() << std::endl;
-        //std::cout<< hraciaPlocha.getRDomceky()[i].getRiadok() << hraciaPlocha.getRDomceky()[i].getStlpec() << std::endl;
     }
 
     for(int i = 0 ; i < 4; i++)  {
         hraci[3].getFigurka(i).setDomcek(hraciaPlocha.getFDomceky()[i]);
-        //std::cout << hraciaPlocha.getFDomceky()[i].getZnak() << std::endl;
-        //std::cout<< hraciaPlocha.getFDomceky()[i].getRiadok() << hraciaPlocha.getFDomceky()[i].getStlpec() << std::endl;
     }
 }
 

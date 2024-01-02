@@ -24,7 +24,7 @@ public:
     void vytvorHraciuPlochu();
     void ukonciHru();
     void kontrolaHry();
-    void vybratieZDomceka(Player *hrac);
+    void vybratieZDomceka(Player *hrac, int cisloVyberanejFigurky);
     void zmenaHracaNaTahu();
     void priebehHry();
     void setHracaNaZaciatocnuPoziciu(Player player);

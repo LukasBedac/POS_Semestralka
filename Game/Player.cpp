@@ -1,8 +1,6 @@
-
 #include "Player.h"
 
-
-bool Player::winCondition(Player player) { //kontrola domceka pre jednotliveho hraca
+bool Player::winCondition(Player& player) { //kontrola domceka pre jednotliveho hraca
 
     int count = 0;
     for (bool home : player.inHome) {
@@ -64,7 +62,7 @@ int Player::getPocetFiguriekVDomceku() {
     return this->pocetFiguriekVDomceku;
 }
 
-void Player::vybratFigurkuZDomceka(Figurka figurka) {
+void Player::vybratFigurkuZDomceka(Figurka& figurka) {
     this->pocetFiguriekVDomceku--;
 }
 
@@ -84,8 +82,8 @@ void Player::setPociatocnaVyska(int y) {
     this->pociatocnaVyska = y;
 }
 
-int Player::hodKockou(Kocka kocka) {
-    kocka.hodKockou();
+int Player::hodKockou(Kocka& kocka) {
+    return kocka.hodKockou();
 }
 
 void Player::pridajFigurkuNaCestu() {
@@ -109,5 +107,3 @@ Figurka &Player::getFigurka(int cisloFigurky) {
 int Player::pocetFigurokVHre() {
     return this->pocetFigiekNaCeste;
 }
-
-

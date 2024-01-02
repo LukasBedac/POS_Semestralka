@@ -53,3 +53,11 @@ void Figurka::setStlpec(int stlpec) {
 
 }
 
+bool Figurka::getVDomceku() {
+    return this->vDomceku;
+}
+
+void Figurka::setVDomceku(bool b) {
+    this->vDomceku = b;
+}
+

@@ -15,6 +15,7 @@ private:
     Policko domcek;
     int stlpec;
     int riadok;
+    bool vDomceku = true;
 
 public:
     Figurka();
@@ -30,6 +31,8 @@ public:
     int getRiadok();
     void setRiadok(int riadok);
     void setStlpec(int stlpec);
+    bool getVDomceku();
+    void setVDomceku(bool b);
 };
 
 

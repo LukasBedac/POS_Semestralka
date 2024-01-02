@@ -1,5 +1,3 @@
-
-
 #ifndef POS_SEMESTRALKA_PLAYER_H
 #define POS_SEMESTRALKA_PLAYER_H
 #include "Figurka.h"
@@ -22,8 +20,7 @@ private:
     bool win = false;
 public:
     Player();
-    //void movePlayer(int count, Player player);
-    bool winCondition(Player player);
+    bool winCondition(Player& player);
     void setZaciatocnaPozicia(int pozicia);
     int getPociatocnaPozicia();
     void setCisloHraca(int cislo);
@@ -32,12 +29,12 @@ public:
     void setZnak(char znak);
     void setPocetFiguriekVDomceku(int pocet);
     int getPocetFiguriekVDomceku();
-    void vybratFigurkuZDomceka(Figurka figurka);
+    void vybratFigurkuZDomceka(Figurka& figurka);
     Figurka &getFigurka(int cisloFigurky);
     void nastavZaciatocnePozicieFiguriek(int pozicia);
     int pocetFigurokVHre();
 
-    int hodKockou(Kocka kocka);
+    int hodKockou(Kocka& kocka);
     void posunFigurku(int pocetPolicok, Figurka &figurka);
 
     int getPociatocnaSirka();
@@ -50,6 +47,5 @@ public:
 
     void pridajFigurkuNaCestu();
 };
-
 
 #endif //POS_SEMESTRALKA_PLAYER_H

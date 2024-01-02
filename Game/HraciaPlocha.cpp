@@ -140,12 +140,16 @@ void HraciaPlocha::vypisPlochu() {
 }
 
 void HraciaPlocha::nastavZnak(int pozicia, char znak, int hodKockou) {
+    // Kontrola rozsahu
+    pozicia = pozicia % 40;
+    int predchadzajucaPozicia = (pozicia - hodKockou + 40) % 40; // Pridáme 40 pre prípad, že by výsledok bol záporný
+
     //nastavenie znaku na znak cesty
-    plocha[cesta[pozicia - hodKockou].getRiadok()][cesta[pozicia - hodKockou].getStlpec()].setZnak('o');
+    plocha[cesta[predchadzajucaPozicia].getRiadok()][cesta[predchadzajucaPozicia].getStlpec()].setZnak('o');
 
     //nastavenie noveho znaku
     plocha[cesta[pozicia].getRiadok()][cesta[pozicia].getStlpec()].setZnak(znak);
-    std::cout << "SURADNICE STLPEC RIADOK SU " << cesta[pozicia].getStlpec() << " " << cesta[pozicia].getRiadok() << std::endl;
+    //std::cout << "SURADNICE STLPEC RIADOK SU " << cesta[pozicia].getStlpec() << " " << cesta[pozicia].getRiadok() << std::endl;
 }
 
 void HraciaPlocha::nastavCestu() {
