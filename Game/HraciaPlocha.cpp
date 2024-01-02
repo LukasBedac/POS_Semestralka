@@ -164,6 +164,7 @@ void HraciaPlocha::nastavCestu() {
         if (i <= 4) {
             riadok++;
             this->cesta[i] = this->plocha[riadok][stlpec];
+            zUkonci[i] = this->plocha[riadok + 1][stlpec + 1];
 
         }
         if (i > 4 && i <= 8) {
@@ -180,6 +181,7 @@ void HraciaPlocha::nastavCestu() {
             riadok = 7;
             stlpec++;
             this->cesta[i] = this->plocha[riadok][stlpec];
+            mUkonci[i - 11] = this->plocha[riadok - 1][stlpec];
         }
         if (i > 14 && i <= 18) {
             riadok += 1;
@@ -195,6 +197,7 @@ void HraciaPlocha::nastavCestu() {
             riadok--;
             stlpec = 7;
             this->cesta[i] = this->plocha[riadok][stlpec];
+            rUkonci[i - 21] = this->plocha[riadok][stlpec - 1];
         }
         if (i > 24 && i <= 28) {
             riadok = 7;
@@ -210,6 +213,7 @@ void HraciaPlocha::nastavCestu() {
             riadok = 5;
             stlpec--;
             this->cesta[i] = this->plocha[riadok][stlpec];
+            fUkonci[i - 31] = this->plocha[riadok + 1][stlpec];
         }
         if (i > 34 && i <= 38) {
             riadok--;
@@ -288,6 +292,45 @@ void HraciaPlocha::pridelDomceky() {
 
 void HraciaPlocha::nastavDomcek(int sirka, int vyska, char znak) {
     plocha[sirka][vyska].setZnak(znak);
+}
+
+Policko *HraciaPlocha::getZUkonci() {
+    return this->zUkonci;
+}
+
+Policko *HraciaPlocha::geFUkonci() {
+    return this->fUkonci;
+}
+
+Policko *HraciaPlocha::geMUkonci() {
+    return this->mUkonci;
+}
+
+Policko *HraciaPlocha::geRUkonci() {
+    return this->rUkonci;
+}
+
+Policko *HraciaPlocha::getCesta() {
+    return this->cesta;
+}
+
+void HraciaPlocha::nastavKoniec(int pozicia, char znak, int hodKockou) {
+
+    pozicia = pozicia % 40;
+    int predchadzajucaPozicia = (pozicia - hodKockou + 40) % 40;
+
+    //nastavenie znaku na znak cest
+    plocha[cesta[predchadzajucaPozicia].getRiadok()][cesta[predchadzajucaPozicia].getStlpec()].setZnak('o');
+
+    if(znak == 'z') {
+        plocha[zUkonci[pozicia].getRiadok()][zUkonci[pozicia].getStlpec()].setZnak('z');
+    } else if (znak == 'm') {
+        plocha[mUkonci[pozicia].getRiadok()][mUkonci[pozicia].getStlpec()].setZnak('m');
+    } else if (znak == 'r') {
+        plocha[rUkonci[pozicia].getRiadok()][rUkonci[pozicia].getStlpec()].setZnak('r');
+    } else if (znak == 'f') {
+        plocha[fUkonci[pozicia].getRiadok()][fUkonci[pozicia].getStlpec()].setZnak('f');
+    }
 }
 
 

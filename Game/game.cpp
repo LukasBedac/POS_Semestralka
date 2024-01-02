@@ -26,10 +26,6 @@ game::game() {
     hraci[2].setZnak('r');
     hraci[3].setZnak('f');
 
-    /*for(int i = 0; i < 4; i++) {
-        nastavZaciatocnuPoziciu(hraci[i]);
-    }*/
-
     this->vytvorHraciuPlochu();
     hraciaPlocha.nastavCestu();
     this->hraciaPlocha.pridelDomceky();
@@ -70,6 +66,9 @@ void game::vybratieZDomceka(Player *hrac, int cisloVyberanejFigurky) {
             std::cout << ">> hrac " << hrac->getZnak() << " hodil " << hodKockou << std::endl;
 
             hrac->posunFigurku(hodKockou, hrac->getFigurka(cisloVyberanejFigurky));
+            hrac->getFigurka(cisloVyberanejFigurky).pridajPrejdenuVzdialenost(hodKockou);
+            std::cout << ">> hrac presiel vzdialenost" << hrac->getFigurka(cisloVyberanejFigurky).getPrejdenaVzdialenost() << std::endl;
+
             hraciaPlocha.nastavZnak(hrac->getFigurka(cisloVyberanejFigurky).getPozicia(), hrac->getZnak(), hodKockou);
 
             hodKockou = 0;
@@ -96,44 +95,57 @@ void game::zmenaHracaNaTahu() {
 
 void game::priebehHry() {
     int cisloVyberanejFigurky = 1;
-    for(int i = 0; i < 5; i++) {
+    for(int i = 0; i < 100; i++) {
     //while(this->spustenaHra) {
-        //int cisloVyberanejFigurky = rand() % hracNaTahu->getPocetFiguriekVDomceku();
 
         if(hracNaTahu->pocetFigurokVHre() == 0) {
             //cisloVyberanejFigurky = rand() % hracNaTahu->getPocetFiguriekVDomceku();
             std::cout << "cislo figurky je " << cisloVyberanejFigurky << std::endl;
             vybratieZDomceka(hracNaTahu, cisloVyberanejFigurky);
+
         } else {
 
             int hodHraca = hracNaTahu->hodKockou(kocka);
-            std::cout << ">> hrac " << hracNaTahu->getZnak() << " hodil " << hodHraca << std::endl;
-
-            //int cisloVyberanejFigurky = 0; // ako index figurky ktoru vyberieme
-
-            /*if (hodHraca == 6) {
-                /*while(!hracNaTahu->getFigurka(cisloVyberanejFigurky).getVDomceku()) {
-                    cisloVyberanejFigurky = rand() % hracNaTahu->getPocetFiguriekVDomceku();
+            if(hracNaTahu->getFigurka(cisloVyberanejFigurky).getPrejdenaVzdialenost() + hodHraca >= 40) {
+                if(hracNaTahu->getFigurka(cisloVyberanejFigurky).getPrejdenaVzdialenost() + hodHraca >= 44) {
+                    break;
+                } else {
+                    hraciaPlocha.nastavKoniec(hracNaTahu->getFigurka(cisloVyberanejFigurky).getPozicia(), hracNaTahu->getZnak(), hodHraca);
                 }
-                std::cout << "cislo figurky je " << cisloVyberanejFigurky << std::endl;
-                std::cout << ">> hrac " << hracNaTahu->getZnak() << " vybera dalsiu figurku z domceka " << std::endl;
+            } else {
+                std::cout << ">> hrac " << hracNaTahu->getZnak() << " hodil " << hodHraca << std::endl;
 
-                hracNaTahu->setPocetFiguriekVDomceku(hracNaTahu->getPocetFiguriekVDomceku() - 1);
-                hracNaTahu->getFigurka(cisloVyberanejFigurky).setVDomceku(false);
-                hraciaPlocha.nastavZnak(hracNaTahu->getFigurka(cisloVyberanejFigurky).getPozicia(), hracNaTahu->getZnak(), hodHraca);
-                hraciaPlocha.nastavDomcek(hracNaTahu->getFigurka(cisloVyberanejFigurky).getDomcek().getRiadok(), hracNaTahu->getFigurka(cisloVyberanejFigurky).getDomcek().getStlpec(), '*');
-                //hracNaTahu->posunFigurku(hodHraca, hracNaTahu->getFigurka(cisloVyberanejFigurky));
-                hracNaTahu->pridajFigurkuNaCestu();
-            } else {  */
+                //int cisloVyberanejFigurky = 0; // ako index figurky ktoru vyberieme
+
+                /*if (hodHraca == 6) {
+                    /*while(!hracNaTahu->getFigurka(cisloVyberanejFigurky).getVDomceku()) {
+                        cisloVyberanejFigurky = rand() % hracNaTahu->getPocetFiguriekVDomceku();
+                    }
+                    std::cout << "cislo figurky je " << cisloVyberanejFigurky << std::endl;
+                    std::cout << ">> hrac " << hracNaTahu->getZnak() << " vybera dalsiu figurku z domceka " << std::endl;
+
+                    hracNaTahu->setPocetFiguriekVDomceku(hracNaTahu->getPocetFiguriekVDomceku() - 1);
+                    hracNaTahu->getFigurka(cisloVyberanejFigurky).setVDomceku(false);
+                    hraciaPlocha.nastavZnak(hracNaTahu->getFigurka(cisloVyberanejFigurky).getPozicia(), hracNaTahu->getZnak(), hodHraca);
+                    hraciaPlocha.nastavDomcek(hracNaTahu->getFigurka(cisloVyberanejFigurky).getDomcek().getRiadok(), hracNaTahu->getFigurka(cisloVyberanejFigurky).getDomcek().getStlpec(), '*');
+                    //hracNaTahu->posunFigurku(hodHraca, hracNaTahu->getFigurka(cisloVyberanejFigurky));
+                    hracNaTahu->pridajFigurkuNaCestu();
+                } else {  */
                 /*while(hracNaTahu->getFigurka(cisloVyberanejFigurky).getVDomceku()) {
                     cisloVyberanejFigurky = rand() % hracNaTahu->getPocetFiguriekVDomceku();
                 }*/
 
                 std::cout << "cislo figurky je " << cisloVyberanejFigurky << std::endl;
+                hracNaTahu->getFigurka(cisloVyberanejFigurky).pridajPrejdenuVzdialenost(hodHraca);
+                std::cout << ">> hrac presiel vzdialenost" << hracNaTahu->getFigurka(cisloVyberanejFigurky).getPrejdenaVzdialenost() << std::endl;
                 hracNaTahu->posunFigurku(hodHraca, hracNaTahu->getFigurka(cisloVyberanejFigurky));
                 hraciaPlocha.nastavZnak(hracNaTahu->getFigurka(cisloVyberanejFigurky).getPozicia(), hracNaTahu->getZnak(), hodHraca);
 
+                hraciaPlocha.vypisPlochu();
+                zmenaHracaNaTahu();
             }
+
+        }
 
             //vyhodenie hraca
             for(int a = 0; a < 4; a++) {
@@ -147,8 +159,8 @@ void game::priebehHry() {
                 }
             }
 
-            hraciaPlocha.vypisPlochu();
-            zmenaHracaNaTahu();
+            //hraciaPlocha.vypisPlochu();
+            //zmenaHracaNaTahu();
         }
 
     }
@@ -157,11 +169,6 @@ void game::priebehHry() {
 game::~game() {
     delete[] hraci;
 }
-
-void game::setHracaNaZaciatocnuPoziciu(Player player) {
-
-}
-
 
 void game::priradDomceky() {
     for(int i = 0 ; i < 4; i++)  {

@@ -61,3 +61,11 @@ void Figurka::setVDomceku(bool b) {
     this->vDomceku = b;
 }
 
+int &Figurka::getPrejdenaVzdialenost() {
+    return this->prejdenaVzdialenost;
+}
+
+void Figurka::pridajPrejdenuVzdialenost(int kolko) {
+    this->prejdenaVzdialenost += kolko;
+}
+

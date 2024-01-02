@@ -27,7 +27,6 @@ public:
     void vybratieZDomceka(Player *hrac, int cisloVyberanejFigurky);
     void zmenaHracaNaTahu();
     void priebehHry();
-    void setHracaNaZaciatocnuPoziciu(Player player);
     void priradDomceky();
     ~game();
 };

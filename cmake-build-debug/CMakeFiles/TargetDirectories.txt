@@ -1,3 +1,0 @@
-/tmp/tmp.JvN1sPlmy4/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/tmp/tmp.JvN1sPlmy4/cmake-build-debug/CMakeFiles/edit_cache.dir
-/tmp/tmp.JvN1sPlmy4/cmake-build-debug/CMakeFiles/POS_Semestralka.dir

@@ -16,6 +16,7 @@ private:
     int stlpec;
     int riadok;
     bool vDomceku = true;
+    int prejdenaVzdialenost = 0;
 
 public:
     Figurka();
@@ -33,6 +34,8 @@ public:
     void setStlpec(int stlpec);
     bool getVDomceku();
     void setVDomceku(bool b);
+    int &getPrejdenaVzdialenost();
+    void pridajPrejdenuVzdialenost(int kolko);
 };
 
 
