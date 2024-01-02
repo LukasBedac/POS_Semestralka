@@ -144,7 +144,7 @@ void HraciaPlocha::nastavZnak(int pozicia, char znak, int hodKockou) {
     pozicia = pozicia % 40;
     int predchadzajucaPozicia = (pozicia - hodKockou + 40) % 40;
 
-    //nastavenie znaku na znak cesty
+    //nastavenie znaku na znak cest
     plocha[cesta[predchadzajucaPozicia].getRiadok()][cesta[predchadzajucaPozicia].getStlpec()].setZnak('o');
 
     //nastavenie noveho znaku
