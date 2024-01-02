@@ -29,3 +29,15 @@ void Policko::setSuradnice(int riadok, int stlpec) {
 Policko::~Policko() {
 
 }
+
+int Policko::getPocetHracovNaPolicku() {
+    return this->pocetHracovNaPolicku;
+}
+
+void Policko::pridajPocetHracovNaPolicku() {
+    this->pocetHracovNaPolicku++;
+}
+
+void Policko::znisPocetHracovNaPolicku() {
+    this->pocetHracovNaPolicku--;
+}

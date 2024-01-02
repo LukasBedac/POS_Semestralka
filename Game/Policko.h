@@ -8,6 +8,7 @@ private:
     char znak = ' ';
     int stlpec;
     int riadok;
+    int pocetHracovNaPolicku = 0;
 public:
     Policko();
     char getZnak();
@@ -15,6 +16,9 @@ public:
     int getStlpec();
     int getRiadok();
     void setSuradnice(int riadok, int slpec);
+    int getPocetHracovNaPolicku();
+    void pridajPocetHracovNaPolicku();
+    void znisPocetHracovNaPolicku();
     ~Policko();
 };
 

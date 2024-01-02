@@ -142,9 +142,16 @@ void HraciaPlocha::nastavZnak(int pozicia, char znak, int hodKockou) {
 
     //nastavenie znaku na znak cest
     plocha[cesta[predchadzajucaPozicia].getRiadok()][cesta[predchadzajucaPozicia].getStlpec()].setZnak('o');
+    if(hodKockou != 0) {
+        plocha[cesta[predchadzajucaPozicia].getRiadok()][cesta[predchadzajucaPozicia].getStlpec()].znisPocetHracovNaPolicku();
+    }
+    std::cout << "pocet hracov na policku " << cesta[predchadzajucaPozicia].getStlpec() << " " << cesta[predchadzajucaPozicia].getRiadok() << " je " << plocha[cesta[predchadzajucaPozicia].getRiadok()][cesta[predchadzajucaPozicia].getStlpec()].getPocetHracovNaPolicku()<< std::endl;
 
     //nastavenie noveho znaku
     plocha[cesta[pozicia].getRiadok()][cesta[pozicia].getStlpec()].setZnak(znak);
+    plocha[cesta[pozicia].getRiadok()][cesta[pozicia].getStlpec()].pridajPocetHracovNaPolicku();
+    std::cout << "pocet hracov na policku " << cesta[pozicia].getStlpec() << " " << cesta[pozicia].getRiadok() << " je " << plocha[cesta[pozicia].getRiadok()][cesta[pozicia].getStlpec()].getPocetHracovNaPolicku()<< std::endl;
+
     //std::cout << "SURADNICE STLPEC RIADOK SU " << cesta[pozicia].getStlpec() << " " << cesta[pozicia].getRiadok() << std::endl;
 }
 
