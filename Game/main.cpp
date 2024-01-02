@@ -6,7 +6,7 @@
 #include "game.h"
 
 int main(int argc, char* argv[]){
-    srand(time(NULL));
+    //srand(time(NULL));
     game();
 
 }

@@ -62,10 +62,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /tmp/tmp.oTOdUlxxzH
+CMAKE_SOURCE_DIR = /tmp/tmp.JvN1sPlmy4
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /tmp/tmp.oTOdUlxxzH/cmake-build-debug
+CMAKE_BINARY_DIR = /tmp/tmp.JvN1sPlmy4/cmake-build-debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles/POS_Semestralka.dir/depend.make
@@ -78,133 +78,133 @@ include CMakeFiles/POS_Semestralka.dir/flags.make
 
 CMakeFiles/POS_Semestralka.dir/Socket_Server/active_socket.c.o: CMakeFiles/POS_Semestralka.dir/flags.make
 CMakeFiles/POS_Semestralka.dir/Socket_Server/active_socket.c.o: ../Socket_Server/active_socket.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/tmp/tmp.oTOdUlxxzH/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/POS_Semestralka.dir/Socket_Server/active_socket.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/POS_Semestralka.dir/Socket_Server/active_socket.c.o -c /tmp/tmp.oTOdUlxxzH/Socket_Server/active_socket.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/tmp/tmp.JvN1sPlmy4/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/POS_Semestralka.dir/Socket_Server/active_socket.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/POS_Semestralka.dir/Socket_Server/active_socket.c.o -c /tmp/tmp.JvN1sPlmy4/Socket_Server/active_socket.c
 
 CMakeFiles/POS_Semestralka.dir/Socket_Server/active_socket.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/POS_Semestralka.dir/Socket_Server/active_socket.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /tmp/tmp.oTOdUlxxzH/Socket_Server/active_socket.c > CMakeFiles/POS_Semestralka.dir/Socket_Server/active_socket.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /tmp/tmp.JvN1sPlmy4/Socket_Server/active_socket.c > CMakeFiles/POS_Semestralka.dir/Socket_Server/active_socket.c.i
 
 CMakeFiles/POS_Semestralka.dir/Socket_Server/active_socket.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/POS_Semestralka.dir/Socket_Server/active_socket.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /tmp/tmp.oTOdUlxxzH/Socket_Server/active_socket.c -o CMakeFiles/POS_Semestralka.dir/Socket_Server/active_socket.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /tmp/tmp.JvN1sPlmy4/Socket_Server/active_socket.c -o CMakeFiles/POS_Semestralka.dir/Socket_Server/active_socket.c.s
 
 CMakeFiles/POS_Semestralka.dir/Socket_Server/char_buffer.c.o: CMakeFiles/POS_Semestralka.dir/flags.make
 CMakeFiles/POS_Semestralka.dir/Socket_Server/char_buffer.c.o: ../Socket_Server/char_buffer.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/tmp/tmp.oTOdUlxxzH/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/POS_Semestralka.dir/Socket_Server/char_buffer.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/POS_Semestralka.dir/Socket_Server/char_buffer.c.o -c /tmp/tmp.oTOdUlxxzH/Socket_Server/char_buffer.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/tmp/tmp.JvN1sPlmy4/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/POS_Semestralka.dir/Socket_Server/char_buffer.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/POS_Semestralka.dir/Socket_Server/char_buffer.c.o -c /tmp/tmp.JvN1sPlmy4/Socket_Server/char_buffer.c
 
 CMakeFiles/POS_Semestralka.dir/Socket_Server/char_buffer.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/POS_Semestralka.dir/Socket_Server/char_buffer.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /tmp/tmp.oTOdUlxxzH/Socket_Server/char_buffer.c > CMakeFiles/POS_Semestralka.dir/Socket_Server/char_buffer.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /tmp/tmp.JvN1sPlmy4/Socket_Server/char_buffer.c > CMakeFiles/POS_Semestralka.dir/Socket_Server/char_buffer.c.i
 
 CMakeFiles/POS_Semestralka.dir/Socket_Server/char_buffer.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/POS_Semestralka.dir/Socket_Server/char_buffer.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /tmp/tmp.oTOdUlxxzH/Socket_Server/char_buffer.c -o CMakeFiles/POS_Semestralka.dir/Socket_Server/char_buffer.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /tmp/tmp.JvN1sPlmy4/Socket_Server/char_buffer.c -o CMakeFiles/POS_Semestralka.dir/Socket_Server/char_buffer.c.s
 
 CMakeFiles/POS_Semestralka.dir/Socket_Server/passive_socket.c.o: CMakeFiles/POS_Semestralka.dir/flags.make
 CMakeFiles/POS_Semestralka.dir/Socket_Server/passive_socket.c.o: ../Socket_Server/passive_socket.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/tmp/tmp.oTOdUlxxzH/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/POS_Semestralka.dir/Socket_Server/passive_socket.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/POS_Semestralka.dir/Socket_Server/passive_socket.c.o -c /tmp/tmp.oTOdUlxxzH/Socket_Server/passive_socket.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/tmp/tmp.JvN1sPlmy4/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/POS_Semestralka.dir/Socket_Server/passive_socket.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/POS_Semestralka.dir/Socket_Server/passive_socket.c.o -c /tmp/tmp.JvN1sPlmy4/Socket_Server/passive_socket.c
 
 CMakeFiles/POS_Semestralka.dir/Socket_Server/passive_socket.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/POS_Semestralka.dir/Socket_Server/passive_socket.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /tmp/tmp.oTOdUlxxzH/Socket_Server/passive_socket.c > CMakeFiles/POS_Semestralka.dir/Socket_Server/passive_socket.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /tmp/tmp.JvN1sPlmy4/Socket_Server/passive_socket.c > CMakeFiles/POS_Semestralka.dir/Socket_Server/passive_socket.c.i
 
 CMakeFiles/POS_Semestralka.dir/Socket_Server/passive_socket.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/POS_Semestralka.dir/Socket_Server/passive_socket.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /tmp/tmp.oTOdUlxxzH/Socket_Server/passive_socket.c -o CMakeFiles/POS_Semestralka.dir/Socket_Server/passive_socket.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /tmp/tmp.JvN1sPlmy4/Socket_Server/passive_socket.c -o CMakeFiles/POS_Semestralka.dir/Socket_Server/passive_socket.c.s
 
 CMakeFiles/POS_Semestralka.dir/Game/game.cpp.o: CMakeFiles/POS_Semestralka.dir/flags.make
 CMakeFiles/POS_Semestralka.dir/Game/game.cpp.o: ../Game/game.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/tmp/tmp.oTOdUlxxzH/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/POS_Semestralka.dir/Game/game.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/POS_Semestralka.dir/Game/game.cpp.o -c /tmp/tmp.oTOdUlxxzH/Game/game.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/tmp/tmp.JvN1sPlmy4/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/POS_Semestralka.dir/Game/game.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/POS_Semestralka.dir/Game/game.cpp.o -c /tmp/tmp.JvN1sPlmy4/Game/game.cpp
 
 CMakeFiles/POS_Semestralka.dir/Game/game.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/POS_Semestralka.dir/Game/game.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /tmp/tmp.oTOdUlxxzH/Game/game.cpp > CMakeFiles/POS_Semestralka.dir/Game/game.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /tmp/tmp.JvN1sPlmy4/Game/game.cpp > CMakeFiles/POS_Semestralka.dir/Game/game.cpp.i
 
 CMakeFiles/POS_Semestralka.dir/Game/game.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/POS_Semestralka.dir/Game/game.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /tmp/tmp.oTOdUlxxzH/Game/game.cpp -o CMakeFiles/POS_Semestralka.dir/Game/game.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /tmp/tmp.JvN1sPlmy4/Game/game.cpp -o CMakeFiles/POS_Semestralka.dir/Game/game.cpp.s
 
 CMakeFiles/POS_Semestralka.dir/Game/Player.cpp.o: CMakeFiles/POS_Semestralka.dir/flags.make
 CMakeFiles/POS_Semestralka.dir/Game/Player.cpp.o: ../Game/Player.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/tmp/tmp.oTOdUlxxzH/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/POS_Semestralka.dir/Game/Player.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/POS_Semestralka.dir/Game/Player.cpp.o -c /tmp/tmp.oTOdUlxxzH/Game/Player.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/tmp/tmp.JvN1sPlmy4/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/POS_Semestralka.dir/Game/Player.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/POS_Semestralka.dir/Game/Player.cpp.o -c /tmp/tmp.JvN1sPlmy4/Game/Player.cpp
 
 CMakeFiles/POS_Semestralka.dir/Game/Player.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/POS_Semestralka.dir/Game/Player.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /tmp/tmp.oTOdUlxxzH/Game/Player.cpp > CMakeFiles/POS_Semestralka.dir/Game/Player.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /tmp/tmp.JvN1sPlmy4/Game/Player.cpp > CMakeFiles/POS_Semestralka.dir/Game/Player.cpp.i
 
 CMakeFiles/POS_Semestralka.dir/Game/Player.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/POS_Semestralka.dir/Game/Player.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /tmp/tmp.oTOdUlxxzH/Game/Player.cpp -o CMakeFiles/POS_Semestralka.dir/Game/Player.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /tmp/tmp.JvN1sPlmy4/Game/Player.cpp -o CMakeFiles/POS_Semestralka.dir/Game/Player.cpp.s
 
 CMakeFiles/POS_Semestralka.dir/Game/Policko.cpp.o: CMakeFiles/POS_Semestralka.dir/flags.make
 CMakeFiles/POS_Semestralka.dir/Game/Policko.cpp.o: ../Game/Policko.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/tmp/tmp.oTOdUlxxzH/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/POS_Semestralka.dir/Game/Policko.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/POS_Semestralka.dir/Game/Policko.cpp.o -c /tmp/tmp.oTOdUlxxzH/Game/Policko.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/tmp/tmp.JvN1sPlmy4/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/POS_Semestralka.dir/Game/Policko.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/POS_Semestralka.dir/Game/Policko.cpp.o -c /tmp/tmp.JvN1sPlmy4/Game/Policko.cpp
 
 CMakeFiles/POS_Semestralka.dir/Game/Policko.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/POS_Semestralka.dir/Game/Policko.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /tmp/tmp.oTOdUlxxzH/Game/Policko.cpp > CMakeFiles/POS_Semestralka.dir/Game/Policko.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /tmp/tmp.JvN1sPlmy4/Game/Policko.cpp > CMakeFiles/POS_Semestralka.dir/Game/Policko.cpp.i
 
 CMakeFiles/POS_Semestralka.dir/Game/Policko.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/POS_Semestralka.dir/Game/Policko.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /tmp/tmp.oTOdUlxxzH/Game/Policko.cpp -o CMakeFiles/POS_Semestralka.dir/Game/Policko.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /tmp/tmp.JvN1sPlmy4/Game/Policko.cpp -o CMakeFiles/POS_Semestralka.dir/Game/Policko.cpp.s
 
 CMakeFiles/POS_Semestralka.dir/Game/Figurka.cpp.o: CMakeFiles/POS_Semestralka.dir/flags.make
 CMakeFiles/POS_Semestralka.dir/Game/Figurka.cpp.o: ../Game/Figurka.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/tmp/tmp.oTOdUlxxzH/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/POS_Semestralka.dir/Game/Figurka.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/POS_Semestralka.dir/Game/Figurka.cpp.o -c /tmp/tmp.oTOdUlxxzH/Game/Figurka.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/tmp/tmp.JvN1sPlmy4/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/POS_Semestralka.dir/Game/Figurka.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/POS_Semestralka.dir/Game/Figurka.cpp.o -c /tmp/tmp.JvN1sPlmy4/Game/Figurka.cpp
 
 CMakeFiles/POS_Semestralka.dir/Game/Figurka.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/POS_Semestralka.dir/Game/Figurka.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /tmp/tmp.oTOdUlxxzH/Game/Figurka.cpp > CMakeFiles/POS_Semestralka.dir/Game/Figurka.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /tmp/tmp.JvN1sPlmy4/Game/Figurka.cpp > CMakeFiles/POS_Semestralka.dir/Game/Figurka.cpp.i
 
 CMakeFiles/POS_Semestralka.dir/Game/Figurka.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/POS_Semestralka.dir/Game/Figurka.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /tmp/tmp.oTOdUlxxzH/Game/Figurka.cpp -o CMakeFiles/POS_Semestralka.dir/Game/Figurka.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /tmp/tmp.JvN1sPlmy4/Game/Figurka.cpp -o CMakeFiles/POS_Semestralka.dir/Game/Figurka.cpp.s
 
 CMakeFiles/POS_Semestralka.dir/Game/HraciaPlocha.cpp.o: CMakeFiles/POS_Semestralka.dir/flags.make
 CMakeFiles/POS_Semestralka.dir/Game/HraciaPlocha.cpp.o: ../Game/HraciaPlocha.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/tmp/tmp.oTOdUlxxzH/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/POS_Semestralka.dir/Game/HraciaPlocha.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/POS_Semestralka.dir/Game/HraciaPlocha.cpp.o -c /tmp/tmp.oTOdUlxxzH/Game/HraciaPlocha.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/tmp/tmp.JvN1sPlmy4/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/POS_Semestralka.dir/Game/HraciaPlocha.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/POS_Semestralka.dir/Game/HraciaPlocha.cpp.o -c /tmp/tmp.JvN1sPlmy4/Game/HraciaPlocha.cpp
 
 CMakeFiles/POS_Semestralka.dir/Game/HraciaPlocha.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/POS_Semestralka.dir/Game/HraciaPlocha.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /tmp/tmp.oTOdUlxxzH/Game/HraciaPlocha.cpp > CMakeFiles/POS_Semestralka.dir/Game/HraciaPlocha.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /tmp/tmp.JvN1sPlmy4/Game/HraciaPlocha.cpp > CMakeFiles/POS_Semestralka.dir/Game/HraciaPlocha.cpp.i
 
 CMakeFiles/POS_Semestralka.dir/Game/HraciaPlocha.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/POS_Semestralka.dir/Game/HraciaPlocha.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /tmp/tmp.oTOdUlxxzH/Game/HraciaPlocha.cpp -o CMakeFiles/POS_Semestralka.dir/Game/HraciaPlocha.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /tmp/tmp.JvN1sPlmy4/Game/HraciaPlocha.cpp -o CMakeFiles/POS_Semestralka.dir/Game/HraciaPlocha.cpp.s
 
 CMakeFiles/POS_Semestralka.dir/Game/Kocka.cpp.o: CMakeFiles/POS_Semestralka.dir/flags.make
 CMakeFiles/POS_Semestralka.dir/Game/Kocka.cpp.o: ../Game/Kocka.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/tmp/tmp.oTOdUlxxzH/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/POS_Semestralka.dir/Game/Kocka.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/POS_Semestralka.dir/Game/Kocka.cpp.o -c /tmp/tmp.oTOdUlxxzH/Game/Kocka.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/tmp/tmp.JvN1sPlmy4/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/POS_Semestralka.dir/Game/Kocka.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/POS_Semestralka.dir/Game/Kocka.cpp.o -c /tmp/tmp.JvN1sPlmy4/Game/Kocka.cpp
 
 CMakeFiles/POS_Semestralka.dir/Game/Kocka.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/POS_Semestralka.dir/Game/Kocka.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /tmp/tmp.oTOdUlxxzH/Game/Kocka.cpp > CMakeFiles/POS_Semestralka.dir/Game/Kocka.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /tmp/tmp.JvN1sPlmy4/Game/Kocka.cpp > CMakeFiles/POS_Semestralka.dir/Game/Kocka.cpp.i
 
 CMakeFiles/POS_Semestralka.dir/Game/Kocka.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/POS_Semestralka.dir/Game/Kocka.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /tmp/tmp.oTOdUlxxzH/Game/Kocka.cpp -o CMakeFiles/POS_Semestralka.dir/Game/Kocka.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /tmp/tmp.JvN1sPlmy4/Game/Kocka.cpp -o CMakeFiles/POS_Semestralka.dir/Game/Kocka.cpp.s
 
 CMakeFiles/POS_Semestralka.dir/Game/main.cpp.o: CMakeFiles/POS_Semestralka.dir/flags.make
 CMakeFiles/POS_Semestralka.dir/Game/main.cpp.o: ../Game/main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/tmp/tmp.oTOdUlxxzH/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/POS_Semestralka.dir/Game/main.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/POS_Semestralka.dir/Game/main.cpp.o -c /tmp/tmp.oTOdUlxxzH/Game/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/tmp/tmp.JvN1sPlmy4/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/POS_Semestralka.dir/Game/main.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/POS_Semestralka.dir/Game/main.cpp.o -c /tmp/tmp.JvN1sPlmy4/Game/main.cpp
 
 CMakeFiles/POS_Semestralka.dir/Game/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/POS_Semestralka.dir/Game/main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /tmp/tmp.oTOdUlxxzH/Game/main.cpp > CMakeFiles/POS_Semestralka.dir/Game/main.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /tmp/tmp.JvN1sPlmy4/Game/main.cpp > CMakeFiles/POS_Semestralka.dir/Game/main.cpp.i
 
 CMakeFiles/POS_Semestralka.dir/Game/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/POS_Semestralka.dir/Game/main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /tmp/tmp.oTOdUlxxzH/Game/main.cpp -o CMakeFiles/POS_Semestralka.dir/Game/main.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /tmp/tmp.JvN1sPlmy4/Game/main.cpp -o CMakeFiles/POS_Semestralka.dir/Game/main.cpp.s
 
 # Object files for target POS_Semestralka
 POS_Semestralka_OBJECTS = \
@@ -234,7 +234,7 @@ POS_Semestralka: CMakeFiles/POS_Semestralka.dir/Game/Kocka.cpp.o
 POS_Semestralka: CMakeFiles/POS_Semestralka.dir/Game/main.cpp.o
 POS_Semestralka: CMakeFiles/POS_Semestralka.dir/build.make
 POS_Semestralka: CMakeFiles/POS_Semestralka.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/tmp/tmp.oTOdUlxxzH/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Linking CXX executable POS_Semestralka"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/tmp/tmp.JvN1sPlmy4/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Linking CXX executable POS_Semestralka"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/POS_Semestralka.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -247,6 +247,6 @@ CMakeFiles/POS_Semestralka.dir/clean:
 .PHONY : CMakeFiles/POS_Semestralka.dir/clean
 
 CMakeFiles/POS_Semestralka.dir/depend:
-	cd /tmp/tmp.oTOdUlxxzH/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /tmp/tmp.oTOdUlxxzH /tmp/tmp.oTOdUlxxzH /tmp/tmp.oTOdUlxxzH/cmake-build-debug /tmp/tmp.oTOdUlxxzH/cmake-build-debug /tmp/tmp.oTOdUlxxzH/cmake-build-debug/CMakeFiles/POS_Semestralka.dir/DependInfo.cmake --color=$(COLOR)
+	cd /tmp/tmp.JvN1sPlmy4/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /tmp/tmp.JvN1sPlmy4 /tmp/tmp.JvN1sPlmy4 /tmp/tmp.JvN1sPlmy4/cmake-build-debug /tmp/tmp.JvN1sPlmy4/cmake-build-debug /tmp/tmp.JvN1sPlmy4/cmake-build-debug/CMakeFiles/POS_Semestralka.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/POS_Semestralka.dir/depend
 
