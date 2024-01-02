@@ -10,7 +10,7 @@ private:
     const static int plochaSirka = 13;
     const static int plochaVyska = 13;
     Policko plocha[plochaSirka][plochaVyska];
-    Policko* cesta[40];
+    Policko cesta[40];
     Policko zDomceky[4];
     Policko fDomceky[4];
     Policko mDomceky[4];
