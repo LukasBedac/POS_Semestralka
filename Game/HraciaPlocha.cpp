@@ -22,10 +22,6 @@ void HraciaPlocha::vytvorPlochu() {
 
     //domceky
     for (int i = 0; i < plochaSirka; ++i) {
-        int indexZ = 0;
-        int indexM = 0;
-        int indexF = 0;
-        int indexR = 0;
 
         for(int j = 0; j < plochaVyska; ++j) {
             if((j == 1  || j == 2 ) && ( i == 1 || i == 2)) {
