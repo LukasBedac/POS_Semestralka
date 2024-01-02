@@ -26,7 +26,6 @@ void HraciaPlocha::vytvorPlochu() {
         int indexM = 0;
         int indexF = 0;
         int indexR = 0;
-
         for(int j = 0; j < plochaVyska; ++j) {
             if((j == 1  || j == 2 ) && ( i == 1 || i == 2)) {
                 plocha[i][j].setZnak('z');
@@ -36,12 +35,10 @@ void HraciaPlocha::vytvorPlochu() {
                 plocha[i][j].setZnak('m');
                 plocha[i][j].setSuradnice(i, j);
             }
-
             if((j == 10  || j == 11 ) && ( i == 1 || i == 2)) {
-                plocha[i][j].setZnak('f');
+                plocha[i][j].setZnak('F');
                 plocha[i][j].setSuradnice(i, j);
             }
-
             if((j == 10  || j == 11 ) && ( i == 10 || i == 11)) {
                 plocha[i][j].setZnak('r');
                 plocha[i][j].setSuradnice(i, j);
@@ -141,11 +138,11 @@ void HraciaPlocha::vypisPlochu() {
 
 void HraciaPlocha::nastavZnak(int pozicia, char znak, int hodKockou) {
     //nastavenie znaku na znak cesty
-    plocha[cesta[pozicia - hodKockou].getRiadok()][cesta[pozicia - hodKockou].getStlpec()].setZnak('o');
+    plocha[cesta[pozicia - hodKockou]->getRiadok()][cesta[pozicia - hodKockou]->getStlpec()].setZnak('o');
 
     //nastavenie noveho znaku
-    plocha[cesta[pozicia].getRiadok()][cesta[pozicia].getStlpec()].setZnak(znak);
-    std::cout << "SURADNICE STLPEC RIADOK SU " << cesta[pozicia].getStlpec() << " " << cesta[pozicia].getRiadok() << std::endl;
+    plocha[cesta[pozicia]->getRiadok()][cesta[pozicia]->getStlpec()].setZnak(znak);
+    std::cout << "SURADNICE STLPEC RIADOK SU " << cesta[pozicia]->getStlpec() << " " << cesta[pozicia]->getRiadok() << std::endl;
 }
 
 void HraciaPlocha::nastavCestu() {
@@ -156,63 +153,67 @@ void HraciaPlocha::nastavCestu() {
     for (int i = 0; i < cyklus; ++i) {
         if (i <= 4) {
             riadok++;
-            this->cesta[i] = this->plocha[riadok][stlpec];
-
+            this->cesta[i] = &this->plocha[riadok][stlpec];
+            zUkonci[i] = this->plocha[riadok + 1][stlpec + 1];
         }
         if (i > 4 && i <= 8) {
             riadok = 5;
             stlpec -= 1;
-            this->cesta[i] = this->plocha[riadok][stlpec];
+            this->cesta[i] = &this->plocha[riadok][stlpec];
         }
         if (i > 8 && i <= 10) {
             riadok++;
             stlpec = 1;
-            this->cesta[i] = this->plocha[riadok][stlpec];
+            this->cesta[i] = &this->plocha[riadok][stlpec];
         }
         if (i > 10 && i <= 14) {
             riadok = 7;
             stlpec++;
-            this->cesta[i] = this->plocha[riadok][stlpec];
+            this->cesta[i] = &this->plocha[riadok][stlpec];
+            mUkonci[i - 11] = this->plocha[riadok - 1][stlpec];
         }
         if (i > 14 && i <= 18) {
             riadok += 1;
             stlpec = 5;
-            this->cesta[i] = this->plocha[riadok][stlpec];
+            this->cesta[i] = &this->plocha[riadok][stlpec];
         }
         if (i > 18 && i <= 20) {
             riadok = 11;
             stlpec++;
-            this->cesta[i] = this->plocha[riadok][stlpec];
+            this->cesta[i] = &this->plocha[riadok][stlpec];
         }
         if (i > 20 && i <= 24) {
             riadok--;
             stlpec = 7;
-            this->cesta[i] = this->plocha[riadok][stlpec];
+            this->cesta[i] = &this->plocha[riadok][stlpec];
+            rUkonci[i - 21] = this->plocha[riadok][stlpec - 1];
         }
         if (i > 24 && i <= 28) {
             riadok = 7;
             stlpec++;
-            this->cesta[i] = this->plocha[riadok][stlpec];
+            this->cesta[i] = &this->plocha[riadok][stlpec];
+
         }
         if (i > 28 && i <= 30) {
             riadok--;
             stlpec = 11;
-            this->cesta[i] = this->plocha[riadok][stlpec];
+            this->cesta[i] = &this->plocha[riadok][stlpec];
         }
         if (i > 30 && i <= 34) {
             riadok = 5;
             stlpec--;
-            this->cesta[i] = this->plocha[riadok][stlpec];
+            this->cesta[i] = &this->plocha[riadok][stlpec];
+            fUkonci[i - 31] = this->plocha[riadok + 1][stlpec];
         }
         if (i > 34 && i <= 38) {
             riadok--;
             stlpec = 7;
-            this->cesta[i] = this->plocha[riadok][stlpec];
+            this->cesta[i] = &this->plocha[riadok][stlpec];
         }
         if (i > 38) {
             riadok = 1;
             stlpec = 6;
-            this->cesta[i] = this->plocha[riadok][stlpec];
+            this->cesta[i] = &this->plocha[riadok][stlpec];
         }
         /* Kontrola vypisu
         std::cout << this->cesta[i].getZnak();
@@ -227,7 +228,6 @@ void HraciaPlocha::nastavCestu() {
 char HraciaPlocha::getZnak(int vyska, int sirka) {
     return plocha[sirka][vyska].getZnak();
 }
-
 
 int HraciaPlocha::getSirka() {
     return this->plochaSirka;
@@ -282,7 +282,3 @@ void HraciaPlocha::pridelDomceky() {
 void HraciaPlocha::nastavDomcek(int sirka, int vyska, char znak) {
     plocha[sirka][vyska].setZnak(znak);
 }
-
-
-
-

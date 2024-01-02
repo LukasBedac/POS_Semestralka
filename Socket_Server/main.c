@@ -94,6 +94,7 @@ void* consume(void* thread_data) {
 
 
 int main(int argc, char* argv[]) {
+    /*
     pthread_t th_produce;
     pthread_t th_receive;
     struct thread_data data;
@@ -114,4 +115,5 @@ int main(int argc, char* argv[]) {
     active_socket_destroy(&my_socket);
 
     return 0;
+    */
 }

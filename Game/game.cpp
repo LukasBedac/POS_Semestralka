@@ -136,6 +136,7 @@ void game::setHracaNaZaciatocnuPoziciu(Player player) {
 
 }
 
+
 void game::priradDomceky() {
     for(int i = 0 ; i < 4; i++)  {
         hraci[0].getFigurka(i).setDomcek(hraciaPlocha.getZDomceky()[i]);
