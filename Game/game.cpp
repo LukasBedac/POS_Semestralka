@@ -151,7 +151,7 @@ void game::priebehHry() {
 }
 
 game::~game() {
-    //delete[] hraci;
+    delete[] hraci;
 }
 
 void game::setHracaNaZaciatocnuPoziciu(Player player) {
