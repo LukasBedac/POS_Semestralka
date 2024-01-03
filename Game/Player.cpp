@@ -1,19 +1,5 @@
 #include "Player.h"
 
-bool Player::winCondition(Player& player) { //kontrola domceka pre jednotliveho hraca
-
-    int count = 0;
-    for (bool home : player.inHome) {
-        if (home) {
-            count++;
-        }
-    }
-    if (count == 4) {
-        return true;
-    }
-    return false;
-}
-
 void Player::posunFigurku(int pocetPolicok, Figurka &figurka) {
     if (figurka.getPozicia() + pocetPolicok > 40) {
         figurka.setPozicia(figurka.getPozicia() + pocetPolicok - 40);
@@ -47,7 +33,7 @@ Player::Player() {
 }
 
 Player::~Player() {
-    delete[] figurky;
+
 }
 
 char Player::getZnak() {
@@ -91,7 +77,7 @@ int Player::hodKockou(Kocka& kocka) {
 }
 
 void Player::pridajFigurkuNaCestu() {
-    pocetFigiekNaCeste++;
+    this->pocetFigiekNaCeste++;
 }
 
 void Player::nastavZaciatocnePozicieFiguriek(int pozicia) {
@@ -110,4 +96,19 @@ Figurka &Player::getFigurka(int cisloFigurky) {
 
 int Player::pocetFigurokVHre() {
     return this->pocetFigiekNaCeste;
+}
+
+void *Player::setFigurkaNaCeste(int cisloFigurky) {
+    for(int i = 0; i < 4; i++) {
+        if(i == cisloFigurky) {
+            figurkyNaCeste[i] = cisloFigurky;
+        }
+    }
+}
+
+int Player::getFigurkyNaCeste(int i) {
+    if  (figurkyNaCeste[i] != -1) {
+        return figurkyNaCeste[i];
+    }
+    return -1;
 }

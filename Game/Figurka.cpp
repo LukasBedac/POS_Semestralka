@@ -21,7 +21,7 @@ char Figurka::getZnak() {
 }
 
 int Figurka::getPozicia() {
-    return this->pozicia;
+    return pozicia;
 }
 
 void Figurka::setPozicia(int pozicia) {
@@ -29,7 +29,7 @@ void Figurka::setPozicia(int pozicia) {
 }
 
 
-void Figurka::setDomcek(Policko domcek) {
+void Figurka::setDomcek(Policko &domcek) {
     this->domcek = domcek;
 }
 

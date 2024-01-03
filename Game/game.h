@@ -29,6 +29,9 @@ public:
     void priebehHry();
     void priradDomceky();
     ~game();
+
+    int vybratieFigurkyZDomceku(bool a);
+    bool vyberAkcie();
 };
 
 #endif //POS_SEMESTRALKA_GAME_H

@@ -5,22 +5,19 @@
 
 class Player {
 private:
-    int currentPos = 0;
     int cisloHraca;
     int zaciatocnaPozicia = 0;
     char znak;
-    bool playerTurn = false;
-    Figurka *figurky = new Figurka[4];
+    Figurka figurky[4];
     int pocetFiguriekVDomceku = 4;
     int pocetFigiekNaCeste = 0;
     int pociatocnaSirka = 0;
     int pociatocnaVyska = 0;
 
-    bool inHome[4] = {false, false, false, false};
+    int figurkyNaCeste[4] = {-1, -1, -1, -1};
     bool win = false;
 public:
     Player();
-    bool winCondition(Player& player);
     void setZaciatocnaPozicia(int pozicia);
     int getPociatocnaPozicia();
     void setCisloHraca(int cislo);
@@ -36,7 +33,8 @@ public:
 
     int hodKockou(Kocka& kocka);
     void posunFigurku(int pocetPolicok, Figurka &figurka);
-
+    int getFigurkyNaCeste(int i);
+    void *setFigurkaNaCeste(int cisloFigurky);
     int getPociatocnaSirka();
     int getPociatocnaVyska();
 

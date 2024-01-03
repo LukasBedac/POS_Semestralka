@@ -33,14 +33,6 @@ public:
     Policko* getFDomceky();
     Policko* getMDomceky();
     Policko* getRDomceky();
-
-    Policko* getZUkonci();
-    Policko* geFUkonci();
-    Policko* geMUkonci();
-    Policko* geRUkonci();
-
-    Policko* getCesta();
-
     void pridelDomceky();
     void nastavDomcek(int sirka, int vyska, char znak);
     void nastavKoniec(int pozicia, char znak, int hodKockou);

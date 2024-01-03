@@ -165,7 +165,6 @@ void HraciaPlocha::nastavCestu() {
             riadok++;
             this->cesta[i] = this->plocha[riadok][stlpec];
             zUkonci[i] = this->plocha[riadok + 1][stlpec + 1];
-
         }
         if (i > 4 && i <= 8) {
             riadok = 5;
@@ -294,30 +293,9 @@ void HraciaPlocha::nastavDomcek(int sirka, int vyska, char znak) {
     plocha[sirka][vyska].setZnak(znak);
 }
 
-Policko *HraciaPlocha::getZUkonci() {
-    return this->zUkonci;
-}
-
-Policko *HraciaPlocha::geFUkonci() {
-    return this->fUkonci;
-}
-
-Policko *HraciaPlocha::geMUkonci() {
-    return this->mUkonci;
-}
-
-Policko *HraciaPlocha::geRUkonci() {
-    return this->rUkonci;
-}
-
-Policko *HraciaPlocha::getCesta() {
-    return this->cesta;
-}
-
 void HraciaPlocha::nastavKoniec(int pozicia, char znak, int hodKockou) {
-
-    pozicia = pozicia % 40;
-    int predchadzajucaPozicia = (pozicia - hodKockou + 40) % 40;
+    int predchadzajucaPozicia = pozicia;
+    pozicia = (pozicia  + hodKockou )% 40;
 
     //nastavenie znaku na znak cest
     plocha[cesta[predchadzajucaPozicia].getRiadok()][cesta[predchadzajucaPozicia].getStlpec()].setZnak('o');

@@ -25,8 +25,7 @@ public:
     char getZnak();
     int getPozicia();
     void setPozicia(int pozicia);
-    void posun();
-    void setDomcek(Policko domcek);
+    void setDomcek(Policko &domcek);
     Policko &getDomcek();
     int getStlpec();
     int getRiadok();
