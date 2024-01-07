@@ -41,3 +41,15 @@ void Policko::pridajPocetHracovNaPolicku() {
 void Policko::znisPocetHracovNaPolicku() {
     this->pocetHracovNaPolicku--;
 }
+
+void Policko::setFigurkaMozeIstDoDomceka(bool b) {
+    this->figurkaMozeIstDoDomceka = b;
+}
+
+void Policko::setPocetHracovNaPolicku(int i) {
+    this->pocetHracovNaPolicku = i;
+}
+
+bool Policko::getFigutkaMozeIstDoDomceka() {
+    return this->figurkaMozeIstDoDomceka;
+}

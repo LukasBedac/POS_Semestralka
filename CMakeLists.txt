@@ -3,10 +3,7 @@ project(POS_Semestralka)
 
 set(CMAKE_CXX_STANDARD 14)
 include_directories(. Game Socket_Klient Socket_Server)
-add_executable(POS_Semestralka #Socket_Server/main.c
-        Socket_Server/active_socket.c Socket_Server/active_socket.h
-        Socket_Server/char_buffer.h Socket_Server/char_buffer.c Socket_Server/passive_socket.c
-        Socket_Server/passive_socket.h
+add_executable(POS_Semestralka
         Game/game.cpp
         Game/game.h
         Game/Player.h
@@ -19,9 +16,8 @@ add_executable(POS_Semestralka #Socket_Server/main.c
         Game/HraciaPlocha.h
         Game/Kocka.cpp
         Game/Kocka.h
-        Game/main.cpp
-        Game/main.h
-
+        socket_client/main.cpp
+        socket_client/main.cpp
 )
 
-target_link_libraries(POS_Semestralka pthread) #wsock32 ws2_32)
+target_link_libraries(POS_Semestralka pthread)

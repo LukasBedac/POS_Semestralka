@@ -1,5 +1,6 @@
 
 #include "HraciaPlocha.h"
+#include "Figurka.h"
 #include <iostream>
 
 HraciaPlocha::HraciaPlocha() {
@@ -125,6 +126,7 @@ void HraciaPlocha::vytvorPlochu() {
 }
 
 void HraciaPlocha::vypisPlochu() {
+    std::cout << "------ VYPIS PLOCHY ------" << std::endl;
     for (int i = 0; i < plochaSirka; ++i) {
         for (int j = 0; j < plochaVyska; ++j) {
             std::cout << plocha[i][j].getZnak() << ' ';
@@ -137,22 +139,21 @@ void HraciaPlocha::vypisPlochu() {
 
 void HraciaPlocha::nastavZnak(int pozicia, char znak, int hodKockou) {
 
-    pozicia = pozicia % 40;
     int predchadzajucaPozicia = (pozicia - hodKockou + 40) % 40;
 
-    //nastavenie znaku na znak cest
+// Nastavenie znaku na znak cesty pre predchádzajúcu pozíciu
     plocha[cesta[predchadzajucaPozicia].getRiadok()][cesta[predchadzajucaPozicia].getStlpec()].setZnak('o');
-    if(hodKockou != 0) {
-        plocha[cesta[predchadzajucaPozicia].getRiadok()][cesta[predchadzajucaPozicia].getStlpec()].znisPocetHracovNaPolicku();
-    }
-    std::cout << "pocet hracov na policku " << cesta[predchadzajucaPozicia].getStlpec() << " " << cesta[predchadzajucaPozicia].getRiadok() << " je " << plocha[cesta[predchadzajucaPozicia].getRiadok()][cesta[predchadzajucaPozicia].getStlpec()].getPocetHracovNaPolicku()<< std::endl;
 
-    //nastavenie noveho znaku
+// Ak panáčik mení políčko, zníž počet hráčov na predchádzajúcom políčku
+    if (hodKockou != 0) {
+        plocha[cesta[predchadzajucaPozicia].getRiadok()][cesta[predchadzajucaPozicia].getStlpec()].znisPocetHracovNaPolicku();
+        //std::cout << "pocet hracov na policku " << cesta[predchadzajucaPozicia].getStlpec() << " " << cesta[predchadzajucaPozicia].getRiadok() << " je " << plocha[cesta[predchadzajucaPozicia].getRiadok()][cesta[predchadzajucaPozicia].getStlpec()].getPocetHracovNaPolicku() << std::endl;
+    }
+
+// Nastavenie nového znaku a zvýšenie počtu hráčov na aktuálnom políčku
     plocha[cesta[pozicia].getRiadok()][cesta[pozicia].getStlpec()].setZnak(znak);
     plocha[cesta[pozicia].getRiadok()][cesta[pozicia].getStlpec()].pridajPocetHracovNaPolicku();
-    std::cout << "pocet hracov na policku " << cesta[pozicia].getStlpec() << " " << cesta[pozicia].getRiadok() << " je " << plocha[cesta[pozicia].getRiadok()][cesta[pozicia].getStlpec()].getPocetHracovNaPolicku()<< std::endl;
-
-    //std::cout << "SURADNICE STLPEC RIADOK SU " << cesta[pozicia].getStlpec() << " " << cesta[pozicia].getRiadok() << std::endl;
+    //std::cout << "pocet hracov na policku " << cesta[pozicia].getRiadok() << " " << cesta[pozicia].getStlpec() << " je " << plocha[cesta[pozicia].getRiadok()][cesta[pozicia].getStlpec()].getPocetHracovNaPolicku() << std::endl;
 }
 
 void HraciaPlocha::nastavCestu() {
@@ -165,6 +166,7 @@ void HraciaPlocha::nastavCestu() {
             riadok++;
             this->cesta[i] = this->plocha[riadok][stlpec];
             zUkonci[i] = this->plocha[riadok + 1][stlpec + 1];
+
         }
         if (i > 4 && i <= 8) {
             riadok = 5;
@@ -293,23 +295,163 @@ void HraciaPlocha::nastavDomcek(int sirka, int vyska, char znak) {
     plocha[sirka][vyska].setZnak(znak);
 }
 
-void HraciaPlocha::nastavKoniec(int pozicia, char znak, int hodKockou) {
-    int predchadzajucaPozicia = pozicia;
-    pozicia = (pozicia  + hodKockou )% 40;
+Policko *HraciaPlocha::getZUkonci() {
+    return this->zUkonci;
+}
 
-    //nastavenie znaku na znak cest
-    plocha[cesta[predchadzajucaPozicia].getRiadok()][cesta[predchadzajucaPozicia].getStlpec()].setZnak('o');
+Policko *HraciaPlocha::geFUkonci() {
+    return this->fUkonci;
+}
+
+Policko *HraciaPlocha::geMUkonci() {
+    return this->mUkonci;
+}
+
+Policko *HraciaPlocha::geRUkonci() {
+    return this->rUkonci;
+}
+
+Policko *HraciaPlocha::getCesta() {
+    return this->cesta;
+}
+
+void HraciaPlocha::nastavKoniec(Figurka *figurka, int pozicia, int vzdialenost, char znak, int hodKockou) {
+
+    int predchadzajuca = pozicia;
+
+    int pocetPolicok = hodKockou - (39 - vzdialenost);
+
+    //pomocny vypis
+    std::cout << hodKockou << std::endl;
+    std::cout << vzdialenost << std::endl;
+    std::cout << pocetPolicok << std::endl;
 
     if(znak == 'z') {
-        plocha[zUkonci[pozicia].getRiadok()][zUkonci[pozicia].getStlpec()].setZnak('z');
+        if(this->kontrolaFigurkaMozeIstDoDomceka(1 + pocetPolicok, 6)) {
+            return;
+        }
+        figurka->setRiadok(1 + pocetPolicok);
+        figurka->setStlpec(6);
+        plocha[1 + pocetPolicok][6].setZnak('z');
+        plocha[1 + pocetPolicok][6].pridajPocetHracovNaPolicku();
+        this->vyhodenieZCyklu = false;
     } else if (znak == 'm') {
-        plocha[mUkonci[pozicia].getRiadok()][mUkonci[pozicia].getStlpec()].setZnak('m');
+        if(this->kontrolaFigurkaMozeIstDoDomceka(6, 1 + pocetPolicok)) {
+            return;
+        };
+        figurka->setRiadok(6);
+        figurka->setStlpec(1 + pocetPolicok);
+        plocha[6][1 + pocetPolicok].setZnak('m');
+        plocha[6][1 + pocetPolicok].pridajPocetHracovNaPolicku();
+        this->vyhodenieZCyklu = false;
     } else if (znak == 'r') {
-        plocha[rUkonci[pozicia].getRiadok()][rUkonci[pozicia].getStlpec()].setZnak('r');
+        if(this->kontrolaFigurkaMozeIstDoDomceka(11 - pocetPolicok, 6)) {
+            return;
+        };
+        figurka->setRiadok(11 - pocetPolicok);
+        figurka->setStlpec(6);
+        plocha[11 - pocetPolicok][6].setZnak('r');
+        plocha[11 - pocetPolicok][6].pridajPocetHracovNaPolicku();
+        this->vyhodenieZCyklu = false;
     } else if (znak == 'f') {
-        plocha[fUkonci[pozicia].getRiadok()][fUkonci[pozicia].getStlpec()].setZnak('f');
+        if(this->kontrolaFigurkaMozeIstDoDomceka(6, 11 - pocetPolicok)) {
+            return;
+        };
+        figurka->setRiadok(6);
+        figurka->setStlpec(11 - pocetPolicok);
+        plocha[6][11 - pocetPolicok].setZnak('f');
+        plocha[6][11 - pocetPolicok].pridajPocetHracovNaPolicku();
+        this->vyhodenieZCyklu = false;
     }
+    plocha[cesta[predchadzajuca].getRiadok()][cesta[predchadzajuca].getStlpec()].setZnak('o');
 }
+
+Policko *HraciaPlocha::getCestaSIndexom(int index) {
+    return &this->cesta[index];
+}
+
+bool HraciaPlocha::kontrolaFigurkaMozeIstDoDomceka(int sirka, int vyska) {
+    if(plocha[sirka][vyska].getPocetHracovNaPolicku() >= 1) {
+        plocha[sirka][vyska].setFigurkaMozeIstDoDomceka(false);
+        this->vyhodenieZCyklu = true;
+        return true;
+    }
+    return false;
+}
+
+bool HraciaPlocha::getVyhodenieZCyklu() {
+    return this->vyhodenieZCyklu;
+}
+
+void HraciaPlocha::setVyhodenieZCyklu(bool b) {
+    this->vyhodenieZCyklu = b;
+}
+
+void HraciaPlocha::nastavKoniecVKoncovomDomceku(Figurka *figurka, int pozicia, int vzdialenost, char znak, int hodKockou) {
+    //nastavenie znaku na znak cest
+    //vzdialenost = (vzdialenost + hodKockou)  % 40;
+
+    int predchadzajuciRiadok = figurka->getRiadok();
+    int predchadzajuciStlpec = figurka->getStlpec();
+
+    //pomocny vypis
+    std::cout << hodKockou << std::endl;
+
+    if(znak == 'z') {
+        if(this->kontrolaFigurkaMozeIstDoDomceka(predchadzajuciRiadok + hodKockou, 6)) {
+            return;
+        };
+        if(predchadzajuciRiadok + hodKockou > 5) {
+            this->vyhodenieZCyklu = true;
+            return;
+        }
+        figurka->setRiadok(predchadzajuciRiadok + hodKockou);
+        figurka->setStlpec(6);
+        plocha[predchadzajuciRiadok + hodKockou][6].setZnak('z');
+        plocha[predchadzajuciRiadok + hodKockou][6].setPocetHracovNaPolicku(1);
+    } else if (znak == 'm') {
+        if(this->kontrolaFigurkaMozeIstDoDomceka(6, 1 + predchadzajuciStlpec)) {
+            return;
+        };
+        if(hodKockou + predchadzajuciStlpec > 5) {
+            this->vyhodenieZCyklu = true;
+            return;
+        }
+        figurka->setRiadok(6);
+        figurka->setStlpec(hodKockou + predchadzajuciStlpec);
+        plocha[6][hodKockou + predchadzajuciStlpec].setZnak('m');
+        plocha[6][hodKockou + predchadzajuciStlpec].setPocetHracovNaPolicku(1);
+    } else if (znak == 'r') {
+        if(this->kontrolaFigurkaMozeIstDoDomceka(predchadzajuciRiadok - hodKockou, 6)) {
+            return;
+        };
+        if(predchadzajuciRiadok - hodKockou < 7) {
+            this->vyhodenieZCyklu = true;
+            return;
+        }
+        figurka->setRiadok(predchadzajuciRiadok - hodKockou);
+        figurka->setStlpec(6);
+        plocha[predchadzajuciRiadok - hodKockou][6].setZnak('r');
+        plocha[predchadzajuciRiadok - hodKockou][6].setPocetHracovNaPolicku(1);
+    } else if (znak == 'f') {
+        if(this->kontrolaFigurkaMozeIstDoDomceka(6, predchadzajuciStlpec - hodKockou)) {
+            return;
+        };
+        if(predchadzajuciStlpec - hodKockou < 7) {
+            this->vyhodenieZCyklu = true;
+            return;
+        }
+        figurka->setRiadok(6);
+        figurka->setStlpec(predchadzajuciStlpec - hodKockou);
+        plocha[6][predchadzajuciStlpec - hodKockou].setZnak('f');
+        plocha[6][predchadzajuciStlpec - hodKockou].setPocetHracovNaPolicku(1);
+
+    }
+    plocha[predchadzajuciRiadok][predchadzajuciStlpec].setPocetHracovNaPolicku(0);
+    plocha[predchadzajuciRiadok][predchadzajuciStlpec].setZnak('@');
+}
+
+
 
 
 

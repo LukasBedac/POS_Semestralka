@@ -5,7 +5,8 @@
 #include "Figurka.h"
 
 Figurka::Figurka() {
-
+    this->riadok = getDomcek().getRiadok();
+    this->stlpec = getDomcek().getStlpec();
 }
 
 Figurka::~Figurka() {
@@ -21,16 +22,12 @@ char Figurka::getZnak() {
 }
 
 int Figurka::getPozicia() {
-    return pozicia;
+    return this->pozicia;
 }
 
 void Figurka::setPozicia(int pozicia) {
+
     this->pozicia = pozicia;
-}
-
-
-void Figurka::setDomcek(Policko &domcek) {
-    this->domcek = domcek;
 }
 
 Policko &Figurka::getDomcek() {
@@ -46,11 +43,11 @@ int Figurka::getRiadok() {
 }
 
 void Figurka::setRiadok(int riadok) {
-
+    this->riadok = riadok;
 }
 
 void Figurka::setStlpec(int stlpec) {
-
+    this->stlpec = stlpec;
 }
 
 bool Figurka::getVDomceku() {
@@ -61,11 +58,23 @@ void Figurka::setVDomceku(bool b) {
     this->vDomceku = b;
 }
 
-int &Figurka::getPrejdenaVzdialenost() {
+int Figurka::getPrejdenaVzdialenost() {
     return this->prejdenaVzdialenost;
 }
 
 void Figurka::pridajPrejdenuVzdialenost(int kolko) {
     this->prejdenaVzdialenost += kolko;
+}
+
+void Figurka::setVKoncovomDomceku(bool b) {
+    this->vKoncovomDomceku = b;
+}
+
+bool Figurka::getVKoncovomDomceku() {
+    return this->vKoncovomDomceku;
+}
+
+void Figurka::setDomcek(Policko &domcek) {
+    this->domcek = domcek;
 }
 

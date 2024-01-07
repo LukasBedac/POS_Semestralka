@@ -9,6 +9,7 @@ private:
     int stlpec;
     int riadok;
     int pocetHracovNaPolicku = 0;
+    bool figurkaMozeIstDoDomceka;
 public:
     Policko();
     char getZnak();
@@ -20,6 +21,12 @@ public:
     void pridajPocetHracovNaPolicku();
     void znisPocetHracovNaPolicku();
     ~Policko();
+
+    void setFigurkaMozeIstDoDomceka(bool b);
+
+    void setPocetHracovNaPolicku(int i);
+
+    bool getFigutkaMozeIstDoDomceka();
 };
 
 

@@ -25,8 +25,9 @@
 				<Option compiler="gcc"/>
 				<Compiler>
 					<Add directory="/Users/terka/Documents/POS/POS_SEM/."/>
-					<Add directory="/Users/terka/Documents/POS/POS_SEM/Socket_Server"/>
 					<Add directory="/Users/terka/Documents/POS/POS_SEM/Game"/>
+					<Add directory="/Users/terka/Documents/POS/POS_SEM/Socket_Klient"/>
+					<Add directory="/Users/terka/Documents/POS/POS_SEM/Socket_Server"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/15.0.0/include"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
 					<Add directory="/System/Library/Frameworks"/>
@@ -47,8 +48,9 @@
 				<Option compiler="gcc"/>
 				<Compiler>
 					<Add directory="/Users/terka/Documents/POS/POS_SEM/."/>
-					<Add directory="/Users/terka/Documents/POS/POS_SEM/Socket_Server"/>
 					<Add directory="/Users/terka/Documents/POS/POS_SEM/Game"/>
+					<Add directory="/Users/terka/Documents/POS/POS_SEM/Socket_Klient"/>
+					<Add directory="/Users/terka/Documents/POS/POS_SEM/Socket_Server"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/15.0.0/include"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
 					<Add directory="/System/Library/Frameworks"/>

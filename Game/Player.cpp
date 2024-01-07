@@ -1,12 +1,9 @@
+#include <iostream>
 #include "Player.h"
 
 void Player::posunFigurku(int pocetPolicok, Figurka &figurka) {
-    if (figurka.getPozicia() + pocetPolicok > 40) {
-        figurka.setPozicia(figurka.getPozicia() + pocetPolicok - 40);
-        return;
-    }
     int novaPozicia = figurka.getPozicia() + pocetPolicok;
-    figurka.setPozicia(novaPozicia);
+    figurka.setPozicia(novaPozicia % 40);
 }
 
 void Player::setZaciatocnaPozicia(int pozicia) {
@@ -42,6 +39,9 @@ char Player::getZnak() {
 
 void Player::setZnak(char znak) {
     this->znak = znak;
+    for(int i = 0; i < 4; i++) {
+        figurky[i].setZnak(znak);
+    }
 }
 
 void Player::setPocetFiguriekVDomceku(int pocet) {
@@ -87,15 +87,18 @@ void Player::nastavZaciatocnePozicieFiguriek(int pozicia) {
 }
 
 Figurka &Player::getFigurka(int cisloFigurky) {
-    for(int i = 0; i < 4; i++) {
-        if(i == cisloFigurky) {
-            return figurky[i];
-        }
-    }
+    return this->figurky[cisloFigurky];
 }
 
 int Player::pocetFigurokVHre() {
     return this->pocetFigiekNaCeste;
+}
+
+bool Player::maVsetkyFigurkyVDomceku() {
+    if(this->pocetFiguriekVDomceku == 4) {
+        return true;
+    }
+    return false;
 }
 
 void *Player::setFigurkaNaCeste(int cisloFigurky) {
@@ -111,4 +114,44 @@ int Player::getFigurkyNaCeste(int i) {
         return figurkyNaCeste[i];
     }
     return -1;
+}
+
+int Player::getZaciatocnaPozicia() {
+    return this->zaciatocnaPozicia;
+}
+
+void Player::setPocetFigurokNaCeste(int pocet) {
+    this->pocetFigiekNaCeste = pocet;
+}
+
+int Player::getPocetFigurokNaCeste() {
+    return this->pocetFigiekNaCeste;
+}
+
+/*int Player::vyberFigurkyPriPosune() {
+    std::string moznosti = "";
+    for(int i = 0; i < 4; i++) {
+        if(!hrac->getFigurka(i).getVDomceku()) {
+            moznosti += std::to_string(i) + " ";
+        }
+    }
+    //std::cout << std::endl;
+
+    std::string cisloFigurkyStr = "";
+    std::cout << ">> S ktorou figurkou chcete pohnut? - figurky na hracej ploche -> " << moznosti << std::endl;
+    std::cin >> cisloFigurkyStr;
+    std::cout << std::endl;
+
+    // Převod řetězce na integer
+    int cisloFigurky = std::stoi(cisloFigurkyStr);
+
+    return cisloFigurky;
+}*/
+
+int &Player::getHodKockou() {
+    return this->hod;
+}
+
+void Player::setHodKockou(int poslednyHod) {
+    this->hod = poslednyHod;
 }

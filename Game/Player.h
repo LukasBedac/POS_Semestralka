@@ -5,14 +5,15 @@
 
 class Player {
 private:
-    int cisloHraca;
+    int cisloHraca = 0;
     int zaciatocnaPozicia = 0;
     char znak;
     Figurka figurky[4];
-    int pocetFiguriekVDomceku = 4;
+    int pocetFiguriekVDomceku = 0;
     int pocetFigiekNaCeste = 0;
     int pociatocnaSirka = 0;
     int pociatocnaVyska = 0;
+    int hod = 0;
 
     int figurkyNaCeste[4] = {-1, -1, -1, -1};
     bool win = false;
@@ -32,6 +33,8 @@ public:
     int pocetFigurokVHre();
 
     int hodKockou(Kocka& kocka);
+    int& getHodKockou();
+    void setHodKockou(int poslednyHod);
     void posunFigurku(int pocetPolicok, Figurka &figurka);
     int getFigurkyNaCeste(int i);
     void *setFigurkaNaCeste(int cisloFigurky);
@@ -40,10 +43,19 @@ public:
 
     void setPociatocnaSirka(int x);
     void setPociatocnaVyska(int y);
+    int getCisloFigurky(int cislo);
+    void setPocetFigurokNaCeste(int pocet);
+    int getPocetFigurokNaCeste();
+    int vyberFigurkyPriPosune();
+
 
     ~Player();
 
     void pridajFigurkuNaCestu();
+
+    bool maVsetkyFigurkyVDomceku();
+
+    int getZaciatocnaPozicia();
 };
 
 #endif //POS_SEMESTRALKA_PLAYER_H

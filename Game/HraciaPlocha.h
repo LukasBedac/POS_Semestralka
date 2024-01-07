@@ -4,6 +4,7 @@
 #define POS_SEMESTRALKA_HRACIAPLOCHA_H
 
 #include "Policko.h"
+#include "Figurka.h"
 
 class HraciaPlocha {
 private:
@@ -19,6 +20,7 @@ private:
     Policko fUkonci[4];
     Policko mUkonci[4];
     Policko rUkonci[4];
+    bool vyhodenieZCyklu;
 
 public:
     HraciaPlocha();
@@ -36,6 +38,29 @@ public:
     void pridelDomceky();
     void nastavDomcek(int sirka, int vyska, char znak);
     void nastavKoniec(int pozicia, char znak, int hodKockou);
+
+    bool kontrolaFigurkaMozeIstDoDomceka(int sirka, int vyska);
+
+    Policko *getCestaSIndexom(int index);
+
+    Policko *getZUkonci();
+
+    Policko *geFUkonci();
+
+    Policko *geMUkonci();
+
+    Policko *geRUkonci();
+
+    Policko *getCesta();
+
+    bool getVyhodenieZCyklu();
+
+    void setVyhodenieZCyklu(bool b);
+
+    void nastavKoniecVKoncovomDomceku(Figurka *figurka, int pozicia, int vzdialenost, char znak, int hodKockou);
+
+    void nastavKoniec(Figurka *figurka, int pozicia, int vzdialenost, char znak, int hodKockou);
+    Policko** getPlocha();
 };
 
 
