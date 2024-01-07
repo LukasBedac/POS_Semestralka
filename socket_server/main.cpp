@@ -15,7 +15,6 @@
 Player* hraci;
 Kocka kocka;
 std::vector<std::thread> clientThreads;
-std::vector<int> clientSockets;
 std::mutex gameMutex;
 int pocetPripojenychHracov = 0;
 Player hrac1;
@@ -74,13 +73,13 @@ int vyberFigurkyPriPosuneServer(Player *hrac) {
     return cisloFigurky;
 }
 
-int getCisloVyberanejFigurky(std::vector<int>& clientSockets, game hra) {
+int getCisloVyberanejFigurky(int clientSocket, game hra) {
     gameMutex.lock();
     for (int i = 0; i < 4; i++) {
         if(i == hra.getHracNaTahu().getCisloHraca()) {
             int cisloVyberanejFigurky;
-            int bytesReceived = recv(clientSockets[i], reinterpret_cast<char*>(&cisloVyberanejFigurky), sizeof(cisloVyberanejFigurky), 0);
-            if (bytesReceived == -1) {
+            recv(clientSocket, reinterpret_cast<char*>(&cisloVyberanejFigurky), sizeof(cisloVyberanejFigurky), 0);
+            if (cisloVyberanejFigurky == -1) {
                 std::cerr << "recv failed with error: " << strerror(errno) << std::endl;
             } else {
                 std::cout << "Hrac " << i << " si vybral figurku " << cisloVyberanejFigurky << std::endl;
@@ -144,7 +143,7 @@ void handleClient(int clientSocket, int playerId, Hra &hra) {
                         send(clientSocket, reinterpret_cast<char*>(&hodKockou), sizeof(hodKockou), 0);
                         hra.hra.getHracNaTahu().setHodKockou(hodKockou);
 
-                        cisloVyberanejFigurky = getCisloVyberanejFigurky(clientSockets, hra.hra);
+                        cisloVyberanejFigurky = getCisloVyberanejFigurky(clientSocket, hra.hra);
                         hra.hra.prvyPosunPanacika(&hra.hra.getHracNaTahu(), hodKockou, cisloVyberanejFigurky);
                         hra.hra.daniePanacikaNaZaciatok(&hra.hra.getHracNaTahu(), hodKockou, cisloVyberanejFigurky);
                     }
@@ -164,7 +163,7 @@ void handleClient(int clientSocket, int playerId, Hra &hra) {
                     if (hra.hra.getHracNaTahu().getCisloHraca() == 0) {
                         cisloVyberanejFigurky = vyberFigurkyPriPosuneServer(&hra.hra.getHracNaTahu());
                     } else {
-                        cisloVyberanejFigurky = getCisloVyberanejFigurky(clientSockets, hra.hra);
+                        cisloVyberanejFigurky = getCisloVyberanejFigurky(clientSocket, hra.hra);
                     }
                     hra.hra.posunVKoncovomDomceku(&hra.hra.getHracNaTahu(), hodHraca, cisloVyberanejFigurky);
                 } else {
@@ -178,14 +177,14 @@ void handleClient(int clientSocket, int playerId, Hra &hra) {
                                 if (hra.hra.getHracNaTahu().getCisloHraca() == 0) {
                                     cisloVyberanejFigurky = vyberFigurkyPriPosuneServer(&hra.hra.getHracNaTahu());
                                 } else {
-                                    cisloVyberanejFigurky = getCisloVyberanejFigurky(clientSockets, hra.hra);
+                                    cisloVyberanejFigurky = getCisloVyberanejFigurky(clientSocket, hra.hra);
                                 }
                                 hra.hra.novyHracZDomceka(cisloVyberanejFigurky, hodHraca);
                             } else {
                                 if (hra.hra.getHracNaTahu().getCisloHraca() == 0) {
                                     cisloVyberanejFigurky = vyberFigurkyPriPosuneServer(&hra.hra.getHracNaTahu());
                                 } else {
-                                    cisloVyberanejFigurky = getCisloVyberanejFigurky(clientSockets, hra.hra);
+                                    cisloVyberanejFigurky = getCisloVyberanejFigurky(clientSocket, hra.hra);
                                 }
                                 hra.hra.posunFigurkyPoHracejPloche(&hra.hra.getHracNaTahu(), hodHraca,
                                                                    cisloVyberanejFigurky);
@@ -194,7 +193,7 @@ void handleClient(int clientSocket, int playerId, Hra &hra) {
                             if (hra.hra.getHracNaTahu().getCisloHraca() == 0) {
                                 cisloVyberanejFigurky = vyberFigurkyPriPosuneServer(&hra.hra.getHracNaTahu());
                             } else {
-                                cisloVyberanejFigurky = getCisloVyberanejFigurky(clientSockets, hra.hra);
+                                cisloVyberanejFigurky = getCisloVyberanejFigurky(clientSocket, hra.hra);
                             }
                             hra.hra.posunFigurkyPoHracejPloche(&hra.hra.getHracNaTahu(), hodHraca,
                                                                cisloVyberanejFigurky);
@@ -216,7 +215,7 @@ void handleClient(int clientSocket, int playerId, Hra &hra) {
     close(clientSocket);
 }
 
-void pripojenieHracov(Player* hraci, int serverSocket, std::vector<int>& clientSockets) {
+void pripojenieHracov(Player* hraci, int serverSocket, std::vector<std::thread>& clientThreads) {
     int clientSocket = accept(serverSocket, NULL, NULL);
     if(clientSocket == -1) {
         std::cerr << "Pripojenie hraca sa nepodarilo" << std::endl;
@@ -226,7 +225,7 @@ void pripojenieHracov(Player* hraci, int serverSocket, std::vector<int>& clientS
     }
     hraci[pocetPripojenychHracov + 1] = Player();
     //clientThreads.push_back(std::thread(handleClient, clientSocket, i, std::ref(hra))); // Použitie globálnej premennej
-    clientSockets.push_back(clientSocket);
+    clientThreads.push_back(std::thread());
     if(hraci[3].getCisloHraca() == 0) {
         std::cerr << "Pripojeny su 4 hraci - hra sa moze zacat" << std::endl;
     }
@@ -270,8 +269,8 @@ int main() {
 
     while (true) {
         int clientSocket = accept(serverSocket, nullptr, nullptr);
-        std::thread(handleClient, clientSocket, playerId, std::ref(hra)).detach();
 
+        std::thread(handleClient, clientSocket, playerId, std::ref(hra)).detach();
         playerId++;
         if (playerId > 4) {
             playerId = 1;

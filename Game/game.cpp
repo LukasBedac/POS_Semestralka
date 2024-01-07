@@ -246,10 +246,10 @@ void game::priebehHry() {
 
 }
 game::~game() {
-    for (Player* hrac : hraci) {
-        delete hrac;
-    }
-    hraci.clear();
+    //for (Player* hrac : hraci) {
+    //    delete hrac;
+    //}
+    //hraci.clear();
 }
 
 void game::priradDomceky() {
@@ -370,7 +370,7 @@ int game::vybratieFigurkyZDomceku(bool a) {
 void game::figurkaDoKoncovehoDomceka(Player *hrac, int hodHraca, int cisloVyberanejFigurky) {
     int i = hrac->getFigurka(cisloVyberanejFigurky).getPrejdenaVzdialenost() + hodHraca;
     //std::cout << ">> hrac " << hrac->getZnak() << " hodil " << hodHraca << std::endl;
-   // std::cout << "VYSLEDOK " << hrac->getFigurka(cisloVyberanejFigurky).getPrejdenaVzdialenost() << std::endl;
+    // std::cout << "VYSLEDOK " << hrac->getFigurka(cisloVyberanejFigurky).getPrejdenaVzdialenost() << std::endl;
     if (hrac->getFigurka(cisloVyberanejFigurky).getPrejdenaVzdialenost() + hodHraca >= 40) {
         if (hrac->getFigurka(cisloVyberanejFigurky).getPrejdenaVzdialenost() + hodHraca <= 43) {
 
@@ -404,7 +404,7 @@ void game::posunFigurkyPoHracejPloche(Player *hrac, int hodHraca, int cisloVyber
 
         //std::cout << "cislo figurky je " << cisloVyberanejFigurky << std::endl;
         hrac->getFigurka(cisloVyberanejFigurky).pridajPrejdenuVzdialenost(hodHraca);
-       // std::cout << ">> hrac presiel vzdialenost " << hrac->getFigurka(cisloVyberanejFigurky).getPrejdenaVzdialenost() << std::endl;
+        // std::cout << ">> hrac presiel vzdialenost " << hrac->getFigurka(cisloVyberanejFigurky).getPrejdenaVzdialenost() << std::endl;
         hrac->posunFigurku(hodHraca, hrac->getFigurka(cisloVyberanejFigurky));
 
         hrac->getFigurka(cisloVyberanejFigurky).setRiadok(hraciaPlocha.getCestaSIndexom(hracNaTahu->getFigurka(cisloVyberanejFigurky).getPozicia())->getRiadok());
@@ -420,8 +420,8 @@ void game::posunFigurkyPoHracejPloche(Player *hrac, int hodHraca, int cisloVyber
 void game::posunVKoncovomDomceku(Player *hrac, int hodHraca, int cisloVyberanejFigurky) {
     if(hrac->getFigurka(cisloVyberanejFigurky).getVKoncovomDomceku()) {
         this->hraciaPlocha.nastavKoniecVKoncovomDomceku(&hrac->getFigurka(cisloVyberanejFigurky), hrac->getFigurka(cisloVyberanejFigurky).getPozicia(),
-                                        hrac->getFigurka(cisloVyberanejFigurky).getPrejdenaVzdialenost(), hrac->getZnak(),
-                                        hodHraca);
+                                                        hrac->getFigurka(cisloVyberanejFigurky).getPrejdenaVzdialenost(), hrac->getZnak(),
+                                                        hodHraca);
         if (hraciaPlocha.getVyhodenieZCyklu()) {
             std::cout << "Na tomto mieste v domceku uz stoji figurka alebo uz sa neda pohnut dalej v domceku" << std::endl;
             return;

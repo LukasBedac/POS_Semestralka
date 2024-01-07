@@ -16,7 +16,7 @@ private:
     int pocetHracov = 4;
     Kocka kocka;
     Player *hracNaTahu;
-    //Player *hraci;
+    //Player *hraci = new Player[4];
     std::vector<Player*> hraci;
     bool spustenaHra = true;
     char domcekZnak = '*';
