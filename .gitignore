@@ -3,3 +3,6 @@
 /socket_server/.idea/
 /cmake-build-debug/
 /.idea/
+/socket_server/cmake-build-debug/
+/socket_client/cmake-build-debug/
+/socket_client/cmake-build-debug-mingw/
