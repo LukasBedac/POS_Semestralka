@@ -56,12 +56,15 @@ int main() {
     std::cout << "Pripojenie na server bolo uspesne." << std::endl;
 
     while (true) {
-        int hod;
+
         // prijimanie zo server vysledok hodu kocky
+        int hod;
         recv(connectSocket, reinterpret_cast<char*>(&hod), sizeof(hod), 0);
         std::cout << "Na kocke padla " << hod << std::endl;
-
+        char buffer[256];
         int vybranaFigurka;
+        recv(connectSocket, reinterpret_cast<char*>(&buffer), sizeof(buffer), 0);
+        std::cout << "Figurky hraca, ktorymi sa moze hrac pohnut: " << std::endl;
         std::cout << "Zadajte cislo figurky: ";
         std::cin >> vybranaFigurka;
         int bytesSent = send(connectSocket, reinterpret_cast<char*>(&vybranaFigurka), sizeof(vybranaFigurka), 0);

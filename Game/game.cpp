@@ -518,6 +518,11 @@ void game::pridelHracov(Player &hrac1, Player &hrac2, Player &hrac3, Player &hra
     hraci.at(2)->setZnak('r');
     hraci.at(3)->setZnak('f');
 
+    hraci.at(0)->setPocetFigurokNaCeste(0);
+    hraci.at(1)->setPocetFigurokNaCeste(0);
+    hraci.at(2)->setPocetFigurokNaCeste(0);
+    hraci.at(3)->setPocetFigurokNaCeste(0);
+
     this->vytvorHraciuPlochu();
     this->hraciaPlocha.nastavCestu();
     this->hraciaPlocha.pridelDomceky();
