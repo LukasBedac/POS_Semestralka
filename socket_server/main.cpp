@@ -9,7 +9,7 @@
 #include <netinet/in.h>
 #include <vector>
 #include <condition_variable>
-#include "../Game/game.h"
+#include "../Game/Game.h"
 #include "../Game/Player.h"
 
 //Player* hraci;
@@ -18,10 +18,10 @@ Kocka kocka;
 std::vector<std::thread> clientThreads;
 std::vector<int> clientSockets;
 std::mutex gameMutex;
+Player hrac0;
 Player hrac1;
 Player hrac2;
 Player hrac3;
-Player hrac4;
 
 struct LocalInfo{
     int playerID=-1;
@@ -31,7 +31,7 @@ struct Hra{
     game hra;
     std::mutex mtx; // Globálny mutex
     std::condition_variable cv[4]; // Pole podmienkových premenných pre každého hráča
-    int aktualnyHrac = 1;
+    int aktualnyHrac = 0;
 
 };
 
@@ -45,7 +45,7 @@ void posliHodKockou(int hodKockou, int clientSocket) {
 
         if (result == -1) {
             std::cerr << "Chyba při odesílání dat na socket. Chybový kód: " << errno << std::endl;
-            // Případně můžete provést další ošetření chyb nebo program ukončit.
+
             break;
         }
 
@@ -67,11 +67,41 @@ int vyberFigurkyPriPosuneServer(Player *hrac) {
     std::cout << ">> S ktorou figurkou chcete pohnut? - figurky na hracej ploche -> " << moznosti << std::endl;
     std::cin >> cisloFigurkyStr;
     std::cout << std::endl;
-
-    // Převod řetězce na integer
     int cisloFigurky = std::stoi(cisloFigurkyStr);
 
     return cisloFigurky;
+}
+
+void getMapaPreVsetkych(Hra &hra) {
+    char buf[182];
+    int riadok = 0;
+    int stlpec = 0;
+    for (int i = 0; i < sizeof (buf) / sizeof (buf[0]); ++i) {
+        buf[i] = hra.hra.vypisPlochuPreKlienta(stlpec, riadok);
+        stlpec++;
+
+        if (stlpec % 14 == 0 && stlpec != 0) {
+            buf[i] = '\n';
+            riadok++;
+            stlpec = 0;
+        }
+
+    }
+    gameMutex.lock();
+    int sprava = 3;
+    for (auto& client : clientSockets) {
+        send(client, reinterpret_cast<char*>(&hra.aktualnyHrac), sizeof(hra.aktualnyHrac), 0);
+        send(client, reinterpret_cast<char*>(&sprava), sizeof(sprava), 0);
+        send(client, reinterpret_cast<char*>(&buf), sizeof(buf), 0);
+    }
+    gameMutex.unlock();
+    /*kontrola vypisu
+    for (int i = 0; i < sizeof (buf) / sizeof (buf[0]); ++i) {
+        std::cout << ' ' << buf[i] ;
+    } */
+
+
+
 }
 
 int getCisloVyberanejFigurky(int clientSocket, game hra) {
@@ -89,153 +119,115 @@ int getCisloVyberanejFigurky(int clientSocket, game hra) {
             }
         }
     }
-    //gameMutex.unlock();
+    gameMutex.unlock();
     return -1;  // vráti -1, ak žiadny hráč nie je na rade
 
 }
 
-void handleClient(int clientSocket, int playerId, Hra &hra) {
+int vyberFigurkyPriPosuneServer(Player *hrac, int clientSocket) {
+    char moznosti[4];
+    if (hrac->getPocetFigurokNaCeste() == 0) {
+        moznosti[0] = '0';
+        moznosti[1] = '1';
+        moznosti[2] = '2';
+        moznosti[3] = '3';
+    } else {
+        for(int i = 0; i < 4; i++) {
+            if(!hrac->getFigurka(i).getVDomceku() && i == 0) {
+                moznosti[i] = '0';
+            } else if (!hrac->getFigurka(i).getVDomceku() && i == 1){
+                moznosti[i] = '1';
+            } else if (!hrac->getFigurka(i).getVDomceku() && i == 2){
+                moznosti[i] = '2';
+            } else if (!hrac->getFigurka(i).getVDomceku() && i == 3){
+                moznosti[i] = '3';
+            } else {
+                moznosti[i] = ' ';
+            }
+        }
+    }
+    send(clientSocket, &moznosti, sizeof(moznosti), 0);
+    int vybranaFigurka;
+    recv(clientSocket, reinterpret_cast<char*>(&vybranaFigurka), sizeof(vybranaFigurka), 0);
+    return vybranaFigurka;
+}
 
-    //LocalInfo localInfo;
-    //localInfo.playerID=playerId;
+
+void handleClient(int clientSocket, int playerId, Hra &hra) {
     int cisloVyberanejFigurky = 0;
     bool chcemNovehohraca = false;
-
+    int hodKockou;
     int hracNaTahu = 0; // Globálna premenná pre sledovanie, ktorý hráč je na ťahu
-
+    int cisloSpravy;
     while (hra.hra.getSpustenaHra()) {
-        //hra.aktualnyHrac = hra.hra.getHracNaTahu().getCisloHraca();
-        // Prijatie akcie od klienta (hod kockou)
-        //char buffer[256];
-        //ssize_t bytesRead = recv(clientSocket, buffer, sizeof(buffer), 0);
-        //if (bytesRead <= 0) {
-        //    std::cerr << "Chyba pri čítaní zo soketu pre hráča " << playerId << std::endl;
-        //     break;
-        // }
-        //int cisloFigurky = std::stoi(buffer);
-
-        //while (hra.hra->getSpustenaHra()) {
-        //std::cout << "NA RADE JE HRAC " << hrac2.getCisloHraca() << std::endl;
         std::unique_lock<std::mutex> lock(hra.mtx); // Zamkneme mutex
 
-
         while (hra.hra.getHracNaTahu().getCisloHraca() != hra.aktualnyHrac) {
-            hra.cv[playerId].wait(lock); // Odemkneme mutex a čekáme na notifikaci
+            hra.cv[hra.aktualnyHrac].wait(lock);
         }
-
+        send(clientSocket, reinterpret_cast<char*>(&hra.aktualnyHrac), sizeof(hra.aktualnyHrac), 0);
         std::cerr << "Na rade je hrac " << hra.hra.getHracNaTahu().getCisloHraca() << std::endl;
-        if (hra.hra.getHracNaTahu().getPocetFigurokNaCeste() == 0) {
+        // HOD KOCKOU KED PRVY KRAT IDES DO DOMCEKA
 
-            if (hra.hra.getHracNaTahu().getCisloHraca() != 0) {
-                //posliHodKockou(hodKockou, clientSockets[hra.hra.getHracNaTahu().getCisloHraca()]);
+        if(hra.hra.getHracNaTahu().getPocetFigurokNaCeste() == 0) {
 
-                if (hra.hra.vybratieZDomceka(&hra.hra.getHracNaTahu())) { //true, ak hodi 6 a de z domceka
-                    /*if (hra.hra.getHracNaTahu().getCisloHraca() == 0) {
-                        std::cout << "HOD KOCKOU JE " << hra.hra.getHracNaTahu().getHodKockou() << std::endl;
-                        send(clientSocket, reinterpret_cast<char*>(hra.hra.getHracNaTahu().getHodKockou()), sizeof(hra.hra.getHracNaTahu().getHodKockou()), 0);
-                        //cisloVyberanejFigurky = vyberFigurkyPriPosuneServer(&hra.hra.getHracNaTahu());
-                        int hodKockou = hra.hra.getHracNaTahu().hodKockou(kocka);
-                        hra.hra.getHracNaTahu().setHodKockou(hodKockou);
-                        send(clientSocket, reinterpret_cast<char*>(&hodKockou), sizeof(hodKockou), 0);
-                        hra.hra.daniePanacikaNaZaciatok(&hra.hra.getHracNaTahu(), hodKockou, cisloVyberanejFigurky);
-                        hra.hra.prvyPosunPanacika(&hra.hra.getHracNaTahu(), hodKockou, cisloVyberanejFigurky);
-                    } else {*/
-                        int hodKockou = hra.hra.getHracNaTahu().hodKockou(kocka);
-                        hra.hra.getHracNaTahu().setHodKockou(hodKockou);
-                        send(clientSocket, reinterpret_cast<char*>(&hodKockou), sizeof(hodKockou), 0);
+            hra.hra.vybratieZDomceka(&hra.hra.getHracNaTahu());
+            if (hra.hra.getHracNaTahu().getCisloHraca() == 0) {
+                int hodKockou = hra.hra.getHracNaTahu().hodKockou(kocka);
+                std::cout << "Hrac hodil" << hodKockou << std::endl;
+                cisloVyberanejFigurky = hra.hra.vyberFigurkyPriPosune(&hra.hra.getHracNaTahu());
+                hra.hra.daniePanacikaNaZaciatok(&hra.hra.getHracNaTahu(), hodKockou, cisloVyberanejFigurky);
+                hra.hra.prvyPosunPanacika(&hra.hra.getHracNaTahu(), hodKockou, cisloVyberanejFigurky);
 
-                        cisloVyberanejFigurky = getCisloVyberanejFigurky(clientSocket, hra.hra);
-                        hra.hra.daniePanacikaNaZaciatok(&hra.hra.getHracNaTahu(), hodKockou, cisloVyberanejFigurky);
-                        hra.hra.prvyPosunPanacika(&hra.hra.getHracNaTahu(), hodKockou, cisloVyberanejFigurky);
-                    //}
-                } else {
-                    hra.hra.zmenaHracaNaTahu();
-                }
             } else {
-                int hodHraca = hra.hra.getHracNaTahu().hodKockou(kocka);
-                if (hra.hra.getHracNaTahu().getCisloHraca() != 0) {
-                    int hodKockou = hra.hra.getHracNaTahu().hodKockou(kocka);
-                    hra.hra.getHracNaTahu().setHodKockou(hodKockou);
-                    send(clientSocket, reinterpret_cast<char*>(&hodKockou), sizeof(hodKockou), 0);
-                    //posliHodKockou(hodHraca, clientSockets[hra.hra.getHracNaTahu().getCisloHraca()]);
-                }
-                std::cout << ">> hrac " << hra.hra.getHracNaTahu().getZnak() << " hodil " << hodHraca << std::endl;
-                if (hra.hra.getHracNaTahu().getFigurka(cisloVyberanejFigurky).getVKoncovomDomceku()) {
-                    if (hra.hra.getHracNaTahu().getCisloHraca() == 0) {
-                        cisloVyberanejFigurky = vyberFigurkyPriPosuneServer(&hra.hra.getHracNaTahu());
-                    } else {
-                        cisloVyberanejFigurky = getCisloVyberanejFigurky(clientSocket, hra.hra);
-                    }
-                    hra.hra.posunVKoncovomDomceku(&hra.hra.getHracNaTahu(), hodHraca, cisloVyberanejFigurky);
-                } else {
-                    if (hra.hra.getHracNaTahu().getFigurka(cisloVyberanejFigurky).getPrejdenaVzdialenost() + hodHraca >=
-                        40) {
-                        hra.hra.figurkaDoKoncovehoDomceka(&hra.hra.getHracNaTahu(), hodHraca, cisloVyberanejFigurky);
-                    } else {
-                        if (hodHraca == 6) {
-                            chcemNovehohraca = hra.hra.vyberAkcie();
-                            if (chcemNovehohraca) {
-                                if (hra.hra.getHracNaTahu().getCisloHraca() == 0) {
-                                    cisloVyberanejFigurky = vyberFigurkyPriPosuneServer(&hra.hra.getHracNaTahu());
-                                } else {
-                                    cisloVyberanejFigurky = getCisloVyberanejFigurky(clientSocket, hra.hra);
-                                }
-                                hra.hra.novyHracZDomceka(cisloVyberanejFigurky, hodHraca);
-                                hra.hra.zmenaHracaNaTahu();
-                            } else {
-                                if (hra.hra.getHracNaTahu().getCisloHraca() == 0) {
-                                    cisloVyberanejFigurky = vyberFigurkyPriPosuneServer(&hra.hra.getHracNaTahu());
-                                } else {
-                                    cisloVyberanejFigurky = getCisloVyberanejFigurky(clientSocket, hra.hra);
-                                }
-                                hra.hra.posunFigurkyPoHracejPloche(&hra.hra.getHracNaTahu(), hodHraca,
-                                                                   cisloVyberanejFigurky);
-                                hra.hra.zmenaHracaNaTahu();
-                            }
-                        } else {
-                            if (hra.hra.getHracNaTahu().getCisloHraca() == 0) {
-                                cisloVyberanejFigurky = vyberFigurkyPriPosuneServer(&hra.hra.getHracNaTahu());
-                            } else {
-                                cisloVyberanejFigurky = getCisloVyberanejFigurky(clientSocket, hra.hra);
-                            }
-                            hra.hra.posunFigurkyPoHracejPloche(&hra.hra.getHracNaTahu(), hodHraca,
-                                                               cisloVyberanejFigurky);
-                            hra.hra.zmenaHracaNaTahu();
-                        }
-                    }
-                }
+                cisloSpravy = 2;
+                send(clientSocket, reinterpret_cast<char*>(&cisloSpravy), sizeof(cisloSpravy), 0);
+                send(clientSocket, reinterpret_cast<char*>(&hra.hra.getHracNaTahu().getHodKockou()), sizeof(&hra.hra.getHracNaTahu().getHodKockou()), 0); // POSLE SA TA 6
+                send(clientSocket, reinterpret_cast<char*>(&hra.aktualnyHrac), sizeof(hra.aktualnyHrac), 0);
+
+                cisloSpravy = 1;
+                send(clientSocket, reinterpret_cast<char*>(&cisloSpravy), sizeof(cisloSpravy), 0);
+
+                cisloVyberanejFigurky = vyberFigurkyPriPosuneServer(&hra.hra.getHracNaTahu(), clientSocket);
+                int hodKockou = hra.hra.getHracNaTahu().hodKockou(kocka);
+
+                hra.hra.daniePanacikaNaZaciatok(&hra.hra.getHracNaTahu(), hodKockou, cisloVyberanejFigurky);
+                hra.hra.prvyPosunPanacika(&hra.hra.getHracNaTahu(), hodKockou, cisloVyberanejFigurky);
             }
+
         } else {
-            if (hra.aktualnyHrac == 0) {
-                int hodHraca = hra.hra.getHracNaTahu().hodKockou(kocka);
-                hra.hra.getHracNaTahu().setHodKockou(hodHraca);
-                hra.hra.vybratieFigurkyZDomceku(false);
-                hra.hra.posunFigurkyPoHracejPloche(&hra.hra.getHracNaTahu(), hodHraca,
-                                                   cisloVyberanejFigurky);
-                hra.hra.zmenaHracaNaTahu();
+            if (hra.hra.getHracNaTahu().getCisloHraca() == 0) {
+                int hodKockou = hra.hra.getHracNaTahu().hodKockou(kocka);
+                std::cout << "Hrac hodil " << hodKockou << std::endl;
+                cisloVyberanejFigurky = hra.hra.vyberFigurkyPriPosune(&hra.hra.getHracNaTahu());
             } else {
-                int hodHraca = hra.hra.getHracNaTahu().hodKockou(kocka);
-                //hra.hra.vybratieFigurkyZDomceku(false);
-                hra.hra.getHracNaTahu().setHodKockou(hodHraca);
-                send(clientSocket, reinterpret_cast<char*>(&hodHraca), sizeof(hodHraca), 0);
-                cisloVyberanejFigurky = getCisloVyberanejFigurky(clientSocket, hra.hra);
-                hra.hra.posunFigurkyPoHracejPloche(&hra.hra.getHracNaTahu(), hodHraca,
-                                                   cisloVyberanejFigurky);
-                hra.hra.zmenaHracaNaTahu();
+                hodKockou = hra.hra.getHracNaTahu().hodKockou(kocka);
+                cisloSpravy = 2;
+                send(clientSocket, reinterpret_cast<char*>(&cisloSpravy), sizeof(cisloSpravy), 0);
+                send(clientSocket, reinterpret_cast<char*>(&hodKockou), sizeof(hodKockou), 0);
+                send(clientSocket, reinterpret_cast<char*>(&hra.aktualnyHrac), sizeof(hra.aktualnyHrac), 0);
+
+                cisloSpravy = 1;
+                send(clientSocket, reinterpret_cast<char*>(&cisloSpravy), sizeof(cisloSpravy), 0);
+                cisloVyberanejFigurky = vyberFigurkyPriPosuneServer(&hra.hra.getHracNaTahu(), clientSocket);
             }
 
+            if(hra.hra.getHracNaTahu().getFigurka(cisloVyberanejFigurky).getVKoncovomDomceku()) {
+                hra.hra.posunVKoncovomDomceku(&hra.hra.getHracNaTahu(), hodKockou, cisloVyberanejFigurky);
+            } else {
+                if(hra.hra.getHracNaTahu().getFigurka(cisloVyberanejFigurky).getPrejdenaVzdialenost() + hodKockou >= 40) {
+                    hra.hra.figurkaDoKoncovehoDomceka(&hra.hra.getHracNaTahu(), hodKockou, cisloVyberanejFigurky);
+                } else {
+                    hra.hra.posunFigurkyPoHracejPloche(&hra.hra.getHracNaTahu(), hodKockou, cisloVyberanejFigurky);
+                }
+            }
         }
-            lock.unlock(); // Odomkneme mutex
-            hra.aktualnyHrac = hra.hra.getHracNaTahu().getCisloHraca();
-            clientSocket = clientSockets.at(hra.aktualnyHrac);
-            playerId = hra.aktualnyHrac;
-            hra.cv[hra.aktualnyHrac].notify_one();
-            // Odošleme klientovi výsledek hodu
-            //send(clientSocket, reinterpret_cast<char*>(&diceResult), sizeof(diceResult), 0);
-            //std::cout << "Hráč " << playerId << " hodil kockou a získal: " << diceResult << std::endl;
-
-
-
+        hra.aktualnyHrac = hra.hra.getHracNaTahu().getCisloHraca();
+        getMapaPreVsetkych(hra);
+        clientSocket = clientSockets.at(hra.aktualnyHrac);
+        playerId = hra.aktualnyHrac;
+        lock.unlock();
+        hra.cv[hra.aktualnyHrac].notify_one();
     }
 
     close(clientSocket);
@@ -243,6 +235,7 @@ void handleClient(int clientSocket, int playerId, Hra &hra) {
 
 void pripojenieHracov(int serverSocket, int cisloHraca, Hra &hra) {
     //int clientSocket = accept(serverSocket, NULL, NULL);
+    ;
     if(serverSocket == -1) {
         std::cerr << "Pripojenie hraca sa nepodarilo" << std::endl;
         //continue;
@@ -251,16 +244,13 @@ void pripojenieHracov(int serverSocket, int cisloHraca, Hra &hra) {
     }
     std::string hrac = "hrac" + std::to_string(cisloHraca);
     hraci.push_back((Player*) &hrac);
-    //clientThreads.push_back(std::thread(handleClient, clientSocket, i, std::ref(hra))); // Použitie globálnej premennej
     clientSockets.push_back(serverSocket);
+    send(serverSocket, &cisloHraca, sizeof(cisloHraca),0);
+    handleClient(clientSockets.at(cisloHraca), cisloHraca, hra);
 
     if(hraci.size() == 4) {
         std::cerr << "Pripojeny su 4 hraci - hra sa moze zacat" << std::endl;
-        cisloHraca = 1;
-        for (auto& thread : clientThreads) {
-            thread.join();
-        }
-        handleClient(clientSockets.at(cisloHraca - 1), cisloHraca, hra);
+        cisloHraca = 0;
     }
 }
 
@@ -285,39 +275,27 @@ int main() {
 
     // Pasivny soket je len na strane servera
     bind(serverSocket, reinterpret_cast<struct sockaddr *>(&serverAddress), sizeof(serverAddress));
-    listen(serverSocket,
-           3);    // Pasivny soket - nesluzi na komunikaciu, ale len aby sa k nemu niekto pripojil; 3 - najviac 3 ludi pripojit v jednom okamziku
+    listen(serverSocket, 3);    // Pasivny soket - nesluzi na komunikaciu, ale len aby sa k nemu niekto pripojil; 3 - najviac 3 ludi pripojit v jednom okamziku
 
-    std::cout << "Server je spusteny a pocuva na porte " << port << std::endl;
+    std::cout << "Server je spusteny aw pocuva na porte " << port << std::endl;
 
     Hra hra;
-    hra.hra.pridelHracov(hrac1, hrac2, hrac3, hrac4);
-    hra.hra.setHracNaTahu(&hrac2);
-
-    /*while(hra.getPocetHracov() != 4) {
-        std::cout << "nie su pripojeny vsetci hraci " << std::endl;
-        sleep(100000);
-    }*/
-    int cisloHraca = 1;
+    hra.hra.pridelHracov(hrac0, hrac1, hrac2, hrac3);
+    hra.hra.setHracNaTahu(&hrac0);
+    hraci.push_back(&hrac0);
+    int cisloHraca = 0;
 
     while (true) {
-        for (int i = 0; i < 3; ++i) {
+        for (int i = 0; i < 4; ++i) {
             int clientSocket = accept(serverSocket, nullptr, nullptr);
-
-            std::thread(pripojenieHracov, clientSocket, cisloHraca, std::ref(hra)).detach();
+            clientThreads.push_back(std::thread(pripojenieHracov, clientSocket, cisloHraca, std::ref(hra)));
             cisloHraca++;
             if (cisloHraca > 4) {
-                cisloHraca = 1;
+                cisloHraca = 0;
             }
         }
 
     }
-
-    for (auto& thread : clientThreads) {
-        thread.join();
-    }
-
     close(serverSocket);
-
     return 0;
 }

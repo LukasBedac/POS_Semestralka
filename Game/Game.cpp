@@ -1,5 +1,5 @@
 #include <iostream>
-#include "game.h"
+#include "Game.h"
 
 void game::vytvorHraciuPlochu() {
     hraciaPlocha.vytvorPlochu();
@@ -41,7 +41,7 @@ bool game::vybratieZDomceka(Player *hrac) {
         if(hodKockou == 6) {
             std::cout << ">> hrac v troch pokusoch hodil 6, moze ist von z domceka" << std::endl;
             std::cout << ">> hrac " << hrac->getZnak() << " hodil " << hodKockou << " - ide von z domceka"<< std::endl;
-
+            hracNaTahu->setHodKockou(hodKockou);
             //std::string cisloFigurky = "";
             //std::cout << "Ktoru figurku chcete vybrat z domceka? - 0,1,2,3" << std::endl;
             //std::cin >> cisloFigurky;
@@ -429,7 +429,7 @@ void game::posunVKoncovomDomceku(Player *hrac, int hodHraca, int cisloVyberanejF
     }
 }
 
-/*int game::vyberFigurkyPriPosune(Player *hrac) {
+int game::vyberFigurkyPriPosune(Player *hrac) {
     std::string moznosti = "";
     for(int i = 0; i < 4; i++) {
         if(!hrac->getFigurka(i).getVDomceku()) {
@@ -443,11 +443,15 @@ void game::posunVKoncovomDomceku(Player *hrac, int hodHraca, int cisloVyberanejF
     std::cin >> cisloFigurkyStr;
     std::cout << std::endl;
 
-    // Převod řetězce na integer
+
     int cisloFigurky = std::stoi(cisloFigurkyStr);
 
     return cisloFigurky;
-}*/
+}
+
+char game::vypisPlochuPreKlienta(int riadok, int stlpec) {
+    return hraciaPlocha.getZnak(riadok, stlpec);
+}
 
 bool game::vyberAkcie() {
     std::string akcia = "";

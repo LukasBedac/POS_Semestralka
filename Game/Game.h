@@ -49,6 +49,10 @@ public:
     int vybratieFigurkyZDomceku(bool a);
     bool vyberAkcie();
     void setHracNaTahu(Player *player);
+
+    char vypisPlochuPreKlienta(int riadok, int stlpec);
+
+    int vyberFigurkyPriPosune(Player *hrac);
 };
 
 #endif //POS_SEMESTRALKA_GAME_H

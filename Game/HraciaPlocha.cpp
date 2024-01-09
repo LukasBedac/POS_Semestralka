@@ -125,6 +125,7 @@ void HraciaPlocha::vytvorPlochu() {
     //plocha[5][6].setZnak('B'); // RIADOK, STLPEC
 }
 
+
 void HraciaPlocha::vypisPlochu() {
     std::cout << "------ VYPIS PLOCHY ------" << std::endl;
     for (int i = 0; i < plochaSirka; ++i) {

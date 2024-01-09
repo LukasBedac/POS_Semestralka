@@ -2,18 +2,60 @@
 #include <winsock2.h>
 #include <WS2tcpip.h>
 #include <string>
+#include <mutex>
+
+void prijatieMapy(SOCKET socket);
 
 #pragma comment(lib, "ws2_32.lib")
+
+
+void vyberanieFigurky(SOCKET connectSocket) {
+    char moznosti[5];
+    recv(connectSocket, moznosti, sizeof(moznosti), 0);
+
+    std::cerr << ">> Ktore figurky si chcete vybrat ? -> ";
+    std::cerr << ' ';
+    for (int i = 0; i < 4; i++) {
+        if (moznosti[i] != '\0') {
+            std::cerr << moznosti[i] << " ";
+        }
+    }
+    std::cout << std::endl;
+
+    int vybranaFigurka;
+    std::cin >> vybranaFigurka;
+    std::cerr << std::endl;
+    send(connectSocket, reinterpret_cast<char*>(&vybranaFigurka), sizeof(vybranaFigurka), 0);
+}
+
+void prijatieHodKockou(SOCKET connectSocket) {
+    int hod;
+    recv(connectSocket, reinterpret_cast<char*>(&hod), sizeof(hod), 0);
+    std::cout << ">> Hrac hodil: " << hod << std::endl;
+}
+
+void prijatieMapy(SOCKET socket) {
+    char buffer[182];
+    recv(socket, reinterpret_cast<char*>(&buffer), sizeof(buffer), 0);
+    for (int i = 0; i < sizeof (buffer) / sizeof (buffer[0]); ++i) {
+        std::cout << ' ' << buffer[i];
+    }
+    std::cout << std::endl;
+}
+
 
 int main() {
     //Pripojenie na server
     WSADATA wsaData;
     std::string hostName = "frios2.fri.uniza.sk";
+    std::mutex read;
     short port = 19520;
 
     struct addrinfo *result = NULL;
     struct addrinfo hints;
     int iResult;
+
+
 
     iResult = WSAStartup(MAKEWORD(2,2), &wsaData);
     if (iResult != 0) {
@@ -25,21 +67,20 @@ int main() {
     hints.ai_socktype = SOCK_STREAM;
     hints.ai_protocol = IPPROTO_TCP;
 
-    // Resolve the server address and port
+
     iResult = getaddrinfo(hostName.c_str(), std::to_string(port).c_str(), &hints, &result);
     if (iResult != 0) {
         WSACleanup();
         throw std::runtime_error("getaddrinfo failed with error: " + std::to_string(iResult) + "\n");
     }
 
-    // Create a SOCKET for connecting to server
+
     SOCKET connectSocket = socket(result->ai_family, result->ai_socktype, result->ai_protocol);
     if (connectSocket == INVALID_SOCKET) {
         WSACleanup();
         throw std::runtime_error("socket failed with error: " + std::to_string(WSAGetLastError()) + "\n");
     }
 
-    // Connect to server
     iResult = connect(connectSocket, result->ai_addr, (int)result->ai_addrlen);
     if (iResult == SOCKET_ERROR) {
         closesocket(connectSocket);
@@ -55,32 +96,38 @@ int main() {
     }
     std::cout << "Pripojenie na server bolo uspesne." << std::endl;
 
+    std::string plocha;
+    int hod;
+    int cisloHraca;
+    recv(connectSocket, reinterpret_cast<char*>(&cisloHraca), sizeof(cisloHraca), 0);
+
     while (true) {
 
-        // prijimanie zo server vysledok hodu kocky
-        int hod;
-        recv(connectSocket, reinterpret_cast<char*>(&hod), sizeof(hod), 0);
-        std::cout << "Na kocke padla " << hod << std::endl;
-        char buffer[256];
-        int vybranaFigurka;
-        recv(connectSocket, reinterpret_cast<char*>(&buffer), sizeof(buffer), 0);
-        std::cout << "Figurky hraca, ktorymi sa moze hrac pohnut: " << std::endl;
-        std::cout << "Zadajte cislo figurky: ";
-        std::cin >> vybranaFigurka;
-        int bytesSent = send(connectSocket, reinterpret_cast<char*>(&vybranaFigurka), sizeof(vybranaFigurka), 0);
+        int hracNaTahuServer;
+        recv(connectSocket, reinterpret_cast<char*>(&hracNaTahuServer), sizeof(hracNaTahuServer), 0);
 
-        if (bytesSent == SOCKET_ERROR) {
-            // Handle error
-            std::cerr << "send failed with error: " << WSAGetLastError() << std::endl;
+        while(hracNaTahuServer == -1 && hracNaTahuServer != cisloHraca) {
+            recv(connectSocket, reinterpret_cast<char*>(&hracNaTahuServer), sizeof(hracNaTahuServer), 0);
+            Sleep(1000);
         }
 
+        int cisloSpravy = 0;
+        recv(connectSocket, reinterpret_cast<char*>(&cisloSpravy), sizeof(cisloSpravy), 0);
 
-        // Poslanie čísla na server
-        //send(connectSocket, reinterpret_cast<char*>(&vybranaFigurka), sizeof(vybranaFigurka), 0);
-        Sleep(1000);  // Čakáme na simuláciu ďalšieho kola
+        if ((cisloSpravy == 1 || cisloSpravy == 2 || cisloSpravy == 3 || cisloSpravy == 4)) {
+            switch (cisloSpravy) {
+                case 1:
+                    vyberanieFigurky(connectSocket);
+                    continue;
+                case 2:
+                    prijatieHodKockou(connectSocket);
+                    continue;
+                case 3:
+                    prijatieMapy(connectSocket);
+                    continue;
+            }
+        }
     }
-
-    closesocket(connectSocket);
-    WSACleanup();
-    return 0;
 }
+
+
