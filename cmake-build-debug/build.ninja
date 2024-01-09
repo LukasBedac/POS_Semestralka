@@ -49,12 +49,102 @@ cmake_ninja_workdir = C$:/Users/Lukas/Desktop/Zimny$ semester/POS/Semestralka/PO
 
 build cmake_object_order_depends_target_POS_Semestralka: phony || CMakeFiles/POS_Semestralka.dir
 
-build CMakeFiles/POS_Semestralka.dir/main.c.obj: C_COMPILER__POS_Semestralka_unscanned_Debug C$:/Users/Lukas/Desktop/Zimny$ semester/POS/Semestralka/POS_Semestralka/main.c || cmake_object_order_depends_target_POS_Semestralka
-  DEP_FILE = CMakeFiles\POS_Semestralka.dir\main.c.obj.d
-  FLAGS = -g -std=gnu11 -fdiagnostics-color=always
-  INCLUDES = -I"C:/Users/Lukas/Desktop/Zimny semester/POS/Semestralka/POS_Semestralka/."
+build CMakeFiles/POS_Semestralka.dir/Socket_Server/active_socket.c.obj: C_COMPILER__POS_Semestralka_unscanned_Debug C$:/Users/Lukas/Desktop/Zimny$ semester/POS/Semestralka/POS_Semestralka/Socket_Server/active_socket.c || cmake_object_order_depends_target_POS_Semestralka
+  DEP_FILE = CMakeFiles\POS_Semestralka.dir\Socket_Server\active_socket.c.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  INCLUDES = -I"C:/Users/Lukas/Desktop/Zimny semester/POS/Semestralka/POS_Semestralka/." -I"C:/Users/Lukas/Desktop/Zimny semester/POS/Semestralka/POS_Semestralka/Game" -I"C:/Users/Lukas/Desktop/Zimny semester/POS/Semestralka/POS_Semestralka/Socket_Klient" -I"C:/Users/Lukas/Desktop/Zimny semester/POS/Semestralka/POS_Semestralka/Socket_Server"
   OBJECT_DIR = CMakeFiles\POS_Semestralka.dir
-  OBJECT_FILE_DIR = CMakeFiles\POS_Semestralka.dir
+  OBJECT_FILE_DIR = CMakeFiles\POS_Semestralka.dir\Socket_Server
+  TARGET_COMPILE_PDB = CMakeFiles\POS_Semestralka.dir\
+  TARGET_PDB = POS_Semestralka.pdb
+
+build CMakeFiles/POS_Semestralka.dir/Socket_Server/char_buffer.c.obj: C_COMPILER__POS_Semestralka_unscanned_Debug C$:/Users/Lukas/Desktop/Zimny$ semester/POS/Semestralka/POS_Semestralka/Socket_Server/char_buffer.c || cmake_object_order_depends_target_POS_Semestralka
+  DEP_FILE = CMakeFiles\POS_Semestralka.dir\Socket_Server\char_buffer.c.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  INCLUDES = -I"C:/Users/Lukas/Desktop/Zimny semester/POS/Semestralka/POS_Semestralka/." -I"C:/Users/Lukas/Desktop/Zimny semester/POS/Semestralka/POS_Semestralka/Game" -I"C:/Users/Lukas/Desktop/Zimny semester/POS/Semestralka/POS_Semestralka/Socket_Klient" -I"C:/Users/Lukas/Desktop/Zimny semester/POS/Semestralka/POS_Semestralka/Socket_Server"
+  OBJECT_DIR = CMakeFiles\POS_Semestralka.dir
+  OBJECT_FILE_DIR = CMakeFiles\POS_Semestralka.dir\Socket_Server
+  TARGET_COMPILE_PDB = CMakeFiles\POS_Semestralka.dir\
+  TARGET_PDB = POS_Semestralka.pdb
+
+build CMakeFiles/POS_Semestralka.dir/Socket_Server/passive_socket.c.obj: C_COMPILER__POS_Semestralka_unscanned_Debug C$:/Users/Lukas/Desktop/Zimny$ semester/POS/Semestralka/POS_Semestralka/Socket_Server/passive_socket.c || cmake_object_order_depends_target_POS_Semestralka
+  DEP_FILE = CMakeFiles\POS_Semestralka.dir\Socket_Server\passive_socket.c.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  INCLUDES = -I"C:/Users/Lukas/Desktop/Zimny semester/POS/Semestralka/POS_Semestralka/." -I"C:/Users/Lukas/Desktop/Zimny semester/POS/Semestralka/POS_Semestralka/Game" -I"C:/Users/Lukas/Desktop/Zimny semester/POS/Semestralka/POS_Semestralka/Socket_Klient" -I"C:/Users/Lukas/Desktop/Zimny semester/POS/Semestralka/POS_Semestralka/Socket_Server"
+  OBJECT_DIR = CMakeFiles\POS_Semestralka.dir
+  OBJECT_FILE_DIR = CMakeFiles\POS_Semestralka.dir\Socket_Server
+  TARGET_COMPILE_PDB = CMakeFiles\POS_Semestralka.dir\
+  TARGET_PDB = POS_Semestralka.pdb
+
+build CMakeFiles/POS_Semestralka.dir/Game/game.cpp.obj: CXX_COMPILER__POS_Semestralka_unscanned_Debug C$:/Users/Lukas/Desktop/Zimny$ semester/POS/Semestralka/POS_Semestralka/Game/game.cpp || cmake_object_order_depends_target_POS_Semestralka
+  DEP_FILE = CMakeFiles\POS_Semestralka.dir\Game\game.cpp.obj.d
+  FLAGS = -g -std=gnu++14 -fdiagnostics-color=always
+  INCLUDES = -I"C:/Users/Lukas/Desktop/Zimny semester/POS/Semestralka/POS_Semestralka/." -I"C:/Users/Lukas/Desktop/Zimny semester/POS/Semestralka/POS_Semestralka/Game" -I"C:/Users/Lukas/Desktop/Zimny semester/POS/Semestralka/POS_Semestralka/Socket_Klient" -I"C:/Users/Lukas/Desktop/Zimny semester/POS/Semestralka/POS_Semestralka/Socket_Server"
+  OBJECT_DIR = CMakeFiles\POS_Semestralka.dir
+  OBJECT_FILE_DIR = CMakeFiles\POS_Semestralka.dir\Game
+  TARGET_COMPILE_PDB = CMakeFiles\POS_Semestralka.dir\
+  TARGET_PDB = POS_Semestralka.pdb
+
+build CMakeFiles/POS_Semestralka.dir/Game/Player.cpp.obj: CXX_COMPILER__POS_Semestralka_unscanned_Debug C$:/Users/Lukas/Desktop/Zimny$ semester/POS/Semestralka/POS_Semestralka/Game/Player.cpp || cmake_object_order_depends_target_POS_Semestralka
+  DEP_FILE = CMakeFiles\POS_Semestralka.dir\Game\Player.cpp.obj.d
+  FLAGS = -g -std=gnu++14 -fdiagnostics-color=always
+  INCLUDES = -I"C:/Users/Lukas/Desktop/Zimny semester/POS/Semestralka/POS_Semestralka/." -I"C:/Users/Lukas/Desktop/Zimny semester/POS/Semestralka/POS_Semestralka/Game" -I"C:/Users/Lukas/Desktop/Zimny semester/POS/Semestralka/POS_Semestralka/Socket_Klient" -I"C:/Users/Lukas/Desktop/Zimny semester/POS/Semestralka/POS_Semestralka/Socket_Server"
+  OBJECT_DIR = CMakeFiles\POS_Semestralka.dir
+  OBJECT_FILE_DIR = CMakeFiles\POS_Semestralka.dir\Game
+  TARGET_COMPILE_PDB = CMakeFiles\POS_Semestralka.dir\
+  TARGET_PDB = POS_Semestralka.pdb
+
+build CMakeFiles/POS_Semestralka.dir/Game/Policko.cpp.obj: CXX_COMPILER__POS_Semestralka_unscanned_Debug C$:/Users/Lukas/Desktop/Zimny$ semester/POS/Semestralka/POS_Semestralka/Game/Policko.cpp || cmake_object_order_depends_target_POS_Semestralka
+  DEP_FILE = CMakeFiles\POS_Semestralka.dir\Game\Policko.cpp.obj.d
+  FLAGS = -g -std=gnu++14 -fdiagnostics-color=always
+  INCLUDES = -I"C:/Users/Lukas/Desktop/Zimny semester/POS/Semestralka/POS_Semestralka/." -I"C:/Users/Lukas/Desktop/Zimny semester/POS/Semestralka/POS_Semestralka/Game" -I"C:/Users/Lukas/Desktop/Zimny semester/POS/Semestralka/POS_Semestralka/Socket_Klient" -I"C:/Users/Lukas/Desktop/Zimny semester/POS/Semestralka/POS_Semestralka/Socket_Server"
+  OBJECT_DIR = CMakeFiles\POS_Semestralka.dir
+  OBJECT_FILE_DIR = CMakeFiles\POS_Semestralka.dir\Game
+  TARGET_COMPILE_PDB = CMakeFiles\POS_Semestralka.dir\
+  TARGET_PDB = POS_Semestralka.pdb
+
+build CMakeFiles/POS_Semestralka.dir/Game/Figurka.cpp.obj: CXX_COMPILER__POS_Semestralka_unscanned_Debug C$:/Users/Lukas/Desktop/Zimny$ semester/POS/Semestralka/POS_Semestralka/Game/Figurka.cpp || cmake_object_order_depends_target_POS_Semestralka
+  DEP_FILE = CMakeFiles\POS_Semestralka.dir\Game\Figurka.cpp.obj.d
+  FLAGS = -g -std=gnu++14 -fdiagnostics-color=always
+  INCLUDES = -I"C:/Users/Lukas/Desktop/Zimny semester/POS/Semestralka/POS_Semestralka/." -I"C:/Users/Lukas/Desktop/Zimny semester/POS/Semestralka/POS_Semestralka/Game" -I"C:/Users/Lukas/Desktop/Zimny semester/POS/Semestralka/POS_Semestralka/Socket_Klient" -I"C:/Users/Lukas/Desktop/Zimny semester/POS/Semestralka/POS_Semestralka/Socket_Server"
+  OBJECT_DIR = CMakeFiles\POS_Semestralka.dir
+  OBJECT_FILE_DIR = CMakeFiles\POS_Semestralka.dir\Game
+  TARGET_COMPILE_PDB = CMakeFiles\POS_Semestralka.dir\
+  TARGET_PDB = POS_Semestralka.pdb
+
+build CMakeFiles/POS_Semestralka.dir/Game/HraciaPlocha.cpp.obj: CXX_COMPILER__POS_Semestralka_unscanned_Debug C$:/Users/Lukas/Desktop/Zimny$ semester/POS/Semestralka/POS_Semestralka/Game/HraciaPlocha.cpp || cmake_object_order_depends_target_POS_Semestralka
+  DEP_FILE = CMakeFiles\POS_Semestralka.dir\Game\HraciaPlocha.cpp.obj.d
+  FLAGS = -g -std=gnu++14 -fdiagnostics-color=always
+  INCLUDES = -I"C:/Users/Lukas/Desktop/Zimny semester/POS/Semestralka/POS_Semestralka/." -I"C:/Users/Lukas/Desktop/Zimny semester/POS/Semestralka/POS_Semestralka/Game" -I"C:/Users/Lukas/Desktop/Zimny semester/POS/Semestralka/POS_Semestralka/Socket_Klient" -I"C:/Users/Lukas/Desktop/Zimny semester/POS/Semestralka/POS_Semestralka/Socket_Server"
+  OBJECT_DIR = CMakeFiles\POS_Semestralka.dir
+  OBJECT_FILE_DIR = CMakeFiles\POS_Semestralka.dir\Game
+  TARGET_COMPILE_PDB = CMakeFiles\POS_Semestralka.dir\
+  TARGET_PDB = POS_Semestralka.pdb
+
+build CMakeFiles/POS_Semestralka.dir/Game/Kocka.cpp.obj: CXX_COMPILER__POS_Semestralka_unscanned_Debug C$:/Users/Lukas/Desktop/Zimny$ semester/POS/Semestralka/POS_Semestralka/Game/Kocka.cpp || cmake_object_order_depends_target_POS_Semestralka
+  DEP_FILE = CMakeFiles\POS_Semestralka.dir\Game\Kocka.cpp.obj.d
+  FLAGS = -g -std=gnu++14 -fdiagnostics-color=always
+  INCLUDES = -I"C:/Users/Lukas/Desktop/Zimny semester/POS/Semestralka/POS_Semestralka/." -I"C:/Users/Lukas/Desktop/Zimny semester/POS/Semestralka/POS_Semestralka/Game" -I"C:/Users/Lukas/Desktop/Zimny semester/POS/Semestralka/POS_Semestralka/Socket_Klient" -I"C:/Users/Lukas/Desktop/Zimny semester/POS/Semestralka/POS_Semestralka/Socket_Server"
+  OBJECT_DIR = CMakeFiles\POS_Semestralka.dir
+  OBJECT_FILE_DIR = CMakeFiles\POS_Semestralka.dir\Game
+  TARGET_COMPILE_PDB = CMakeFiles\POS_Semestralka.dir\
+  TARGET_PDB = POS_Semestralka.pdb
+
+build CMakeFiles/POS_Semestralka.dir/Game/main.cpp.obj: CXX_COMPILER__POS_Semestralka_unscanned_Debug C$:/Users/Lukas/Desktop/Zimny$ semester/POS/Semestralka/POS_Semestralka/Game/main.cpp || cmake_object_order_depends_target_POS_Semestralka
+  DEP_FILE = CMakeFiles\POS_Semestralka.dir\Game\main.cpp.obj.d
+  FLAGS = -g -std=gnu++14 -fdiagnostics-color=always
+  INCLUDES = -I"C:/Users/Lukas/Desktop/Zimny semester/POS/Semestralka/POS_Semestralka/." -I"C:/Users/Lukas/Desktop/Zimny semester/POS/Semestralka/POS_Semestralka/Game" -I"C:/Users/Lukas/Desktop/Zimny semester/POS/Semestralka/POS_Semestralka/Socket_Klient" -I"C:/Users/Lukas/Desktop/Zimny semester/POS/Semestralka/POS_Semestralka/Socket_Server"
+  OBJECT_DIR = CMakeFiles\POS_Semestralka.dir
+  OBJECT_FILE_DIR = CMakeFiles\POS_Semestralka.dir\Game
+  TARGET_COMPILE_PDB = CMakeFiles\POS_Semestralka.dir\
+  TARGET_PDB = POS_Semestralka.pdb
+
+build CMakeFiles/POS_Semestralka.dir/Socket_Klient/my_socket.cpp.obj: CXX_COMPILER__POS_Semestralka_unscanned_Debug C$:/Users/Lukas/Desktop/Zimny$ semester/POS/Semestralka/POS_Semestralka/Socket_Klient/my_socket.cpp || cmake_object_order_depends_target_POS_Semestralka
+  DEP_FILE = CMakeFiles\POS_Semestralka.dir\Socket_Klient\my_socket.cpp.obj.d
+  FLAGS = -g -std=gnu++14 -fdiagnostics-color=always
+  INCLUDES = -I"C:/Users/Lukas/Desktop/Zimny semester/POS/Semestralka/POS_Semestralka/." -I"C:/Users/Lukas/Desktop/Zimny semester/POS/Semestralka/POS_Semestralka/Game" -I"C:/Users/Lukas/Desktop/Zimny semester/POS/Semestralka/POS_Semestralka/Socket_Klient" -I"C:/Users/Lukas/Desktop/Zimny semester/POS/Semestralka/POS_Semestralka/Socket_Server"
+  OBJECT_DIR = CMakeFiles\POS_Semestralka.dir
+  OBJECT_FILE_DIR = CMakeFiles\POS_Semestralka.dir\Socket_Klient
   TARGET_COMPILE_PDB = CMakeFiles\POS_Semestralka.dir\
   TARGET_PDB = POS_Semestralka.pdb
 
@@ -66,7 +156,7 @@ build CMakeFiles/POS_Semestralka.dir/main.c.obj: C_COMPILER__POS_Semestralka_uns
 #############################################
 # Link the executable POS_Semestralka.exe
 
-build POS_Semestralka.exe: C_EXECUTABLE_LINKER__POS_Semestralka_Debug CMakeFiles/POS_Semestralka.dir/main.c.obj
+build POS_Semestralka.exe: CXX_EXECUTABLE_LINKER__POS_Semestralka_Debug CMakeFiles/POS_Semestralka.dir/Socket_Server/active_socket.c.obj CMakeFiles/POS_Semestralka.dir/Socket_Server/char_buffer.c.obj CMakeFiles/POS_Semestralka.dir/Socket_Server/passive_socket.c.obj CMakeFiles/POS_Semestralka.dir/Game/game.cpp.obj CMakeFiles/POS_Semestralka.dir/Game/Player.cpp.obj CMakeFiles/POS_Semestralka.dir/Game/Policko.cpp.obj CMakeFiles/POS_Semestralka.dir/Game/Figurka.cpp.obj CMakeFiles/POS_Semestralka.dir/Game/HraciaPlocha.cpp.obj CMakeFiles/POS_Semestralka.dir/Game/Kocka.cpp.obj CMakeFiles/POS_Semestralka.dir/Game/main.cpp.obj CMakeFiles/POS_Semestralka.dir/Socket_Klient/my_socket.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lpthread  -lwsock32  -lws2_32  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\POS_Semestralka.dir

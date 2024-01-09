@@ -1,1 +1,0 @@
-/usr/bin/c++ -g CMakeFiles/POS_Semestralka.dir/main.c.o CMakeFiles/POS_Semestralka.dir/Socket_Server/active_socket.c.o CMakeFiles/POS_Semestralka.dir/Socket_Server/char_buffer.c.o CMakeFiles/POS_Semestralka.dir/Socket_Server/passive_socket.c.o CMakeFiles/POS_Semestralka.dir/generate_throw.cpp.o -o POS_Semestralka  -lpthread 
